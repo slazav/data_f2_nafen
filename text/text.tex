@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{amssymb}
+\usepackage{euscript}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{color}
+\usepackage{epsfig}
+\pagestyle{empty}
+
+\begin{document}
+\title{Aerogel experiment in F2}
+
+\author{}
+
+\date{\today}
+\maketitle
+
+\subsection*{Measurements}
+
+There is a flopper wire with aerogel sample which moving in constant magnetic field.
+Position of the wire is measured by applying additional RF gradient field and measuring
+response from a RF coil attached to the wire.
+
+There are two types of measurements:
+
+\begin{itemize}
+
+\item  Response on the RF frequency is recorded
+contineously as a function of temperature while wire is driven by a
+low-frequency sine excitation with constant frequency. Lock-in phase is
+adjusted to have a single-component response.
+
+\item  A second low-frequency lock-in is detecting the signal on the
+flopper excitation frequency. Response is measured as a function of
+flopper excitation frequency, amplitude and temperature.
+
+\end{itemize}
+
+\subsection*{Processing of the first type of measurements}
+
+
+Driving force is proportional to the excitation signal:
+$$
+F = K\,U_e^0 \cos(\omega t)
+$$
+
+Flopper wire coordinate is described by some equation of motion:
+$$
+m \ddot x = -k x - g \dot x + F
+$$
+probably with some additional non-linear terms.
+
+We are measuring a value proportional to $x(t)$ (maybe with
+some small high-order terms).
+$$
+R(x) = Ax + \ldots
+$$
+
+There is also a static measurement ($x=\mbox{const}$),
+$$
+R(x) = F/k  =  K\,U_e^0 / k
+$$
+
+
+\end{document}

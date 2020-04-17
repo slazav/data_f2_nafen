@@ -55,7 +55,6 @@ for fname in os.listdir(dirname):
   T,D,S = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,9), unpack=True, skiprows=4)
 
   # full time:
-  tnew = T[0] + date
   if T[0] + date < told:
     date += 24*3600
   told = T[-1] + date
@@ -142,7 +141,7 @@ for fname in os.listdir(dirname):
     numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV, phD, phS, phD1, phS1]) )
 
     # print data
-    print("%d %f %f" % (s, tnew, freq0), end="")
+    print("%d %f %f" % (s, T1[0]+date, freq0), end="")
     for h in range(1,harm_n+1):
       print("  %e %e" %(math.hypot(Dr[h],Di[h]), math.hypot(Sr[h],Si[h])), end="")
     print()

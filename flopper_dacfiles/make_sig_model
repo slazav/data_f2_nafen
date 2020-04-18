@@ -12,7 +12,8 @@ npts = 10000  # number of points
 tstep = 0.01  # time step, s
 freq  = 1.012 # frequency, Hz
 amp_d = [0.2, 1.1, 0.01, 0.02]  # drive amplitude [0, 1,2,.. etc harmonics]
-amp_s = [0.2, 1.1, 0.03, 0.02]  # signal amplitude [0, 1,2,.. etc harmonics]
+amp_s = [0.2, 1.1, 0.3,  0.12]  # signal amplitude [0, 1,2,.. etc harmonics]
+noise = 0.05 # noise amp
 
 T = numpy.arange(0, tstep*npts, tstep);
 
@@ -21,10 +22,12 @@ S = numpy.zeros(npts)
 Z = numpy.zeros(npts)
 
 for h in range(len(amp_d)):
-  D += amp_d[h]*numpy.sin(2*math.pi*h*freq * T)
+  D += amp_d[h]*numpy.cos(2*math.pi*h*freq * T)
 
 for h in range(len(amp_s)):
-  S += amp_s[h]*numpy.sin(2*math.pi*h*freq * T)
+  S += amp_s[h]*numpy.cos(2*math.pi*h*freq * T)
+
+S += numpy.random.normal(0, noise, S.size)
 
 numpy.savetxt(sys.stdout,
   numpy.transpose([T, D, Z, Z, Z, Z, Z, Z, Z, S, Z]),

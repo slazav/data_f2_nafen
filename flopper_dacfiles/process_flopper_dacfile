@@ -32,6 +32,7 @@ date = time.mktime(date)
 # read all *.dat files in the directory
 
 told = 0 # starting time of the previous file
+print('# time -- freq -- drive_amp -- sig_phase -- sig_amp1 -- sig_amp2...')
 for fname in sorted(os.listdir(dirname)):
   if not fname.endswith(".dat"): continue
   fname = os.path.join(dirname, fname)
@@ -165,14 +166,15 @@ for fname in sorted(os.listdir(dirname)):
     # print data: time, frequency
     print("%f %f" % (T1[0]+date, freq0), end="")
 
-    # print data: phase shift between drive and signal (radians)
+    # print data: drive amplitude, phase shift between drive and signal (radians)
     if h>0:
+      d_amp = math.hypot(Dr[1],Di[1])
       d_ph = numpy.arctan2(Di[1],Dr[1])
       s_ph = numpy.arctan2(Si[1],Sr[1])
       ph = s_ph-d_ph
       while ph<0: ph += 2*math.pi
       while ph>=2*pi: ph -= 2*math.pi
-      print("  %e" %(ph), end="")
+      print("  %e %e" %(d_amp, ph), end="")
 
     # print data: signal harmonics (excluding constant)
     for h in range(1,args.harm_n+1):

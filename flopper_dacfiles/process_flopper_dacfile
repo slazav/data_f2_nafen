@@ -23,6 +23,8 @@ parser.add_argument('--points', default=50, type=int,
                     help='number of phase points on the output')
 parser.add_argument('--harm_n', default=3, type=int,
                     help='number of harmonics to be calculated')
+parser.add_argument('--round_freq', default=0, type=float,
+                    help='round frequency with given accuracy')
 parser.add_argument('--tfiles', action='store_true',
                     help='write averaged files, signal and drive vs time')
 args = parser.parse_args()
@@ -123,6 +125,9 @@ for fname in sorted(os.listdir(dirname)):
 
     freq0 = f_ind1 / tstep / n1 # drive freq, Hz
     # print("> %d %f %f" %(f_ind, f_ind1, freq0))
+
+    if args.round_freq != 0:
+      freq0 = round(freq0/args.round_freq)*args.round_freq
 
     ################################
     # Average points with same phase

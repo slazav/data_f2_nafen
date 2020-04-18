@@ -26,7 +26,7 @@ date = time.mktime(date)
 # pieces (to be less sensitive to frequency stability of the drive generator
 # or to increase time resolution). Parameter split_n (1,2,3,...) controls this.
 
-split_n = 5
+split_n = 2
 
 ################################
 # We are averaging all points with same phase in ph_points bins
@@ -78,16 +78,48 @@ for fname in os.listdir(dirname):
 
     ################################
     # Find drive frequency (using fft)
-    fft = numpy.abs(numpy.fft.fft(D1))
+    fft = numpy.fft.fft(D1)
     fft[0] = 0  # remove constant component
-    f_ind = numpy.argmax(fft[0:int(n1/2)])
+    f_ind = numpy.argmax(numpy.abs(fft[0:int(n1/2)]))
 
-    # make 3-point quadratic fit, find exact max position:
-    v1 = fft[f_ind-1]
-    v2 = fft[f_ind]
-    v3 = fft[f_ind+1]
-    f_indm = f_ind - (v3-v1)/(v1 - 2*v2 + v3)/2
-    freq0 = f_indm / tstep / (n1-1) # drive freq, Hz
+    # fft is proportional to 1/(f-f0)
+    # We want to fit 1/fft it with linear function A*x+B
+    # and find zero crossing (-B/A)
+    # As usual, we minimize  S = sum (a*x +b - y)^2
+    # Differentiating by A and B we have
+    # A*sum(x*x) + B*sum(x) - sum(y*x) =  0
+    # A*sum(x) + B*sum(w) - sum(y) =  0
+
+    # Solving this we have:
+    # B = [sum(y*x)*sum(x) - sum(y)*sum(x*x)]/[sum(x)*sum(x) - sum(1)*sum(x*x)]
+    # A = [sum(y)*sum(x) - sum(y*x)*sum(1)]/[sum(x)*sum(x) - sum(1)*sum(x*x)]
+    # x0 = -B/A = (sum(y*x)*sum(x) - sum(y)*sum(x*x)) / (sum(y*x)*sum(1) - sum(y)*sum(x))
+
+    # it's good to fit in a very narrow window, because 1/fft is very noisy far from f0
+    ind_win = 1 #
+    sn = 0
+    sx = 0
+    sy = 0
+    sxx = 0
+    sxy = 0
+    for ii in range(f_ind-ind_win, f_ind+ind_win):
+      x = ii - f_ind
+      y = numpy.real(1/fft[ii])
+      w = 1/y**2 # weight function
+      sn  += w
+      sx  += x*w
+      sy  += y*w
+      sxx += x*x*w
+      sxy += x*y*w
+    f_ind1 = f_ind + (sxy*sx-sy*sxx)/(sxy*sn-sy*sx)
+
+    # Another approach, much less accurate:
+    # v1 = fft[f_ind-1]
+    # v2 = fft[f_ind]
+    # v3 = fft[f_ind+1]
+    # f_indm = f_ind - (v3-v1)/(v1 - 2*v2 + v3)/2
+
+    freq0 = f_ind1 / tstep / n1 # drive freq, Hz
 
     ################################
     # Average points with same phase

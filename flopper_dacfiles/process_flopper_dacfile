@@ -32,7 +32,7 @@ date = time.mktime(date)
 # read all *.dat files in the directory
 
 told = 0 # starting time of the previous file
-for fname in os.listdir(dirname):
+for fname in sorted(os.listdir(dirname)):
   if not fname.endswith(".dat"): continue
   fname = os.path.join(dirname, fname)
   print('# ', fname)

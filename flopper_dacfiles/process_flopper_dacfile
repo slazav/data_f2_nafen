@@ -49,7 +49,7 @@ for fname in sorted(os.listdir(dirname)):
   try:
     T,D,S = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,9), unpack=True, skiprows=4)
   except ValueError:
-    print("can't read file: ", fname)
+    print("can't read file: ", fname, file=sys.stderr)
     continue
 
   # full time:
@@ -97,7 +97,7 @@ for fname in sorted(os.listdir(dirname)):
     # We want to skip these signals. Threshold is 0.1 Hz
     freq = f_ind / tstep / n1 # drive freq, Hz
     if freq < 0.1:
-      print("non-stable drive in file: ", fname)
+      print("non-stable drive in file: ", fname, file=sys.stderr)
       continue
 
     # it's good to fit in a very narrow window, because 1/fft is very noisy far from f0

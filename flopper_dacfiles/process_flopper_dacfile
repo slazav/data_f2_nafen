@@ -177,10 +177,10 @@ for fname in sorted(os.listdir(dirname)):
       else:
         Sin = numpy.sin(h*phV*2*math.pi)
         Cos = numpy.cos(h*phV*2*math.pi)
-        Dr[h] = 2*scipy.integrate.simps(Sin*phD, phV)
-        Sr[h] = 2*scipy.integrate.simps(Sin*phS, phV)
-        Di[h] = 2*scipy.integrate.simps(Cos*phD, phV)
-        Si[h] = 2*scipy.integrate.simps(Cos*phS, phV)
+        Dr[h] = 2*scipy.integrate.trapz(Sin*phD, phV)
+        Sr[h] = 2*scipy.integrate.trapz(Sin*phS, phV)
+        Di[h] = 2*scipy.integrate.trapz(Cos*phD, phV)
+        Si[h] = 2*scipy.integrate.trapz(Cos*phS, phV)
         # phS1 += Sr[h]*Sin + Si[h]*Cos
         # phD1 += Dr[h]*Sin + Di[h]*Cos
 

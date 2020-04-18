@@ -1,0 +1,13 @@
+#!/usr/bin/gnuplot
+
+# numbers are from ../make_sig_model script
+fs(x) = 0.2 + 1.1*cos(2*pi*x) + 0.01*cos(2*2*pi*x) + 0.02*cos(3*2*pi*x)
+fd(x) = 0.2 + 1.1*cos(2*pi*x) + 0.3*cos(2*2*pi*x) + 0.12*cos(3*2*pi*x)
+
+set nokey
+
+plot\
+  "1577836800.txt" using 1:2 w p pt 7,\
+  "1577836800.txt" using 1:3 w p pt 7,\
+  fs(x) w l lc 0, fd(x) w l lc 0
+pause -1

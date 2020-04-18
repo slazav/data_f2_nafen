@@ -1,0 +1,10 @@
+#!/bin/sh
+
+prefix=/mnt/luna/fridge2_rawdata/Nafen_cell
+
+while read f d; do
+  [ "$f" != "#" ] || continue
+  name=$(echo $f | sed 's|/|_|g')
+  echo $name
+  ./process_flopper_dacfile --split_n 5 --points 100 $prefix/$f $d > $name.dat
+done < datafolders.txt

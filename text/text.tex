@@ -39,28 +39,37 @@ flopper excitation frequency, amplitude and temperature.
 
 \subsection*{Processing of the first type of measurements}
 
+Scripts for processing the first type of measurements are located in {\tt
+flopper\_dacfiles} folder. The main program is {\tt
+process\_flopper\_dacfile}. It gets a data folder and date of the first
+measurement (it is not recorded in files). Then it reads and all {\tt
+*.dat} files one by one:
 
-Driving force is proportional to the excitation signal:
-$$
-F = K\,U_e^0 \cos(\omega t)
-$$
+\begin{itemize}
+\item Time, drive, and signal comlumns are extracted.
 
-Flopper wire coordinate is described by some equation of motion:
-$$
-m \ddot x = -k x - g \dot x + F
-$$
-probably with some additional non-linear terms.
+\item Signal is splitted by N parts (N is set by command-line option, default is 1).
+This is done to increase time resolution and reduce effect of possible instability
+of the drive frequency (to be checked - is it important or not).
 
-We are measuring a value proportional to $x(t)$ (maybe with
-some small high-order terms).
-$$
-R(x) = Ax + \ldots
-$$
+\item Drive frequency is determined by doing FFT and fitting it near the peak
+(similarly to how I do it in processing of pulsed fork signals, see in the code)
 
-There is also a static measurement ($x=\mbox{const}$),
-$$
-R(x) = F/k  =  K\,U_e^0 / k
-$$
+\item Drive and signal are averaged using N time bins over a single period (N is
+set by command-line option, default is 50).
+
+\item The averaged data (time, drive, and signal) are recorded into
+<time>.txt files.
+
+\item N first harmonics of the drive and signal are calculated (N is set
+by command-line option, default is 3). Signal harmonics with frequency
+and time are printed to {\tt stdout}.
+
+\end{itemize}
+
+There is a {\tt test subfolder} where a model signal is created, and processed.
+
+
 
 
 \end{document}

@@ -1,0 +1,670 @@
+# time -- freq -- drive offset -- drive_amp -- sig_phase -- sig_amp1 -- sig_amp2...
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000000.dat
+1580470769.714322 2.000000  9.535675e-01 4.898234e-02 -4.102276e+00  2.023167e-01  8.031578e-04  2.415051e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000001.dat
+1580470982.587033 2.000000  9.549400e-01 3.930794e-02 -4.095354e+00  1.622636e-01  6.367935e-03  4.525870e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000002.dat
+1580471195.490451 2.000000  9.555690e-01 2.942685e-02 -4.086008e+00  1.217242e-01  7.929092e-03  1.759848e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000003.dat
+1580471408.377766 2.000000  9.550409e-01 1.958828e-02 -4.066258e+00  8.135725e-02  3.107661e-03  2.035905e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000004.dat
+1580471621.315581 2.000000  9.548338e-01 9.828367e-03 -4.046409e+00  4.104174e-02  3.217058e-03  9.874451e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000005.dat
+1580471834.206964 2.000000  9.547808e-01 4.907538e-03 -4.032826e+00  2.062786e-02  4.008186e-03  5.156490e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000006.dat
+1580477870.533214 2.000000  9.541032e-01 4.903686e-02 -4.078840e+00  2.032576e-01  3.976099e-03  5.988705e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000007.dat
+1580478083.349897 2.000000  9.559536e-01 3.924630e-02 -4.085785e+00  1.625950e-01  1.106716e-03  2.516294e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000008.dat
+1580478296.189463 2.000000  9.546512e-01 2.942572e-02 -4.083214e+00  1.220122e-01  7.889969e-03  2.556494e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000009.dat
+1580478509.100523 2.000000  9.543549e-01 1.959078e-02 -4.071399e+00  8.163324e-02  1.013056e-03  1.701895e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000010.dat
+1580478721.890976 2.000000  9.550863e-01 9.813605e-03 -4.049931e+00  4.110965e-02  8.098490e-03  1.419180e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000011.dat
+1580478934.701908 2.000000  9.548802e-01 4.907257e-03 -4.034828e+00  2.049443e-02  2.993225e-03  1.426793e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000012.dat
+1580479148.140471 2.000000  9.538361e-01 4.897685e-02 -4.085814e+00  2.033030e-01  1.118100e-03  1.720750e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000013.dat
+1580479361.079196 2.000000  9.538232e-01 3.924506e-02 -4.091879e+00  1.627582e-01  1.038032e-03  2.340292e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000014.dat
+1580479573.963722 2.000000  9.548353e-01 2.939752e-02 -4.086463e+00  1.219805e-01  8.865295e-04  2.356583e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000015.dat
+1580479786.809545 2.000000  9.552449e-01 1.960983e-02 -4.076631e+00  8.161595e-02  1.087103e-04  1.755003e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000016.dat
+1580479999.704821 2.000000  9.548846e-01 9.816890e-03 -4.051431e+00  4.109743e-02  9.915629e-04  1.076019e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000017.dat
+1580480212.605628 2.000000  9.547906e-01 4.897159e-03 -4.033752e+00  2.062310e-02  3.879375e-03  5.021113e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000018.dat
+1580480425.960540 2.000000  9.547961e-01 4.898995e-02 -4.088707e+00  2.029691e-01  1.112433e-03  1.382815e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000019.dat
+1580480638.803461 2.000000  9.556922e-01 3.926580e-02 -4.094086e+00  1.626617e-01  7.963936e-03  5.398182e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000020.dat
+1580480851.660500 2.000000  9.544712e-01 2.939880e-02 -4.090544e+00  1.220735e-01  6.947461e-03  5.356118e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000021.dat
+1580481064.602469 2.000000  9.544345e-01 1.960354e-02 -4.080327e+00  8.141166e-02  3.089131e-03  1.351866e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000022.dat
+1580481277.442500 2.000000  9.549121e-01 9.815278e-03 -4.055812e+00  4.102437e-02  4.050369e-03  7.425800e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000023.dat
+1580481490.320677 2.000000  9.549879e-01 4.898392e-03 -4.044883e+00  2.052893e-02  8.010826e-03  1.427313e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000024.dat
+1580481703.747745 2.000000  9.556063e-01 4.897945e-02 -4.093366e+00  2.025716e-01  1.347999e-03  7.266603e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000025.dat
+1580481916.630656 2.000000  9.540853e-01 3.924908e-02 -4.099080e+00  1.623308e-01  1.267379e-03  2.364361e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000026.dat
+1580482129.538237 2.000000  9.541608e-01 2.939662e-02 -4.094661e+00  1.217881e-01  1.081457e-03  3.173717e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000027.dat
+1580482342.480754 2.000000  9.547353e-01 1.960590e-02 -4.083043e+00  8.153837e-02  1.642275e-04  1.448138e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000028.dat
+1580482555.428752 2.000000  9.549564e-01 9.816268e-03 -4.061830e+00  4.086631e-02  1.024022e-03  5.554335e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000029.dat
+1580482768.322659 2.000000  9.550046e-01 4.899453e-03 -4.044781e+00  2.065631e-02  3.069949e-03  6.742379e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000030.dat
+1580482981.744943 2.000000  9.555320e-01 4.893927e-02 -4.098403e+00  2.028910e-01  7.941618e-03  5.292851e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000031.dat
+1580483194.555084 2.000000  9.538545e-01 3.925235e-02 -4.103832e+00  1.624139e-01  8.587357e-04  2.179869e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000032.dat
+1580483407.451259 2.000000  9.548333e-01 2.940475e-02 -4.097760e+00  1.220546e-01  1.164113e-03  1.121929e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000033.dat
+1580483620.282390 2.000000  9.553367e-01 1.958999e-02 -4.087806e+00  8.143523e-02  1.068100e-03  1.386253e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000034.dat
+1580483833.158794 2.000000  9.547859e-01 9.821394e-03 -4.063617e+00  4.097756e-02  3.139202e-03  1.470461e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000035.dat
+1580484045.987265 2.000000  9.548307e-01 4.903413e-03 -4.050233e+00  2.061085e-02  6.291589e-03  1.020795e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000036.dat
+1580484259.396990 2.000000  9.556865e-01 4.897969e-02 -4.102059e+00  2.024523e-01  1.221599e-03  1.027525e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000037.dat
+1580484472.288933 2.000000  9.556349e-01 3.925279e-02 -4.108932e+00  1.623045e-01  6.300026e-03  3.514267e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000038.dat
+1580484685.112915 2.000000  9.542266e-01 2.943071e-02 -4.104357e+00  1.215296e-01  7.978291e-03  2.457734e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000039.dat
+1580484897.966954 2.000000  9.547505e-01 1.962830e-02 -4.091349e+00  8.122602e-02  8.200885e-03  2.227359e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000040.dat
+1580485110.818224 2.000000  9.551243e-01 9.808702e-03 -4.063438e+00  4.117387e-02  7.996102e-03  6.995325e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000041.dat
+1580485323.669120 2.000000  9.548393e-01 4.899157e-03 -4.058981e+00  2.061161e-02  1.050646e-03  1.087000e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000042.dat
+1580485536.985371 2.000000  9.543276e-01 4.899701e-02 -4.105489e+00  2.023913e-01  2.826384e-03  4.008562e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000043.dat
+1580485749.844520 2.000000  9.559131e-01 3.924450e-02 -4.114179e+00  1.619435e-01  1.037531e-03  3.124572e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000044.dat
+1580485962.676002 2.000000  9.546282e-01 2.939437e-02 -4.110545e+00  1.215970e-01  1.058923e-03  9.630320e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000045.dat
+1580486175.469068 2.000000  9.547620e-01 1.959409e-02 -4.097626e+00  8.106414e-02  1.067541e-03  6.093241e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000046.dat
+1580486388.347754 2.000000  9.551255e-01 9.806862e-03 -4.075882e+00  4.104732e-02  6.977572e-03  2.044055e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000047.dat
+1580486601.193692 2.000000  9.548708e-01 4.901779e-03 -4.059277e+00  2.042329e-02  1.184819e-03  1.142312e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000048.dat
+1580486814.640517 2.000000  9.539553e-01 4.897485e-02 -4.110822e+00  2.024363e-01  1.065688e-03  2.667532e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000049.dat
+1580487027.434039 2.000000  9.551550e-01 3.924133e-02 -4.117791e+00  1.619620e-01  1.173492e-03  9.781567e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000050.dat
+1580487240.326780 2.000000  9.555191e-01 2.941110e-02 -4.113442e+00  1.215853e-01  3.958402e-03  3.511902e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000051.dat
+1580487453.195150 2.000000  9.548024e-01 1.959297e-02 -4.105993e+00  8.105937e-02  1.019340e-03  9.980694e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000052.dat
+1580487666.099173 2.000000  9.546519e-01 9.806310e-03 -4.078909e+00  4.094961e-02  7.774852e-03  1.646074e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000053.dat
+1580487878.874497 2.000000  9.549706e-01 4.903286e-03 -4.057463e+00  2.055371e-02  8.195130e-03  9.971788e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000054.dat
+1580488092.312623 2.000000  9.560396e-01 4.898866e-02 -4.118099e+00  2.020761e-01  8.167254e-03  4.520619e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000055.dat
+1580488305.161287 2.000000  9.544050e-01 3.927877e-02 -4.122683e+00  1.621504e-01  3.110100e-03  2.795910e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000056.dat
+1580488518.069649 2.000000  9.542215e-01 2.942847e-02 -4.119273e+00  1.215935e-01  3.931238e-03  4.281697e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000057.dat
+1580488730.926855 2.000000  9.550831e-01 1.960755e-02 -4.106299e+00  8.146013e-02  7.823324e-03  3.836742e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000058.dat
+1580488943.865829 2.000000  9.551198e-01 9.810612e-03 -4.078223e+00  4.106119e-02  6.933588e-03  2.153221e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000059.dat
+1580489156.716515 2.000000  9.548808e-01 4.897484e-03 -4.067699e+00  2.058046e-02  1.070805e-03  9.509119e-06
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000060.dat
+1580489370.145311 2.000000  9.538671e-01 4.898886e-02 -4.121908e+00  2.020003e-01  8.799812e-04  1.170478e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000061.dat
+1580489583.105123 2.000000  9.538336e-01 3.924968e-02 -4.130276e+00  1.617887e-01  1.117718e-03  9.269495e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000062.dat
+1580489795.924818 2.000000  9.552557e-01 2.939562e-02 -4.126465e+00  1.216028e-01  1.023177e-03  2.012743e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000063.dat
+1580490008.802121 2.000000  9.553323e-01 1.959650e-02 -4.112149e+00  8.122616e-02  1.030152e-03  2.270613e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000064.dat
+1580490221.667254 2.000000  9.547245e-01 9.817284e-03 -4.086292e+00  4.102837e-02  1.091810e-03  1.494718e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000065.dat
+1580490434.556973 2.000000  9.547747e-01 4.899814e-03 -4.076407e+00  2.061068e-02  9.977514e-04  7.651157e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000066.dat
+1580490647.892165 2.000000  9.557944e-01 4.900371e-02 -4.126073e+00  2.025528e-01  3.722931e-03  6.132163e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000067.dat
+1580490860.779978 2.000000  9.556029e-01 3.925039e-02 -4.137690e+00  1.619695e-01  1.122554e-03  1.605817e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000068.dat
+1580491073.690525 2.000000  9.545795e-01 2.938636e-02 -4.131859e+00  1.219151e-01  7.028103e-03  5.458255e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000069.dat
+1580491286.532245 2.000000  9.545274e-01 1.961084e-02 -4.119609e+00  8.127720e-02  7.132511e-03  1.083446e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000070.dat
+1580491499.397372 2.000000  9.551202e-01 9.816073e-03 -4.092422e+00  4.112043e-02  9.285657e-04  5.816056e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000071.dat
+1580491712.191836 2.000000  9.548385e-01 4.897492e-03 -4.073389e+00  2.057782e-02  6.991722e-03  7.532389e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000072.dat
+1580491925.604746 2.000000  9.538029e-01 4.903655e-02 -4.134107e+00  2.022612e-01  4.026242e-03  5.163092e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000073.dat
+1580492138.570451 2.000000  9.539185e-01 3.925405e-02 -4.145502e+00  1.616741e-01  1.093088e-03  1.523806e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000074.dat
+1580492351.473221 2.000000  9.549341e-01 2.939665e-02 -4.140221e+00  1.212791e-01  1.014897e-03  1.979376e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000075.dat
+1580492564.281657 2.000000  9.551939e-01 1.959384e-02 -4.128368e+00  8.119004e-02  1.101260e-03  8.860124e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000076.dat
+1580492777.119636 2.000000  9.546886e-01 9.810317e-03 -4.098133e+00  4.102071e-02  8.100431e-03  1.200471e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000077.dat
+1580492989.940544 2.000000  9.549406e-01 4.896145e-03 -4.073255e+00  2.051931e-02  3.960644e-03  3.229432e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000078.dat
+1580493203.325783 2.000000  9.560932e-01 4.897496e-02 -4.141855e+00  2.020526e-01  1.257244e-03  1.435124e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000079.dat
+1580493416.242153 2.000000  9.549661e-01 3.925204e-02 -4.154182e+00  1.614797e-01  8.230059e-04  1.795767e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000080.dat
+1580493629.175211 2.000000  9.542955e-01 2.939601e-02 -4.151803e+00  1.212955e-01  1.009669e-03  6.957770e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000081.dat
+1580493842.049633 2.000000  9.545141e-01 1.960854e-02 -4.134706e+00  8.106631e-02  7.956500e-03  2.789352e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000082.dat
+1580494054.860366 2.000000  9.551504e-01 9.816236e-03 -4.104647e+00  4.095943e-02  9.657677e-04  4.124964e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000083.dat
+1580494267.724656 2.000000  9.548495e-01 4.901881e-03 -4.084773e+00  2.040710e-02  3.230159e-03  1.949813e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000084.dat
+1580494481.132568 2.000000  9.534383e-01 4.897152e-02 -4.150905e+00  2.018657e-01  2.492395e-03  1.179113e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000085.dat
+1580494694.052744 2.000000  9.540355e-01 3.922963e-02 -4.165372e+00  1.615690e-01  2.411569e-03  8.732754e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000086.dat
+1580494906.917263 2.000000  9.554631e-01 2.939940e-02 -4.164305e+00  1.211978e-01  3.801485e-03  8.488321e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000087.dat
+1580495119.941917 2.000000  9.551772e-01 1.958590e-02 -4.149358e+00  8.119543e-02  1.599212e-03  4.845151e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000088.dat
+1580495332.646144 2.000000  9.545930e-01 9.815488e-03 -4.114417e+00  4.099748e-02  2.218943e-03  2.231661e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000089.dat
+1580495545.456105 2.000000  9.549323e-01 4.899926e-03 -4.086415e+00  2.052610e-02  3.854359e-03  2.511622e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000090.dat
+1580495758.972353 2.000000  9.552350e-01 4.899126e-02 -4.159896e+00  2.020948e-01  4.129910e-03  1.472847e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000091.dat
+1580495971.671296 2.000000  9.538988e-01 3.924528e-02 -4.168652e+00  1.613665e-01  2.207791e-03  8.614747e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000092.dat
+1580496184.623422 2.000000  9.541123e-01 2.938379e-02 -4.172798e+00  1.209867e-01  5.867286e-03  7.674468e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000093.dat
+1580496397.532112 2.000000  9.546557e-01 1.957811e-02 -4.165973e+00  8.066375e-02  2.305161e-03  6.550618e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000094.dat
+1580496610.388182 2.000000  9.551155e-01 9.827981e-03 -4.132116e+00  4.086036e-02  4.429515e-03  3.777764e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000095.dat
+1580496823.314035 2.000000  9.549794e-01 4.895281e-03 -4.087936e+00  2.054676e-02  1.035688e-02  5.373348e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000096.dat
+1580497036.638530 2.000000  9.536173e-01 4.902497e-02 -4.167024e+00  2.016922e-01  5.973629e-03  1.022587e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000097.dat
+1580497249.488134 2.000000  9.551906e-01 3.924541e-02 -4.177117e+00  1.606447e-01  2.041023e-03  9.219525e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000098.dat
+1580497462.371956 2.000000  9.556896e-01 2.935333e-02 -4.175889e+00  1.208656e-01  1.039839e-02  2.763567e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000099.dat
+1580497675.310329 2.000000  9.551522e-01 1.958164e-02 -4.178851e+00  8.041580e-02  2.236548e-03  5.883788e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000100.dat
+1580497888.242893 2.000000  9.548165e-01 9.808197e-03 -4.147203e+00  4.068161e-02  2.141386e-03  2.060195e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000101.dat
+1580498101.141479 2.000000  9.547354e-01 4.897769e-03 -4.114209e+00  2.037738e-02  2.436061e-03  5.328124e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000102.dat
+1580498314.579645 2.000000  9.540918e-01 4.897624e-02 -4.176172e+00  2.008048e-01  4.316490e-03  1.723802e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000103.dat
+1580498527.419487 2.000000  9.556848e-01 3.927504e-02 -4.188932e+00  1.598981e-01  2.506053e-03  9.909382e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000104.dat
+1580498740.330785 2.000000  9.554640e-01 2.938136e-02 -4.189271e+00  1.204114e-01  2.233269e-03  6.842657e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000105.dat
+1580498953.153643 2.000000  9.543139e-01 1.961540e-02 -4.189155e+00  8.021189e-02  1.045930e-02  2.141330e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000106.dat
+1580499166.059649 2.000000  9.547715e-01 9.807684e-03 -4.169654e+00  4.034011e-02  2.068498e-03  2.633413e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000107.dat
+1580499378.868664 2.000000  9.549805e-01 4.905221e-03 -4.139671e+00  2.023978e-02  2.485340e-03  1.218851e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000108.dat
+1580499592.321977 2.000000  9.556710e-01 4.895248e-02 -4.186115e+00  1.993833e-01  2.131860e-03  9.997975e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000109.dat
+1580499805.263117 2.000000  9.546621e-01 3.923643e-02 -4.192993e+00  1.606092e-01  5.467764e-03  1.123762e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000110.dat
+1580500018.152870 2.000000  9.541860e-01 2.939437e-02 -4.191723e+00  1.208640e-01  4.489218e-03  1.015943e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000111.dat
+1580500230.977556 2.000000  9.552698e-01 1.959907e-02 -4.196132e+00  8.024622e-02  2.214452e-03  3.189741e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000112.dat
+1580500443.803783 2.000000  9.549291e-01 9.812907e-03 -4.199403e+00  3.979392e-02  3.891171e-03  2.500850e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000113.dat
+1580500656.732586 2.000000  9.547909e-01 4.895690e-03 -4.163086e+00  2.001515e-02  2.333068e-03  5.602384e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000114.dat
+1580500870.057183 2.000000  9.546755e-01 4.898953e-02 -4.192188e+00  1.988860e-01  1.822239e-03  7.122171e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000115.dat
+1580501082.901945 2.000000  9.557872e-01 3.924828e-02 -4.196964e+00  1.585670e-01  4.590329e-03  1.421751e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000116.dat
+1580501295.794399 2.000000  9.548784e-01 2.943538e-02 -4.204188e+00  1.189249e-01  5.538025e-03  8.385366e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000117.dat
+1580501508.637546 2.000000  9.543322e-01 1.958243e-02 -4.214942e+00  7.957021e-02  2.320162e-03  4.498755e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000118.dat
+1580501721.446059 2.000000  9.550942e-01 9.819859e-03 -4.252942e+00  3.899648e-02  2.394354e-03  6.974899e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000119.dat
+1580501934.328192 2.000000  9.549362e-01 4.891804e-03 -4.218605e+00  1.968961e-02  2.231215e-03  6.757982e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000120.dat
+1580502147.707100 2.000000  9.535143e-01 4.898598e-02 -4.195786e+00  1.974435e-01  2.452286e-03  1.040297e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000121.dat
+1580502360.652073 2.000000  9.539641e-01 3.926030e-02 -4.208017e+00  1.556231e-01  3.863361e-03  1.490095e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000122.dat
+1580502573.536806 2.000000  9.550446e-01 2.939815e-02 -4.224208e+00  1.166188e-01  1.723329e-03  7.972201e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000123.dat
+1580502786.400708 2.000000  9.554268e-01 1.958179e-02 -4.235272e+00  7.842161e-02  2.342356e-03  4.852163e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000124.dat
+1580502999.336115 2.000000  9.549896e-01 9.810074e-03 -4.314042e+00  3.750930e-02  2.296609e-03  2.866006e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000125.dat
+1580503212.233116 2.000000  9.547724e-01 4.901228e-03 -4.314844e+00  1.862231e-02  1.049215e-02  5.274940e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000126.dat
+1580503425.676038 2.000000  9.537474e-01 4.897549e-02 -4.204302e+00  1.950454e-01  4.707269e-03  1.607031e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000127.dat
+1580503638.617702 2.000000  9.541884e-01 3.925229e-02 -4.220795e+00  1.531691e-01  1.029956e-02  4.189378e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000128.dat
+1580503851.472122 2.000000  9.554335e-01 2.942513e-02 -4.238619e+00  1.146749e-01  2.278454e-03  4.957829e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000129.dat
+1580504064.355532 2.000000  9.551524e-01 1.958604e-02 -4.250739e+00  7.741131e-02  2.104038e-03  3.127976e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000130.dat
+1580504277.216650 2.000000  9.546124e-01 9.814164e-03 -4.339276e+00  3.668691e-02  2.283988e-03  1.236390e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000131.dat
+1580504490.133052 2.000000  9.547890e-01 4.902983e-03 -4.381863e+00  1.737933e-02  3.786902e-03  1.246720e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000132.dat
+1580504703.566548 2.000000  9.546553e-01 4.896609e-02 -4.216239e+00  1.912521e-01  1.945620e-03  9.515874e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000133.dat
+1580504916.368355 2.000000  9.558132e-01 3.922924e-02 -4.235451e+00  1.514021e-01  2.303034e-03  1.256059e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000134.dat
+1580505129.244010 2.000000  9.544655e-01 2.939863e-02 -4.249569e+00  1.135503e-01  5.513337e-03  7.931496e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000135.dat
+1580505342.194826 2.000000  9.544938e-01 1.960922e-02 -4.262655e+00  7.634504e-02  2.505388e-03  2.828085e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000136.dat
+1580505555.025384 2.000000  9.549089e-01 9.823592e-03 -4.355626e+00  3.648047e-02  1.277009e-04  1.371291e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000137.dat
+1580505767.935102 2.000000  9.550130e-01 4.895282e-03 -4.422632e+00  1.709282e-02  1.043436e-02  8.152445e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000138.dat
+1580505981.124560 2.000000  9.536918e-01 4.901426e-02 -4.230675e+00  1.886813e-01  6.109140e-03  9.799272e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000139.dat
+1580506193.974891 2.000000  9.553227e-01 3.929411e-02 -4.247407e+00  1.499481e-01  4.467285e-03  1.658259e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000140.dat
+1580506406.860755 2.000000  9.557189e-01 2.938998e-02 -4.262165e+00  1.125756e-01  2.435121e-03  7.237643e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000141.dat
+1580506619.712325 2.000000  9.545721e-01 1.959196e-02 -4.275161e+00  7.596811e-02  2.236929e-03  6.647873e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000142.dat
+1580506832.597505 2.000000  9.546299e-01 9.825892e-03 -4.363341e+00  3.648494e-02  1.045975e-02  1.980563e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000143.dat
+1580507045.443413 2.000000  9.549828e-01 4.906118e-03 -4.434650e+00  1.700273e-02  2.243184e-03  8.143278e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000144.dat
+1580507258.883043 2.000000  9.559151e-01 4.902657e-02 -4.244385e+00  1.872031e-01  2.462440e-03  1.037451e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000145.dat
+1580507471.650968 2.000000  9.538324e-01 3.925101e-02 -4.263015e+00  1.485193e-01  2.346471e-03  1.019449e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000146.dat
+1580507684.485871 2.000000  9.548932e-01 2.940164e-02 -4.272677e+00  1.115613e-01  1.765836e-03  7.601336e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000147.dat
+1580507897.405196 2.000000  9.551919e-01 1.960421e-02 -4.289824e+00  7.524569e-02  6.489201e-03  4.481065e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000148.dat
+1580508110.344932 2.000000  9.550845e-01 9.810489e-03 -4.367623e+00  3.662052e-02  6.277731e-03  1.230951e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000149.dat
+1580508323.109488 2.000000  9.547448e-01 4.898035e-03 -4.441533e+00  1.687219e-02  2.425929e-03  9.635160e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000150.dat
+1580508536.538800 2.000000  9.541145e-01 4.903566e-02 -4.258646e+00  1.849073e-01  5.613709e-03  1.858499e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000151.dat
+1580508749.443945 2.000000  9.551270e-01 3.929329e-02 -4.277165e+00  1.470741e-01  2.444049e-03  9.726128e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000152.dat
+1580508962.323621 2.000000  9.556991e-01 2.935878e-02 -4.288227e+00  1.107632e-01  1.037154e-02  2.746413e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000153.dat
+1580509175.115050 2.000000  9.545106e-01 1.961674e-02 -4.302406e+00  7.450720e-02  2.529671e-04  2.209551e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000154.dat
+1580509387.998126 2.000000  9.547981e-01 9.830362e-03 -4.367917e+00  3.672131e-02  5.524609e-03  3.194198e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000155.dat
+1580509600.915607 2.000000  9.549573e-01 4.901983e-03 -4.451851e+00  1.692187e-02  1.057726e-02  1.384285e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000156.dat
+1580509814.259999 2.000000  9.558337e-01 4.896120e-02 -4.273404e+00  1.833289e-01  2.312808e-03  1.479553e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000157.dat
+1580510027.277892 2.000000  9.558726e-01 3.923388e-02 -4.293319e+00  1.455917e-01  2.373897e-03  1.315454e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000158.dat
+1580510240.040205 2.000000  9.541159e-01 2.942238e-02 -4.303156e+00  1.091621e-01  1.032592e-02  5.506118e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000159.dat
+1580510452.903732 2.000000  9.550877e-01 1.961941e-02 -4.316586e+00  7.361743e-02  2.559649e-03  6.450742e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000160.dat
+1580510665.818041 2.000000  9.551080e-01 9.817651e-03 -4.379518e+00  3.683018e-02  5.549787e-03  3.538815e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000161.dat
+1580510878.698674 2.000000  9.548925e-01 4.899368e-03 -4.454168e+00  1.680501e-02  2.098311e-03  7.616524e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000162.dat
+1580511092.094479 2.000000  9.538961e-01 4.903450e-02 -4.290663e+00  1.811058e-01  2.597633e-03  7.674146e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000163.dat
+1580511304.953260 2.000000  9.547931e-01 3.925521e-02 -4.311221e+00  1.440818e-01  5.558533e-03  1.269935e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000164.dat
+1580511517.799309 2.000000  9.554984e-01 2.943767e-02 -4.316685e+00  1.083467e-01  5.489294e-03  4.372511e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000165.dat
+1580511730.671886 2.000000  9.547340e-01 1.958914e-02 -4.329577e+00  7.321234e-02  5.838963e-03  3.059840e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000166.dat
+1580511943.569100 2.000000  9.546916e-01 9.836917e-03 -4.386342e+00  3.636548e-02  6.521905e-03  1.544787e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000167.dat
+1580512156.441473 2.000000  9.548955e-01 4.896695e-03 -4.464690e+00  1.669088e-02  2.273808e-03  2.180096e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000168.dat
+1580512369.869587 2.000000  9.556443e-01 4.902289e-02 -4.306168e+00  1.790758e-01  6.275650e-03  8.231967e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000169.dat
+1580512582.643991 2.000000  9.544332e-01 3.925892e-02 -4.327720e+00  1.418597e-01  3.772053e-03  1.626789e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000170.dat
+1580512795.597560 2.000000  9.542818e-01 2.941836e-02 -4.332531e+00  1.069328e-01  5.488901e-03  1.062191e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000171.dat
+1580513008.441161 2.000000  9.548877e-01 1.959249e-02 -4.346960e+00  7.215245e-02  4.517424e-03  4.568126e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000172.dat
+1580513221.354715 2.000000  9.550429e-01 9.825690e-03 -4.396439e+00  3.663021e-02  2.431726e-03  1.780713e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000173.dat
+1580513434.189607 2.000000  9.548775e-01 4.902984e-03 -4.467783e+00  1.674602e-02  6.315489e-05  5.768261e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000174.dat
+1580513647.621533 2.000000  9.538950e-01 4.898703e-02 -4.321327e+00  1.765898e-01  1.020580e-02  4.233329e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000175.dat
+1580513860.538030 2.000000  9.539431e-01 3.928724e-02 -4.343828e+00  1.398979e-01  3.788422e-03  8.854411e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000176.dat
+1580514073.403155 2.000000  9.550420e-01 2.945315e-02 -4.350540e+00  1.052656e-01  6.449831e-03  6.688849e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000177.dat
+1580514286.209353 2.000000  9.551038e-01 1.958672e-02 -4.362409e+00  7.107946e-02  2.132935e-03  3.852112e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000178.dat
+1580514499.185652 2.000000  9.549148e-01 9.814658e-03 -4.402293e+00  3.620540e-02  2.253247e-03  1.993093e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000179.dat
+1580514711.997926 2.000000  9.547924e-01 4.900218e-03 -4.483313e+00  1.682673e-02  5.877674e-03  7.190438e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000180.dat
+1580514925.477058 2.000000  9.540957e-01 4.898961e-02 -4.341296e+00  1.739710e-01  5.756349e-03  8.205391e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000181.dat
+1580515138.307816 2.000000  9.560598e-01 3.924851e-02 -4.365176e+00  1.376872e-01  2.476211e-03  4.279893e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000182.dat
+1580515351.217506 2.000000  9.551627e-01 2.939347e-02 -4.366529e+00  1.037825e-01  2.231026e-03  6.307772e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000183.dat
+1580515564.141024 2.000000  9.546972e-01 1.959055e-02 -4.381146e+00  6.988907e-02  4.809021e-03  1.432360e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000184.dat
+1580515777.017421 2.000000  9.546948e-01 9.816842e-03 -4.415759e+00  3.621149e-02  8.209410e-04  4.361093e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000185.dat
+1580515989.867156 2.000000  9.549484e-01 4.899349e-03 -4.486639e+00  1.685649e-02  6.180154e-03  4.726790e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000186.dat
+1580516203.319071 2.000000  9.558198e-01 4.904746e-02 -4.361778e+00  1.708347e-01  6.247954e-03  1.717085e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000187.dat
+1580516416.180425 2.000000  9.549472e-01 3.932288e-02 -4.383693e+00  1.350368e-01  6.444144e-03  2.421200e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000188.dat
+1580516629.089194 2.000000  9.543320e-01 2.940832e-02 -4.390592e+00  1.017178e-01  6.418448e-03  4.820138e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000189.dat
+1580516842.001496 2.000000  9.545324e-01 1.960402e-02 -4.397341e+00  6.862695e-02  6.353937e-03  3.455106e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000190.dat
+1580517054.911414 2.000000  9.549255e-01 9.829646e-03 1.855557e+00  3.544650e-02  6.180756e-03  2.108671e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000191.dat
+1580517267.690785 2.000000  9.548929e-01 4.879961e-03 -4.488230e+00  1.685044e-02  3.876218e-02  2.487734e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000192.dat
+1580517481.033791 2.000000  9.531266e-01 4.898450e-02 -4.383107e+00  1.669199e-01  9.276410e-03  6.554600e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000193.dat
+1580517694.116201 2.000000  9.539552e-01 3.930278e-02 -4.399910e+00  1.323612e-01  2.708106e-02  1.393382e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000194.dat
+1580517906.858682 2.000000  9.554841e-01 2.955550e-02 -4.406298e+00  9.946684e-02  4.099899e-02  4.972965e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000195.dat
+1580518119.751979 2.000000  9.552774e-01 1.968934e-02 -4.413780e+00  6.697110e-02  4.096822e-02  4.231584e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000196.dat
+1580518332.550078 2.000000  9.546079e-01 9.816917e-03 -4.455897e+00  3.475838e-02  4.103443e-02  1.376542e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000197.dat
+1580518545.513359 2.000000  9.547154e-01 4.903792e-03 -4.520754e+00  1.675825e-02  9.078226e-03  1.277996e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000198.dat
+1580518758.892810 2.000000  9.554338e-01 4.883148e-02 -4.416772e+00  1.639767e-01  4.073867e-02  1.475208e-03
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000199.dat
+1580518971.840825 2.000000  9.558682e-01 3.943377e-02 -4.432941e+00  1.283972e-01  4.090023e-02  7.565688e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000200.dat
+1580519184.716644 2.000000  9.551702e-01 2.938505e-02 1.846285e+00  9.708019e-02  1.021093e-02  2.331052e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000201.dat
+1580519397.594216 2.000000  9.544149e-01 1.959348e-02 -4.438048e+00  6.581468e-02  1.544585e-03  1.742812e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000202.dat
+1580519610.493001 2.000000  9.547179e-01 9.813536e-03 -4.473140e+00  3.435977e-02  1.675218e-03  1.270287e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000203.dat
+1580519823.304406 2.000000  9.549891e-01 4.902069e-03 -4.532919e+00  1.668867e-02  1.321137e-02  2.099989e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000204.dat
+1580520036.710476 2.000000  9.552359e-01 4.899892e-02 -4.430013e+00  1.599932e-01  1.701692e-03  4.458772e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000205.dat
+1580520249.595314 2.000000  9.539573e-01 3.925431e-02 -4.456743e+00  1.259177e-01  1.830064e-03  2.560286e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000206.dat
+1580520462.398813 2.000000  9.551357e-01 2.943091e-02 -4.462085e+00  9.488166e-02  1.134555e-02  7.429007e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000207.dat
+1580520675.308604 2.000000  9.553704e-01 1.959009e-02 -4.462588e+00  6.415202e-02  1.673380e-03  2.910729e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000208.dat
+1580520888.149267 2.000000  9.547999e-01 9.827110e-03 -4.491461e+00  3.366026e-02  1.138254e-02  2.087690e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000209.dat
+1580521101.043070 2.000000  9.547806e-01 4.900515e-03 -4.553158e+00  1.640131e-02  8.894256e-05  6.223456e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000210.dat
+1580521314.374946 2.000000  9.558269e-01 4.899615e-02 -4.457382e+00  1.560885e-01  1.415971e-03  1.885520e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000211.dat
+1580521527.293250 2.000000  9.556032e-01 3.928958e-02 -4.481327e+00  1.227420e-01  4.257355e-05  4.387291e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000212.dat
+1580521740.160166 2.000000  9.546004e-01 2.937546e-02 -4.489016e+00  9.226686e-02  7.919744e-03  7.416257e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000213.dat
+1580521953.084335 2.000000  9.543737e-01 1.960221e-02 -4.486423e+00  6.229673e-02  1.849656e-03  3.326317e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000214.dat
+1580522166.002773 2.000000  9.547374e-01 9.806755e-03 -4.516010e+00  3.271858e-02  1.192463e-02  1.500364e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000215.dat
+1580522378.870409 2.000000  9.549801e-01 4.901993e-03 -4.561968e+00  1.607902e-02  1.671829e-03  1.297385e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000216.dat
+1580522592.293897 2.000000  9.560423e-01 4.898169e-02 -4.484760e+00  1.512113e-01  1.569686e-03  3.289225e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000217.dat
+1580522805.225513 2.000000  9.551090e-01 3.928871e-02 -4.509524e+00  1.183067e-01  1.116650e-04  2.621562e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000218.dat
+1580523018.019842 2.000000  9.544246e-01 2.943037e-02 -4.514365e+00  8.921570e-02  1.419814e-04  2.742715e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000219.dat
+1580523230.923708 2.000000  9.550005e-01 1.959961e-02 -4.513365e+00  6.048266e-02  1.002425e-03  3.765259e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000220.dat
+1580523443.834091 2.000000  9.551027e-01 9.820185e-03 -4.544211e+00  3.162940e-02  9.705758e-04  1.793155e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000221.dat
+1580523656.701440 2.000000  9.548781e-01 4.906755e-03 -4.596568e+00  1.585436e-02  1.029325e-03  1.007718e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000222.dat
+1580523870.061637 2.000000  9.538936e-01 4.898654e-02 -4.515499e+00  1.464214e-01  6.247993e-03  4.476899e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000223.dat
+1580524082.881083 2.000000  9.556561e-01 3.928382e-02 -4.540394e+00  1.140025e-01  9.502516e-04  2.578456e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000224.dat
+1580524295.759005 2.000000  9.552519e-01 2.942116e-02 -4.547177e+00  8.582065e-02  1.166905e-03  1.111105e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000225.dat
+1580524508.649519 2.000000  9.545658e-01 1.960896e-02 -4.544250e+00  5.831505e-02  1.013402e-03  3.074316e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000226.dat
+1580524721.463945 2.000000  9.548924e-01 9.824207e-03 -4.568901e+00  3.041185e-02  1.026255e-03  7.220099e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000227.dat
+1580524934.323860 2.000000  9.549964e-01 4.905872e-03 -4.630103e+00  1.546697e-02  9.776552e-04  3.684676e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000228.dat
+1580525147.704948 2.000000  9.547551e-01 4.901057e-02 -4.547758e+00  1.397653e-01  8.216672e-05  3.856786e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000229.dat
+1580525360.562402 2.000000  9.540786e-01 3.928062e-02 -4.576196e+00  1.088891e-01  1.020913e-03  3.930024e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000230.dat
+1580525573.382231 2.000000  9.554403e-01 2.941530e-02 -4.580374e+00  8.160818e-02  1.028993e-03  1.989100e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000231.dat
+1580525786.266070 2.000000  9.551151e-01 1.960662e-02 -4.578650e+00  5.565669e-02  8.917805e-04  1.890961e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000232.dat
+1580525999.181862 2.000000  9.547899e-01 9.819004e-03 -4.601609e+00  2.900095e-02  1.071733e-03  1.440610e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000233.dat
+1580526212.117628 2.000000  9.547821e-01 4.907397e-03 -4.659198e+00  1.493684e-02  9.304578e-04  1.047588e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000234.dat
+1580526425.534817 2.000000  9.541272e-01 4.901200e-02 -4.584688e+00  1.334476e-01  9.894033e-04  2.389659e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000235.dat
+1580526638.449480 2.000000  9.551600e-01 3.927075e-02 -4.612000e+00  1.030755e-01  8.940490e-04  2.594310e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000236.dat
+1580526851.301195 2.000000  9.553911e-01 2.941774e-02 -4.615685e+00  7.709527e-02  9.984475e-04  1.059819e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000237.dat
+1580527064.217047 2.000000  9.548040e-01 1.960632e-02 -4.618824e+00  5.268577e-02  7.645523e-04  1.770175e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000238.dat
+1580527277.008912 2.000000  9.548146e-01 9.823371e-03 -4.640813e+00  2.752085e-02  1.073006e-03  1.543966e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000239.dat
+1580527489.843842 2.000000  9.550050e-01 4.908492e-03 -4.701475e+00  1.432860e-02  9.786802e-04  6.355637e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000240.dat
+1580527703.318117 2.000000  9.558698e-01 4.901744e-02 -4.621805e+00  1.261231e-01  8.982429e-04  3.783103e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000241.dat
+1580527916.096909 2.000000  9.540270e-01 3.927487e-02 -4.652707e+00  9.682864e-02  9.475254e-04  1.239407e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000242.dat
+1580528129.063323 2.000000  9.543405e-01 2.942103e-02 -4.661241e+00  7.217077e-02  9.740061e-04  2.882298e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000243.dat
+1580528341.994558 2.000000  9.548568e-01 1.961502e-02 -4.658687e+00  4.939391e-02  9.102950e-04  8.072597e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000244.dat
+1580528554.890187 2.000000  9.550730e-01 9.816819e-03 -4.672420e+00  2.562808e-02  6.454119e-03  1.540066e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000245.dat
+1580528767.780334 2.000000  9.549365e-01 4.907921e-03 -4.726386e+00  1.347531e-02  1.438018e-04  8.618507e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000246.dat
+1580528981.180734 2.000000  9.541229e-01 4.901508e-02 -4.664524e+00  1.175865e-01  7.844099e-04  1.180591e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000247.dat
+1580529194.052468 2.000000  9.543064e-01 3.927772e-02 -4.696538e+00  8.928338e-02  8.230379e-04  3.363701e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000248.dat
+1580529406.875676 2.000000  9.555160e-01 2.942249e-02 -4.699725e+00  6.671864e-02  8.560643e-04  5.062200e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000249.dat
+1580529619.694215 2.000000  9.546125e-01 1.960118e-02 -4.699402e+00  4.544412e-02  1.009901e-03  5.910946e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000250.dat
+1580529832.604049 2.000000  9.546794e-01 9.824358e-03 -4.704411e+00  2.361827e-02  1.204451e-03  6.223488e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000251.dat
+1580530045.473721 2.000000  9.549309e-01 4.908251e-03 -4.766080e+00  1.232298e-02  1.014889e-03  4.911372e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000252.dat
+1580530258.966026 2.000000  9.553807e-01 4.900824e-02 -4.711779e+00  1.075423e-01  8.830070e-04  1.839972e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000253.dat
+1580530471.829641 2.000000  9.555933e-01 3.928230e-02 -4.745713e+00  8.054027e-02  1.086742e-03  5.782342e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000254.dat
+1580530684.705483 2.000000  9.544722e-01 2.942081e-02 -4.752226e+00  6.012332e-02  1.110229e-03  9.040619e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000255.dat
+1580530897.548041 2.000000  9.546701e-01 1.960936e-02 -4.748496e+00  4.102423e-02  9.938636e-04  1.045819e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000256.dat
+1580531110.515857 2.000000  9.548863e-01 9.822525e-03 -4.758681e+00  2.131065e-02  9.644671e-04  9.255092e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000257.dat
+1580531323.394826 2.000000  9.550083e-01 4.900906e-03 -4.799854e+00  1.109351e-02  9.275133e-04  7.490443e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000258.dat
+1580531536.699509 2.000000  9.541794e-01 4.897828e-02 1.526630e+00  9.715243e-02  2.999454e-03  2.247091e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000259.dat
+1580531749.651170 2.000000  9.539054e-01 3.923088e-02 -4.800691e+00  7.052620e-02  4.490755e-03  3.260383e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000260.dat
+1580531962.463093 2.000000  9.553270e-01 2.943470e-02 -4.803897e+00  5.208842e-02  5.478930e-03  2.530240e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000261.dat
+1580532175.350337 2.000000  9.554783e-01 1.958077e-02 -4.808006e+00  3.541270e-02  2.385190e-03  1.158517e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000262.dat
+1580532388.316333 2.000000  9.550267e-01 9.825396e-03 -4.811657e+00  1.839565e-02  1.086880e-02  1.394899e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000263.dat
+1580532601.192563 2.000000  9.547601e-01 4.891539e-03 -4.833970e+00  9.484543e-03  7.009442e-03  7.896534e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000264.dat
+1580532814.594355 2.000000  9.538688e-01 4.899641e-02 -4.823212e+00  8.137310e-02  4.421765e-03  3.636098e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000265.dat
+1580533027.498402 2.000000  9.551856e-01 3.926353e-02 -4.866144e+00  5.794626e-02  4.544836e-03  2.737498e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000266.dat
+1580533240.400526 2.000000  9.555643e-01 2.937550e-02 -4.875681e+00  4.189196e-02  1.081237e-02  2.221295e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000267.dat
+1580533453.218329 2.000000  9.544903e-01 1.960051e-02 -4.874477e+00  2.804015e-02  5.161926e-03  1.095569e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000268.dat
+1580533666.064093 2.000000  9.547830e-01 9.817654e-03 -4.874111e+00  1.439310e-02  1.138768e-02  8.313318e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000269.dat
+1580533879.028417 2.000000  9.549158e-01 4.913179e-03 -4.895898e+00  7.241439e-03  1.078869e-02  5.504753e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000270.dat
+1580534092.449010 2.000000  9.563660e-01 4.897439e-02 -4.909525e+00  5.808178e-02  2.563047e-03  1.723656e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000271.dat
+1580534305.264268 2.000000  9.546130e-01 3.925153e-02 -4.944481e+00  3.711951e-02  7.451208e-03  2.467707e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000272.dat
+1580534518.163562 2.000000  9.542506e-01 2.941921e-02 -4.953285e+00  2.783882e-02  5.486566e-03  1.070873e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000273.dat
+1580534731.029706 2.000000  9.549386e-01 1.960827e-02 -4.945349e+00  1.845802e-02  7.585388e-03  1.304629e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000274.dat
+1580534943.944472 2.000000  9.551450e-01 9.825404e-03 -4.952349e+00  9.189043e-03  1.140006e-02  1.464179e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000275.dat
+1580535156.849322 2.000000  9.549584e-01 4.908807e-03 -4.948583e+00  4.615725e-03  7.685361e-05  7.170078e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000276.dat
+1580535370.220189 2.000000  9.534875e-01 4.900663e-02 -4.946845e+00  4.644430e-02  1.119158e-02  1.555152e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000277.dat
+1580535583.033197 2.000000  9.550565e-01 3.925735e-02 -4.947851e+00  3.760821e-02  5.269874e-03  2.127269e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000278.dat
+1580535795.850909 2.000000  9.553927e-01 2.937859e-02 -4.945006e+00  2.827413e-02  5.147472e-03  2.080662e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000279.dat
+1580536008.770855 2.000000  9.547030e-01 1.957764e-02 -4.943820e+00  1.870940e-02  1.078820e-02  1.047234e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000280.dat
+1580536221.561166 2.000000  9.548767e-01 9.809335e-03 -4.947655e+00  9.424279e-03  6.816484e-03  3.770428e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000281.dat
+1580536434.524125 2.000000  9.549507e-01 4.901039e-03 -4.952230e+00  4.771162e-03  2.593191e-03  1.242474e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000282.dat
+1580536648.000436 2.000000  9.555704e-01 4.899319e-02 -4.945606e+00  4.745388e-02  6.357946e-03  1.156424e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000283.dat
+1580536860.751056 2.000000  9.542346e-01 3.925296e-02 -4.945058e+00  3.829837e-02  4.479370e-03  1.712498e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000284.dat
+1580537073.675818 2.000000  9.539181e-01 2.942854e-02 -4.941448e+00  2.859530e-02  1.122140e-02  6.605126e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000285.dat
+1580537286.525803 2.000000  9.550412e-01 1.961865e-02 -4.946600e+00  1.922563e-02  1.123439e-02  1.554432e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000286.dat
+1580537499.443995 2.000000  9.550971e-01 9.824765e-03 -4.950922e+00  9.459951e-03  1.538871e-03  5.837061e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000287.dat
+1580537712.313744 2.000000  9.549221e-01 4.901040e-03 -4.939008e+00  4.721914e-03  4.378921e-03  5.466416e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000288.dat
+1580537925.764864 2.000000  9.546406e-01 4.898270e-02 -4.942300e+00  4.816649e-02  5.218952e-03  2.713438e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000289.dat
+1580538138.624610 2.000000  9.539879e-01 3.926847e-02 -4.946350e+00  3.918697e-02  7.500144e-03  2.088146e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000290.dat
+1580538351.446721 2.000000  9.556461e-01 2.939220e-02 -4.945540e+00  2.921691e-02  2.620763e-03  1.182101e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000291.dat
+1580538564.343170 2.000000  9.554631e-01 1.958240e-02 -4.946319e+00  1.940696e-02  2.480250e-03  1.955960e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000292.dat
+1580538777.218263 2.000000  9.547747e-01 9.810501e-03 -4.927935e+00  9.657864e-03  1.073534e-02  2.527639e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000293.dat
+1580538990.107267 2.000000  9.547488e-01 4.900245e-03 -4.925565e+00  4.753029e-03  5.225403e-03  6.939665e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000294.dat
+1580539203.479300 2.000000  9.552442e-01 4.897136e-02 -4.946469e+00  4.939177e-02  4.502782e-03  2.202816e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000295.dat
+1580539416.332273 2.000000  9.561073e-01 3.921701e-02 -4.940682e+00  3.978262e-02  2.523288e-03  6.091206e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000296.dat
+1580539629.272178 2.000000  9.551498e-01 2.937994e-02 -4.941856e+00  2.983305e-02  1.130504e-02  1.255327e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000297.dat
+1580539842.160590 2.000000  9.543706e-01 1.957867e-02 -4.933767e+00  1.988135e-02  6.928996e-03  2.085251e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000298.dat
+1580540055.044939 2.000000  9.546991e-01 9.810278e-03 -4.937156e+00  9.780546e-03  5.073580e-03  8.961518e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000299.dat
+1580540267.990975 2.000000  9.548600e-01 4.901822e-03 -4.919222e+00  4.878264e-03  7.091413e-03  1.836265e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000300.dat
+1580540481.353253 2.000000  9.560858e-01 4.900362e-02 -4.940111e+00  5.028783e-02  7.360989e-03  3.323824e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000301.dat
+1580540694.258591 2.000000  9.553117e-01 3.926070e-02 -4.939720e+00  4.078678e-02  5.455946e-03  1.655851e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000302.dat
+1580540907.111862 2.000000  9.542709e-01 2.942407e-02 -4.938183e+00  3.054182e-02  5.474143e-03  1.617525e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000303.dat
+1580541119.962536 2.000000  9.548983e-01 1.959210e-02 -4.940853e+00  2.022420e-02  4.474110e-03  1.224778e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000304.dat
+1580541332.806150 2.000000  9.552152e-01 9.809240e-03 -4.936397e+00  1.027217e-02  2.455029e-03  1.675659e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000305.dat
+1580541545.664285 2.000000  9.548319e-01 4.900798e-03 -4.909389e+00  4.951968e-03  7.574631e-03  7.206368e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000306.dat
+1580541759.128738 2.000000  9.537139e-01 4.900629e-02 -4.939254e+00  5.127223e-02  5.153409e-03  1.687705e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000307.dat
+1580541972.015174 2.000000  9.538927e-01 3.921484e-02 -4.935430e+00  4.145857e-02  2.373977e-03  2.301464e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000308.dat
+1580542184.923751 2.000000  9.550721e-01 2.939846e-02 -4.939045e+00  3.115475e-02  6.286619e-03  1.245675e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000309.dat
+1580542397.817603 2.000000  9.554662e-01 1.959686e-02 -4.934225e+00  2.069650e-02  6.972795e-03  1.483380e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000310.dat
+1580542610.668939 2.000000  9.548142e-01 9.803178e-03 -4.936624e+00  1.042996e-02  1.137126e-02  7.465594e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000311.dat
+1580542823.574489 2.000000  9.547884e-01 4.902014e-03 -4.917716e+00  5.244816e-03  1.825431e-03  3.319375e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000312.dat
+1580543036.979292 2.000000  9.540245e-01 4.893890e-02 -4.933407e+00  5.247380e-02  2.400522e-03  1.542729e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000313.dat
+1580543249.871585 2.000000  9.556923e-01 3.927462e-02 -4.930497e+00  4.243486e-02  5.370611e-03  1.041531e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000314.dat
+1580543462.750596 2.000000  9.553211e-01 2.942169e-02 -4.929873e+00  3.189524e-02  6.519986e-03  1.783351e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000315.dat
+1580543675.617367 2.000000  9.545202e-01 1.961201e-02 -4.934679e+00  2.123089e-02  7.502828e-03  2.198063e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000316.dat
+1580543888.423066 2.000000  9.549212e-01 9.808445e-03 -4.940970e+00  1.066133e-02  5.217955e-03  4.653313e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000317.dat
+1580544101.370259 2.000000  9.549850e-01 4.898596e-03 -4.937350e+00  5.247142e-03  5.183983e-03  5.807456e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000318.dat
+1580544314.749278 2.000000  9.558957e-01 4.901201e-02 -4.933555e+00  5.356144e-02  1.130404e-02  1.207828e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000319.dat
+1580544527.649591 2.000000  9.546186e-01 3.932781e-02 -4.928998e+00  4.333511e-02  1.082349e-02  1.432526e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000320.dat
+1580544740.529263 2.000000  9.539290e-01 2.937555e-02 -4.927343e+00  3.256780e-02  2.485450e-03  1.297478e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000321.dat
+1580544953.412866 2.000000  9.549598e-01 1.960740e-02 -4.937406e+00  2.164449e-02  1.775215e-03  1.058229e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000322.dat
+1580545166.364561 2.000000  9.550417e-01 9.824219e-03 -4.911366e+00  1.066720e-02  5.475688e-03  1.142948e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000323.dat
+1580545379.133809 2.000000  9.548299e-01 4.900823e-03 -4.939884e+00  5.433088e-03  7.496504e-03  7.679121e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000324.dat
+1580545592.580368 2.000000  9.537802e-01 4.904220e-02 -4.929542e+00  5.469973e-02  7.490250e-03  3.671734e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000325.dat
+1580545805.527535 2.000000  9.539055e-01 3.924220e-02 -4.927779e+00  4.430557e-02  4.518317e-03  3.406648e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000326.dat
+1580546018.334297 2.000000  9.554496e-01 2.940520e-02 -4.928794e+00  3.349766e-02  1.077644e-02  1.327073e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000327.dat
+1580546231.218020 2.000000  9.552885e-01 1.957791e-02 -4.928716e+00  2.205421e-02  2.514234e-03  4.705178e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000328.dat
+1580546444.026743 2.000000  9.546957e-01 9.831960e-03 -4.930663e+00  1.097625e-02  5.544055e-03  1.106360e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000329.dat
+1580546656.944838 2.000000  9.548418e-01 4.893398e-03 -4.928067e+00  5.323633e-03  5.178595e-03  1.019815e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_Ampsweep_000330.dat
+1580546870.327980 2.000000  9.557635e-01 4.902892e-02 -4.925688e+00  5.600020e-02  2.092383e-04  1.956461e-04
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_tmp_000000.dat
+1580633435.112887 2.000000  9.548941e-01 9.325360e-04 -4.873035e+00  9.937762e-04  1.164960e-02  7.201316e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_tmp_000001.dat
+1580638201.026681 2.000000  9.548780e-01 9.329231e-04 -3.827218e+00  1.045257e-04  5.992250e-05  2.391429e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_tmp_000002.dat
+1580638416.817157 2.000000  9.549167e-01 9.349267e-04 -1.072242e+00  6.465782e-05  2.817744e-05  8.363406e-05
+#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM6/flopper/2Hz_2p8A/Flopper_2Hz_2p8A_500mV_tmp_000003.dat

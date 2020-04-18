@@ -6,6 +6,7 @@ import sys
 import os
 import time
 import argparse
+import scipy.integrate
 
 ################################
 # Program takes two arguments: data directory and
@@ -137,14 +138,20 @@ for fname in sorted(os.listdir(dirname)):
     phS = phS[ii]/phN
     phD = phD[ii]/phN
 
+    # periodic values
+    phN = numpy.append(phN, phN[0])
+    phV = numpy.append(phV, phV[0]+1)
+    phD = numpy.append(phD, phD[0])
+    phS = numpy.append(phS, phS[0])
+
     # calculate signal harmonics by doing "slow" Fourier transformation
     Dr = numpy.zeros(args.harm_n+1)
     Di = numpy.zeros(args.harm_n+1)
     Sr = numpy.zeros(args.harm_n+1)
     Si = numpy.zeros(args.harm_n+1)
 
-    # phD1 = numpy.zeros(args.points) # restore signals from harmonics - for test
-    # phS1 = numpy.zeros(args.points)
+    # phD1 = numpy.zeros(phD.size) # restore signals from harmonics - for test
+    # phS1 = numpy.zeros(phS.size)
 
     for h in range(0,args.harm_n+1):
       if h==0:
@@ -157,10 +164,10 @@ for fname in sorted(os.listdir(dirname)):
       else:
         Sin = numpy.sin(h*phV*2*math.pi)
         Cos = numpy.cos(h*phV*2*math.pi)
-        Dr[h] = 2*numpy.average(Sin*phD)
-        Sr[h] = 2*numpy.average(Sin*phS)
-        Di[h] = 2*numpy.average(Cos*phD)
-        Si[h] = 2*numpy.average(Cos*phS)
+        Dr[h] = 2*scipy.integrate.simps(Sin*phD, phV)
+        Sr[h] = 2*scipy.integrate.simps(Sin*phS, phV)
+        Di[h] = 2*scipy.integrate.simps(Cos*phD, phV)
+        Si[h] = 2*scipy.integrate.simps(Cos*phS, phV)
         # phS1 += Sr[h]*Sin + Si[h]*Cos
         # phD1 += Dr[h]*Sin + Di[h]*Cos
 

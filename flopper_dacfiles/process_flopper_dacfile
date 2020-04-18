@@ -157,7 +157,7 @@ for fname in os.listdir(dirname):
         # phD1 += Dr[h]*Sin + Di[h]*Cos
 
     # save data
-    numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV, phD, phS]),
+    numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV/freq0, phD, phS]),
       header = "phase -- drive -- signal" )
 
     # print data

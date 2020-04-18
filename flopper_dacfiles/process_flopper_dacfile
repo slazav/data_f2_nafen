@@ -44,7 +44,11 @@ for fname in sorted(os.listdir(dirname)):
   ################################
   # Read file, extract time, drive, and signal (columns 0,1,9)
   # as numpy arrays.
-  T,D,S = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,9), unpack=True, skiprows=4)
+  try:
+    T,D,S = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,9), unpack=True, skiprows=4)
+  except ValueError:
+    print("can't read file: ", fname)
+    continue
 
   # full time:
   if T[0] + date < told:
@@ -90,7 +94,9 @@ for fname in sorted(os.listdir(dirname)):
     # In some signals drive changes. It means there is a large low-frequency component
     # We want to skip these signals. Threshold is 0.1 Hz
     freq = f_ind / tstep / n1 # drive freq, Hz
-    if freq < 0.1: continue
+    if freq < 0.1:
+      print("non-stable drive in file: ", fname)
+      continue
 
     # it's good to fit in a very narrow window, because 1/fft is very noisy far from f0
     ind_win = 1 #

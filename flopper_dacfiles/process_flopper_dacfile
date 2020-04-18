@@ -124,10 +124,12 @@ for fname in sorted(os.listdir(dirname)):
       phS[pi] += S1[i]
       phN[pi] += 1
 
-    phV /= phN
-    phS /= phN
-    phD /= phN
-
+    # remove bins without any values
+    ii = numpy.where(phN>0)
+    phN = phN[ii]
+    phV = phV[ii]/phN
+    phS = phS[ii]/phN
+    phD = phD[ii]/phN
 
     # calculate signal harmonics by doing "slow" Fourier transformation
     Dr = numpy.zeros(args.harm_n+1)

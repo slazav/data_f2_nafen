@@ -3,3 +3,6 @@ all: signal.dat ../process_flopper_dacfile
 
 signal.dat: ./make_sig_model
 	./make_sig_model > $@
+
+clean:
+	rm -f *.txt *.dat

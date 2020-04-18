@@ -147,8 +147,8 @@ for fname in os.listdir(dirname):
     Sr = numpy.zeros(harm_n+1)
     Si = numpy.zeros(harm_n+1)
 
-    phD1 = numpy.zeros(ph_points)
-    phS1 = numpy.zeros(ph_points)
+    # phD1 = numpy.zeros(ph_points) # restore signals from harmonics - for test
+    # phS1 = numpy.zeros(ph_points)
 
     for h in range(0,harm_n+1):
       if h==0:
@@ -156,8 +156,8 @@ for fname in os.listdir(dirname):
         Sr[h] = numpy.average(phS)
         Di[h] = 0
         Si[h] = 0
-        phS1 += Sr[h]
-        phD1 += Dr[h]
+        # phS1 += Sr[h]
+        # phD1 += Dr[h]
       else:
         Sin = numpy.sin(h*phV*2*math.pi)
         Cos = numpy.cos(h*phV*2*math.pi)
@@ -165,12 +165,12 @@ for fname in os.listdir(dirname):
         Sr[h] = 2*numpy.average(Sin*phS)
         Di[h] = 2*numpy.average(Cos*phD)
         Si[h] = 2*numpy.average(Cos*phS)
-
-        phS1 += Sr[h]*Sin + Si[h]*Cos
-        phD1 += Dr[h]*Sin + Di[h]*Cos
+        # phS1 += Sr[h]*Sin + Si[h]*Cos
+        # phD1 += Dr[h]*Sin + Di[h]*Cos
 
     # save data
-    numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV, phD, phS, phD1, phS1]) )
+    numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV, phD, phS]),
+      header = "phase -- drive -- signal" )
 
     # print data
     print("%d %f %f" % (s, T1[0]+date, freq0), end="")

@@ -84,6 +84,11 @@ for fname in sorted(os.listdir(dirname)):
     # A = [sum(y)*sum(x) - sum(y*x)*sum(1)]/[sum(x)*sum(x) - sum(1)*sum(x*x)]
     # x0 = -B/A = (sum(y*x)*sum(x) - sum(y)*sum(x*x)) / (sum(y*x)*sum(1) - sum(y)*sum(x))
 
+    # In some signals drive changes. It means there is a large low-frequency component
+    # We want to skip these signals. Threshold is 0.1 Hz
+    freq = f_ind / tstep / n1 # drive freq, Hz
+    if freq < 0.1: continue
+
     # it's good to fit in a very narrow window, because 1/fft is very noisy far from f0
     ind_win = 1 #
     sn = 0
@@ -101,7 +106,6 @@ for fname in sorted(os.listdir(dirname)):
       sxx += x*x*w
       sxy += x*y*w
     f_ind1 = f_ind + (sxy*sx-sy*sxx)/(sxy*sn-sy*sx)
-
     # Another approach, much less accurate:
     # v1 = fft[f_ind-1]
     # v2 = fft[f_ind]
@@ -109,6 +113,7 @@ for fname in sorted(os.listdir(dirname)):
     # f_indm = f_ind - (v3-v1)/(v1 - 2*v2 + v3)/2
 
     freq0 = f_ind1 / tstep / n1 # drive freq, Hz
+    # print("> %d %f %f" %(f_ind, f_ind1, freq0))
 
     ################################
     # Average points with same phase

@@ -14,18 +14,19 @@ freq  = 1.012 # frequency, Hz
 amp_d = [0.2, 1.1, 0.01, 0.02]  # drive amplitude [0, 1,2,.. etc harmonics]
 amp_s = [0.2, 1.1, 0.3,  0.12]  # signal amplitude [0, 1,2,.. etc harmonics]
 noise = 0.05 # noise amp
+ph = 1.8 # signal phase
 
 T = numpy.arange(0, tstep*npts, tstep);
 
-D = numpy.zeros(npts)
-S = numpy.zeros(npts)
+D = numpy.zeros(npts) + amp_d[0]
+S = numpy.zeros(npts) + amp_d[0]
 Z = numpy.zeros(npts)
 
-for h in range(len(amp_d)):
+for h in range(1,len(amp_d)):
   D += amp_d[h]*numpy.cos(2*math.pi*h*freq * T)
 
-for h in range(len(amp_s)):
-  S += amp_s[h]*numpy.cos(2*math.pi*h*freq * T)
+for h in range(1,len(amp_s)):
+  S += amp_s[h]*numpy.cos(2*math.pi*h*freq * T + ph)
 
 S += numpy.random.normal(0, noise, S.size)
 

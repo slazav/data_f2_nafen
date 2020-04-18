@@ -3,8 +3,9 @@
 
 # numbers are from ../make_sig_model script
 f = 1.012
-fs(x) = 0.2 + 1.1*cos(2*pi*f*x) + 0.01*cos(2*2*pi*f*x) + 0.02*cos(3*2*pi*f*x)
-fd(x) = 0.2 + 1.1*cos(2*pi*f*x) + 0.3*cos(2*2*pi*f*x) + 0.12*cos(3*2*pi*f*x)
+ph = 1.8
+fd(x) = 0.2 + 1.1*cos(2*pi*f*x) + 0.01*cos(2*2*pi*f*x) + 0.02*cos(3*2*pi*f*x)
+fs(x) = 0.2 + 1.1*cos(2*pi*f*x+ph) + 0.3*cos(2*2*pi*f*x+ph) + 0.12*cos(3*2*pi*f*x+ph)
 
 set key center top
 

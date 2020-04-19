@@ -1,0 +1,17 @@
+#!/bin/sh
+
+prefix=/mnt/luna/fridge2_rawdata/Nafen_cell
+data=../data1_1m
+
+mkdir -p $data
+while read f d c; do
+  [ "$f" != "#" ] || continue
+  name=$(echo $f | sed 's|/|_|g')
+  echo $name
+  ./process_flopper_dacfile --split_n 5 --points 50 --round_freq 0.1 $prefix/$f $d > $data/$name.dat
+done < datafolders.txt
+
+cat << EOF > $data/Readme
+Dataset 1 with 1-minute time resolution (each file is splitted into 5 pieces).
+Frequency is rounded to the nearest 0.1 Hz values (fixed frequency)
+EOF

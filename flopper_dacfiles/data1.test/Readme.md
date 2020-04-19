@@ -1,0 +1,1 @@
+Making an artificial signal and processing it

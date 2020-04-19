@@ -13,10 +13,16 @@ from scipy.signal import savgol_filter
 parser = argparse.ArgumentParser()
 parser.add_argument('infile')
 parser.add_argument('outfile')
+
 parser.add_argument('--icta_plot', default='',
                     help='plot ICTA data to a png file')
+
 parser.add_argument('--sm_win', default=21, type=int,
                     help='window for data smoothing')
+
+parser.add_argument('--skip', default='',
+                    help='skip points (1-2,30-40,5)')
+
 args = parser.parse_args()
 
 
@@ -139,6 +145,7 @@ def non_uniform_savgol(x, y, window, polynom):
 data = numpy.loadtxt(args.infile, comments='#', unpack=True, usecols=range(0,8))
 
 
+
 # load ICTA data for the whole time range
 tmin = numpy.min(data[0])
 tmax = numpy.max(data[0])
@@ -163,18 +170,34 @@ else:
   icta_st = icta_t
   icta_sw = icta_w
 
+# skip data points
+n = len(data[0])
+mask = numpy.ones(n, dtype=bool)
+for r in args.skip.split(','):
+  a = r.split('-')
+  if len(a) == 0 or a[0] == '': continue
+  if len(a) == 1:
+    mask[int(a[0])]=False
+  else:
+    if a[1] == '': a[1] = n
+    mask[range(int(a[0]),int(a[1]))] = False
+
+if not numpy.all(mask):
+  data = data[:,mask]
+  n = data[0].size
+
+
+# interpolate do data values
+icta = numpy.interp(data[0], icta_st, icta_sw)
 
 # control plot
 if args.icta_plot:
-  plt.plot((icta_t-tmin)/24/3600, icta_w, 'r-')
-  plt.plot((icta_st-tmin)/24/3600, icta_sw, 'b-')
+  plt.plot((icta_t-tmin)/24/3600, icta_w, 'r-', label = 'original data')
+  plt.plot((icta_st-tmin)/24/3600, icta_sw, 'b-', label = 'smoothed')
+  plt.plot((data[0]-tmin)/24/3600, icta, 'g*', label = 'interpolated to data points')
   plt.xlabel('time, days')
   plt.ylabel('ICTA width, Hz')
   plt.savefig(args.icta_plot)
-
-# interpolate do data values
-n = data[0].size
-icta = numpy.interp(data[0], icta_st, icta_sw)
 
 # save file
 numpy.savetxt(args.outfile, numpy.column_stack((numpy.transpose(data),icta)),

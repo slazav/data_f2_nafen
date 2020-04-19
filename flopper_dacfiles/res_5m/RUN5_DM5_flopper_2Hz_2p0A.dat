@@ -1,7 +1,4 @@
 # time -- freq -- drive offset -- drive_amp -- sig_phase -- sig_amp1 -- sig_amp2...
-#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000000.dat
-1579523521.139763 2.080000  -1.762466e-03 7.431108e-02 5.820271e+00  2.335613e-04  1.136053e-04  1.158903e-05
-#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000001.dat
 1579524134.999606 2.000000  9.542514e-01 5.494985e-02 -4.030660e+00  3.018327e-03  1.072337e-04  7.880482e-06
 #  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000002.dat
 1579524413.980333 2.000000  9.538258e-01 5.491238e-02 -4.108296e+00  1.548082e-01  7.951899e-04  7.811466e-05

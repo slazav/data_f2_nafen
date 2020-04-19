@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+
+
+fig, ax = plt.subplots(2,1, figsize=(5, 8))
+
+
+###########
+
+def plot_file(f, c, l):
+  time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+    numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+  phase[phase>3] -= 2*math.pi
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 1)
+
+###########
+
+plot_file('R05D04a_5A1', 'r.', '4Hz, 24mV')
+plot_file('R05D04a_5A2', 'b.', '4Hz, 47mV')
+
+###########
+
+ax[0].text(500, 1.1, 'superfluid')
+ax[0].text(350, 0.8, 'normal')
+
+ax[0].set_ylabel('amp1/drive')
+ax[1].set_ylabel('phase, rad')
+ax[1].set_xlabel('ICTA width, Hz')
+ax[0].legend()
+plt.savefig('R05D04a_5A_plot.png')

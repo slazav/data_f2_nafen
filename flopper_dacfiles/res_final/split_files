@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+
+import numpy
+import argparse
+
+################################
+# Split file with multiple amplitude/frequncy measurements
+
+parser = argparse.ArgumentParser()
+parser.add_argument('infile')
+parser.add_argument('outmask')
+
+parser.add_argument('--fstep', default=0.01, type=float,
+                    help='bin size in frequncies')
+
+parser.add_argument('--dstep', default=0.001, type=float,
+                    help='bin size in drive amplitudes')
+
+args = parser.parse_args()
+
+################################
+
+# read data
+data = numpy.loadtxt(args.infile, comments='#', unpack=True, usecols=range(0,9))
+
+# find drive amplitude range (column 3)
+dmin = numpy.min(data[3])
+dmax = numpy.max(data[3])
+ds = args.dstep
+
+# same with frequency (column 1)
+fmin = numpy.min(data[1])
+fmax = numpy.max(data[1])
+fs = args.fstep
+
+cnt = 1
+
+d = dmin-ds/2
+while d < dmax+ds/2:
+  ii = (data[3]>=d) & (data[3]<d+ds)
+  if not numpy.any(ii):
+    d += ds
+    continue
+  else:
+    d = numpy.mean(data[3,ii]) + ds/2
+
+  f = fmin-fs/2
+  while f < fmax+fs/2:
+    jj = ii & (data[1]>=f) & (data[1]<f+fs)
+    if not numpy.any(jj):
+      f += fs
+      continue
+    else:
+      f = numpy.mean(data[1,jj]) + fs/2
+
+    print('writing %s '% (args.outmask%(cnt)) )
+    numpy.savetxt(args.outmask%(cnt), numpy.transpose(data[:,jj]),
+      header = "time -- freq -- drive offs -- drive amp -- phase -- amp1 -- amp2 -- amp 3 -- icta",
+      fmt='%.6f %f  %e %e %e  %e %e %e  %e')
+    cnt+=1

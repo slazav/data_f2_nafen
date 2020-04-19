@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import math
+import numpy
+import matplotlib.pyplot as plt
+
+
+fig, ax = plt.subplots(2,1, figsize=(5, 8))
+
+###############
+
+f = 'R05D01b_5A1'
+time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+  numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+phase = numpy.mod(phase,2*math.pi)
+
+ax[0].plot(freq, amp1/damp, 'r*-', label = f)
+ax[1].plot(freq, phase,     'r*-', label = f)
+
+###############
+
+f = 'R05D01b_5A2'
+time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+  numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+phase = numpy.mod(phase,2*math.pi)
+
+ax[0].plot(freq, amp1/damp, 'b*-', label = f)
+ax[1].plot(freq, phase,     'b*-', label = f)
+
+###############
+
+ax[0].set_ylabel('amp1/drive')
+ax[1].set_ylabel('phase, rad')
+ax[1].set_xlabel('Frequency, Hz')
+ax[0].legend()
+plt.savefig('plot_freq_sweep.png')

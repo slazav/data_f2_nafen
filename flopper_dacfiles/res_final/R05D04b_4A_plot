@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+
+
+fig, ax = plt.subplots(2,1, figsize=(5, 8))
+
+###########
+
+def plot_file(f, c, l):
+  time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+    numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+  phase[phase>3] -= 2*math.pi
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 1)
+
+
+###########
+
+plot_file('R05D04b_4A04', 'r.', '1Hz')
+plot_file('R05D04b_4A11', 'g.', '1Hz')
+plot_file('R05D04b_4A15', 'b.', '1Hz')
+plot_file('R05D04b_4A19', 'm.', '1Hz')
+plot_file('R05D04b_4A20', 'c.', '1Hz')
+ax[0].text(600, 3.8, '1Hz')
+ax[1].text(600, 1.6, '1Hz')
+
+plot_file('R05D04b_4A01', 'r.', '2Hz')
+plot_file('R05D04b_4A05', 'g.', '2Hz')
+plot_file('R05D04b_4A08', 'b.', '2Hz')
+plot_file('R05D04b_4A12', 'm.', '2Hz')
+plot_file('R05D04b_4A16', 'c.', '2Hz')
+ax[0].text(600, 1.9, '2Hz')
+ax[1].text(600, 0.6, '2Hz')
+
+plot_file('R05D04b_4A02', 'r.', '3Hz')
+plot_file('R05D04b_4A06', 'g.', '3Hz')
+plot_file('R05D04b_4A09', 'b.', '3Hz')
+plot_file('R05D04b_4A13', 'm.', '3Hz')
+plot_file('R05D04b_4A17', 'c.', '3Hz')
+ax[0].text(600, 0.8, '3Hz')
+ax[1].text(600, -0.2, '3Hz')
+
+plot_file('R05D04b_4A03', 'r.', '4Hz')
+plot_file('R05D04b_4A07', 'g.', '4Hz')
+plot_file('R05D04b_4A10', 'b.', '4Hz')
+plot_file('R05D04b_4A14', 'm.', '4Hz')
+plot_file('R05D04b_4A18', 'c.', '4Hz')
+ax[0].text(600, 0.1, '4Hz')
+ax[1].text(600, -0.7, '4Hz')
+
+###########
+
+ax[0].set_ylabel('amp1/drive')
+ax[1].set_ylabel('phase, rad')
+ax[1].set_xlabel('ICTA width, Hz')
+plt.savefig('R05D04b_4A_plot.png')

@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+
+
+fig, ax = plt.subplots(2,1, figsize=(5, 8))
+
+def plot_file(f, c, l):
+  time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+    numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+  phase[phase>3] -= 2*math.pi
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 1)
+
+###########
+
+plot_file('R05D06b_8A1', 'r.', '2 Hz, 2.3 mV')
+plot_file('R05D06b_8A2', 'g.', '2 Hz, 4.7 mV')
+plot_file('R05D06b_8A3', 'b.', '2 Hz, 20 mV')
+plot_file('R05D06b_8A4', 'c.', '2 Hz, 30 mV')
+plot_file('R05D06b_8A5', 'm.', '2 Hz, 40 mV')
+plot_file('R05D06b_8A6', 'k.', '2 Hz, 60 mV')
+
+###########
+
+ax[0].set_ylabel('amp1/drive')
+ax[1].set_ylabel('phase, rad')
+ax[1].set_xlabel('ICTA width, Hz')
+ax[0].legend()
+plt.savefig('plot_R05D06b_8A.png')

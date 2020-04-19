@@ -197,6 +197,7 @@ if args.icta_plot:
   plt.plot((data[0]-tmin)/24/3600, icta, 'g*', label = 'interpolated to data points')
   plt.xlabel('time, days')
   plt.ylabel('ICTA width, Hz')
+  plt.legend()
   plt.savefig(args.icta_plot)
 
 # save file

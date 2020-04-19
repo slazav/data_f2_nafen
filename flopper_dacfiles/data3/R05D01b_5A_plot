@@ -9,23 +9,18 @@ fig, ax = plt.subplots(2,1, figsize=(5, 8))
 
 ###############
 
-f = 'R05D01b_5A1'
-time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
-  numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
-phase = numpy.mod(phase,2*math.pi)
-
-ax[0].plot(freq, amp1/damp, 'r*-', label = f)
-ax[1].plot(freq, phase,     'r*-', label = f)
+def plot_file(f, c, l):
+  time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
+    numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
+  phase = numpy.mod(phase,2*math.pi)
+  ax[0].plot(freq, amp1, c, label = l)
+  ax[1].plot(freq, phase,     c, label = l)
 
 ###############
 
-f = 'R05D01b_5A2'
-time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
-  numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
-phase = numpy.mod(phase,2*math.pi)
+plot_file('R05D01b_5A_04Hz_24mV', 'r*-', '24mV')
+plot_file('R05D01b_5A_08Hz_48mV', 'b*-', '48mV')
 
-ax[0].plot(freq, amp1/damp, 'b*-', label = f)
-ax[1].plot(freq, phase,     'b*-', label = f)
 
 ###############
 

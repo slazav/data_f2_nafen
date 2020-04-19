@@ -16,12 +16,12 @@ def plot_file(f, c, l):
 
 ###########
 
-plot_file('R05D07b_2A1', 'r.', '3 Hz, 3.8 mV')
-plot_file('R05D07b_2A2', 'g.', '3 Hz, 7.6 mV')
-plot_file('R05D07b_2A3', 'b.', '3 Hz, 11 mV')
-plot_file('R05D07b_2A4', 'c.', '3 Hz, 24 mV')
-plot_file('R05D07b_2A5', 'm.', '3 Hz, 33 mV')
-plot_file('R05D07b_2A6', 'k.', '3 Hz, 33 mV')
+plot_file('R05D07b_2A_03Hz_02mV', 'r.', '3 Hz, 2 mV')
+plot_file('R05D07b_2A_03Hz_05mV', 'g.', '3 Hz, 5 mV')
+plot_file('R05D07b_2A_03Hz_09mV', 'b.', '3 Hz, 9 mV')
+plot_file('R05D07b_2A_03Hz_14mV', 'c.', '3 Hz, 14 mV')
+plot_file('R05D07b_2A_03Hz_19mV', 'm.', '3 Hz, 19 mV')
+plot_file('R05D07b_2A_03Hz_24mV', 'k.', '3 Hz, 24 mV')
 
 ###########
 

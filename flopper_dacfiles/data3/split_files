@@ -8,7 +8,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('infile')
-parser.add_argument('outmask')
+parser.add_argument('outpref')
 
 parser.add_argument('--fstep', default=0.01, type=float,
                     help='bin size in frequncies')
@@ -59,8 +59,11 @@ while d < dmax+ds/2:
 
     if numpy.count_nonzero(jj) <= args.skip_lim: continue
 
-    print('writing %s '% (args.outmask%(cnt)) )
-    numpy.savetxt(args.outmask%(cnt), numpy.transpose(data[:,jj]),
+    fname = "%s_%02.0fHz_%02.0fmV.dat" %\
+      (args.outpref, numpy.mean(data[1,jj]), 1000*numpy.mean(data[3,ii]))
+
+    print('writing %s' % (fname))
+    numpy.savetxt(fname, numpy.transpose(data[:,jj]),
       header = "time -- freq -- drive offs -- drive amp -- phase -- amp1 -- amp2 -- amp 3 -- icta",
       fmt='%.6f %f  %e %e %e  %e %e %e  %e')
     cnt+=1

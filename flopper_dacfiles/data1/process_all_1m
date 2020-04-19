@@ -1,0 +1,22 @@
+#!/bin/sh
+
+prefix=/mnt/luna/fridge2_rawdata/Nafen_cell
+data=.
+
+if [ ! -d "$prefix" ]; then 
+  printf "Data folder is not avalable: $prefix";
+  exit 1
+fi
+
+mkdir -p $data
+rm -f $data/*.dat
+
+# Data with 1-minut resolution (split each file into 5 pieces)
+
+while read f d c; do
+  [ "$f" != "#" ] || continue
+  name=$(echo $f | sed 's|/|_|g')
+  echo $name
+  ./process_flopper_dacfile --split_n 5 --points 50 --round_freq 0.1 $prefix/$f $d > $data/1m_$name.dat
+done < datafolders.txt
+

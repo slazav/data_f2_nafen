@@ -19,9 +19,9 @@ def plot_file(f, c, l):
 
 ###########
 
-plot_file('R05D05a_0A1', 'r.-', '2Hz 14 mV')
-plot_file('R05D05a_0A2', 'g.-', '2Hz 27 mV')
-plot_file('R05D05a_0A3', 'b.-', '2Hz 55 mV')
+plot_file('R05D05a_0A_02Hz_14mV', 'r.-', '2Hz 14 mV')
+plot_file('R05D05a_0A_02Hz_27mV', 'g.-', '2Hz 27 mV')
+plot_file('R05D05a_0A_02Hz_55mV', 'b.-', '2Hz 55 mV')
 
 ###########
 

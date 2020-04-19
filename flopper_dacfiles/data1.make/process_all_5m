@@ -4,6 +4,8 @@ prefix=/mnt/luna/fridge2_rawdata/Nafen_cell
 data=../data1_5m
 
 mkdir -p $data
+rm -f $data/*.dat
+
 while read f d c; do
   [ "$f" != "#" ] || continue
   name=$(echo $f | sed 's|/|_|g')

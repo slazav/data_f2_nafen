@@ -185,12 +185,13 @@ for fname in sorted(os.listdir(dirname)):
         # phD1 += Dr[h]*Sin + Di[h]*Cos
 
     # save data
+    tstamp = (T1[0]+T1[-1])/2 + date
     if args.tfiles:
-      numpy.savetxt('%.0f.txt' % (T1[0]+date), numpy.transpose([phV/freq0, phD, phS]),
+      numpy.savetxt('%.0f.txt' % (tstamp), numpy.transpose([phV/freq0, phD, phS]),
         header = "phase -- drive -- signal" )
 
     # print data: time, frequency
-    print("%f %f" % (T1[0]+date, freq0), end="")
+    print("%f %f" % (tstamp, freq0), end="")
 
     # print data: drive amplitude, phase shift between drive and signal (radians)
     if h>0:

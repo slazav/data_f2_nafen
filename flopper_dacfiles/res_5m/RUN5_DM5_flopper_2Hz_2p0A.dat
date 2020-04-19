@@ -1,11 +1,3 @@
-# time -- freq -- drive offset -- drive_amp -- sig_phase -- sig_amp1 -- sig_amp2...
-1579524134.999606 2.000000  9.542514e-01 5.494985e-02 -4.030660e+00  3.018327e-03  1.072337e-04  7.880482e-06
-#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000002.dat
-1579524413.980333 2.000000  9.538258e-01 5.491238e-02 -4.108296e+00  1.548082e-01  7.951899e-04  7.811466e-05
-#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000003.dat
-1579524626.840631 2.000000  9.545108e-01 2.743450e-02 -4.138447e+00  7.788665e-02  8.567993e-04  1.990536e-04
-#  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000004.dat
-1579524839.697970 2.000000  9.552660e-01 1.374336e-02 -4.155709e+00  3.904924e-02  7.799030e-04  1.032722e-04
 #  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000005.dat
 1579525053.171566 2.000000  9.561256e-01 5.496130e-02 -4.167762e+00  1.560989e-01  2.944495e-03  3.951664e-04
 #  /mnt/luna/fridge2_rawdata/Nafen_cell/RUN5/DM5/flopper/2Hz_2p0A/Flopper_2Hz_2p0A_500mV_000006.dat

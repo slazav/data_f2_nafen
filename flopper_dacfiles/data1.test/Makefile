@@ -1,4 +1,4 @@
-PROG := ../data1_make/process_flopper_dacfile
+PROG := ../data1.make/process_flopper_dacfile
 
 all: signal.dat ${PROG}
 	${PROG} --points 50 --tfiles . 2020-01-01

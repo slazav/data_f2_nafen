@@ -1,8 +1,13 @@
-## Data splitted by drive frequency and amplitude, with ICTA column added.
+## Dataset 3: data splitted by drive frequency and amplitude
 
-For each series I choose 1m or 5m
-dataset, split measurements with different excitation
-amplitudes/frequencies and added ICTA width column.
+For each series I choose 1m or 5m version from dataset2 (depending oon
+time resolution needed) and split measurements with different excitation
+amplitudes/frequencies.
+
+There are also plotting scripts available to see that all this dataset
+contain.
+
+---
 
 * R05D01a_5A -- slow warming up from low temperature to above Tc with f =
 1Hz and single amplitude. Two kinks are visible near tc. Data with

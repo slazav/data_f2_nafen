@@ -1,8 +1,5 @@
 #!/bin/sh
 
-mkdir -p ../data3
-rm -f ../data3/*.dat ../data3/*.png
-
 # Format:
 # * source file
 # * destination file prefix

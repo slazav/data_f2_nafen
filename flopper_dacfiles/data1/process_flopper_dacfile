@@ -17,16 +17,25 @@ import scipy.integrate
 parser = argparse.ArgumentParser()
 parser.add_argument('dirname')
 parser.add_argument('date')
+
 parser.add_argument('--split_n', default=1, type=int,
                     help='split files into n parts')
+
 parser.add_argument('--points', default=50, type=int,
                     help='number of phase points on the output')
+
 parser.add_argument('--harm_n', default=3, type=int,
                     help='number of harmonics to be calculated')
+
 parser.add_argument('--round_freq', default=0, type=float,
                     help='round frequency with given accuracy')
+
 parser.add_argument('--tfiles', action='store_true',
                     help='write averaged files, signal and drive vs time')
+
+parser.add_argument('--skip_files', default=0, type=int,
+                    help='process every (n+1)th file')
+
 args = parser.parse_args()
 
 dirname = args.dirname
@@ -37,9 +46,12 @@ date = time.mktime(date)
 # read all *.dat files in the directory
 
 told = 0 # starting time of the previous file
+fcnt = 0 # file counter
 print('# time -- freq -- drive offset -- drive_amp -- sig_phase -- sig_amp1 -- sig_amp2...')
 for fname in sorted(os.listdir(dirname)):
   if not fname.endswith(".dat"): continue
+  fcnt += 1
+  if args.skip_files>0 and fcnt%(args.skip_files+1)!=0: continue
   fname = os.path.join(dirname, fname)
   print('# ', fname)
 

@@ -200,7 +200,7 @@ for fname in sorted(os.listdir(dirname)):
     tstamp = (T1[0]+T1[-1])/2 + date
     if args.tfiles:
       numpy.savetxt('%.0f.txt' % (tstamp), numpy.transpose([phV/freq0, phD, phS]),
-        header = "phase -- drive -- signal" )
+        header = "phase -- drive -- signal", fmt='%e %e %e')
 
     # print data: time, frequency
     print("%f %f" % (tstamp, freq0), end="")

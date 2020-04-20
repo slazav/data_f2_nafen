@@ -13,5 +13,5 @@ while read f d c; do
   name=$(echo $f | sed 's|/|_|g')
   echo $name
   ./process_flopper_dacfile --points 50 --round_freq 0.1 $prefix/$f $d > $name.dat
-done < data_run1.txt
+done < data_run1.tab
 

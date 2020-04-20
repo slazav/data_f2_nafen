@@ -21,14 +21,14 @@ import matplotlib.pyplot as plt
 # See text in http://www.scholarpedia.org/article/Duffing_oscillator
 #
 
-def nonlin_osc_eq(uv,w, F, func):
+def nonlin_osc_eq(uv,w, F, func, fpars):
 
   p = 2*math.pi*numpy.linspace(0,1,100) # phase for integration
   sp = numpy.sin(p)
   cp = numpy.cos(p)
   x = uv[0]*cp-uv[1]*sp;
   dx = w*(-uv[0]*sp-uv[1]*cp);
-  ddx = F*cp - func(x,dx);
+  ddx = F*cp - func(x,dx,fpars);
 
   duv = [-scipy.integrate.trapz(p, (ddx + w**2*x)*sp)/w,\
          -scipy.integrate.trapz(p, (ddx + w**2*x)*cp)/w];
@@ -41,11 +41,8 @@ def nonlin_osc_eq(uv,w, F, func):
 #  w is frequency array
 #
 
-def nonlin_osc(w, F, func, uv0):
-  uv = numpy.zeros((w.size,2))
-  for i in range(w.size):
-    uv0 = uv[i] = scipy.optimize.fsolve(nonlin_osc_eq, uv0, (w[i],F,func))
-  return uv
+def nonlin_osc(w, F, func, fpars, uv0):
+  return scipy.optimize.fsolve(nonlin_osc_eq, uv0, (w,F,func,fpars))
 
 #######################################################
 
@@ -54,24 +51,31 @@ w0 = 1
 d = 1
 a = 0.05
 b = 0
-F = numpy.array([2, 4, 6,8])
+vc = 1
+k = 0.5
+F = numpy.array([0.5,1,2,3,4])
 w = numpy.linspace(0.1,2,100)
 
 
 ## pseudoplastic osc
-def func(x,dx):
-  return w0**2*x + d*dx* (1 + 1/numpy.sqrt(0.1+dx**2))
+def func(x,dx, pars):
+  w0 = pars[0]
+  d  = pars[1]
+  vc  = pars[2]
+  return w0**2*x + d*dx * (1 + k*vc/numpy.sqrt(vc**2+dx**2))
 
 
 for fi in range(F.size):
   amp = numpy.zeros(w.size)
   ph  = numpy.zeros(w.size)
   for wi in range(w.size):
-    uv = scipy.optimize.fsolve(nonlin_osc_eq, [0,0], (w[wi],F[fi],func))
+    uv = nonlin_osc(w[wi],F[fi],func, [w0,d,vc], [0,0])
     amp[wi] = numpy.hypot(uv[0],uv[1])/F[fi]
     ph[wi]  = numpy.arctan2(uv[1],uv[0])
 
   plt.plot(w, amp, label=F[fi])
 
+plt.xlabel('frequency')
+plt.ylabel('amplitude/drive')
 plt.legend()
 plt.savefig('solve_avrg.png')

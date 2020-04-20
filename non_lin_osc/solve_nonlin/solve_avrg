@@ -1,0 +1,77 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import scipy.optimize
+import scipy.integrate
+import matplotlib.pyplot as plt
+
+#######################################################
+
+# Equilibriun function of a non-linear oscillator
+# at periodic drive.
+#
+# u,v - van der Pol coordinates (x,x' rotated by w*t)
+# w - frequency
+# func - second derivative function, x'' = func(x, x')
+#
+# Coordinated are averaged over rotation period (phase 0..2*pi)
+# Output is u' and v',  they should be zero in equilibrium.
+#
+# See text in http://www.scholarpedia.org/article/Duffing_oscillator
+#
+
+def nonlin_osc_eq(uv,w, F, func):
+
+  p = 2*math.pi*numpy.linspace(0,1,100) # phase for integration
+  sp = numpy.sin(p)
+  cp = numpy.cos(p)
+  x = uv[0]*cp-uv[1]*sp;
+  dx = w*(-uv[0]*sp-uv[1]*cp);
+  ddx = F*cp - func(x,dx);
+
+  duv = [-scipy.integrate.trapz(p, (ddx + w**2*x)*sp)/w,\
+         -scipy.integrate.trapz(p, (ddx + w**2*x)*cp)/w];
+  return duv
+
+
+#######################################################
+
+# find equilibrium (zero of nonlin_osc_eq function)
+#  w is frequency array
+#
+
+def nonlin_osc(w, F, func, uv0):
+  uv = numpy.zeros((w.size,2))
+  for i in range(w.size):
+    uv0 = uv[i] = scipy.optimize.fsolve(nonlin_osc_eq, uv0, (w[i],F,func))
+  return uv
+
+#######################################################
+
+
+w0 = 1
+d = 1
+a = 0.05
+b = 0
+F = numpy.array([2, 4, 6,8])
+w = numpy.linspace(0.1,2,100)
+
+
+## pseudoplastic osc
+def func(x,dx):
+  return w0**2*x + d*dx* (1 + 1/numpy.sqrt(0.1+dx**2))
+
+
+for fi in range(F.size):
+  amp = numpy.zeros(w.size)
+  ph  = numpy.zeros(w.size)
+  for wi in range(w.size):
+    uv = scipy.optimize.fsolve(nonlin_osc_eq, [0,0], (w[wi],F[fi],func))
+    amp[wi] = numpy.hypot(uv[0],uv[1])/F[fi]
+    ph[wi]  = numpy.arctan2(uv[1],uv[0])
+
+  plt.plot(w, amp, label=F[fi])
+
+plt.legend()
+plt.savefig('solve_avrg.png')

@@ -18,11 +18,11 @@ def plot_file(f, c, l):
 
 ###########
 
-plot_file('R05D01a_5A', 'r.', 'R05D01a_5A')
-plot_file('R05D02a_5A', 'b.', 'R05D02a_5A')
-plot_file('R05D03b_5A', 'g.', 'R05D03b_5A')
-plot_file('R05D03c_4A', 'm.', 'R05D03c_4A')
-plot_file('R05D03d_8A', 'c.', 'R05D03d_8A')
+plot_file('R05D01a_5p0A', 'r.', 'R05D01a_5p0A')
+plot_file('R05D02a_5p0A', 'b.', 'R05D02a_5p0A')
+plot_file('R05D03b_2p5A', 'g.', 'R05D03b_2p5A')
+plot_file('R05D03c_4p0A', 'm.', 'R05D03c_4p0A')
+plot_file('R05D03d_5p8A', 'c.', 'R05D03d_5p8A')
 
 ###########
 

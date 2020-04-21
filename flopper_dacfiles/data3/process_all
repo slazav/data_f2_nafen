@@ -8,21 +8,21 @@
 # * arg2 (for action S) - drive  amplitude bin size for splitting, V
 
 echo "
- ../data2/1ma_RUN5_DM1_flopper_AC_5A.dat                  R05D01a_5A  C
- ../data2/1ma_RUN5_DM1_flopper_Fsweep_5A.dat              R05D01b_5A  S 50 0.01
- ../data2/1ma_RUN5_DM2_flopper_AC_1Hz_5A.dat              R05D02a_5A  C
- ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_2p5A_amp_sweep.dat  R05D03a_5A  C
- ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_2p5A.dat            R05D03b_5A  C
- ../data2/1ma_RUN5_DM3_flopper_AC_1Hz_4A.dat              R05D03c_4A  C
- ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_5p8A.dat            R05D03d_8A  C
- ../data2/1ma_RUN5_DM4_flopper_4Hz_2p5A.dat               R05D04a_5A  S 0.1 0.01
- ../data2/1ma_RUN5_DM4_flopper_amp_sweep4A.dat            R05D04b_4A  S 0.1 0.005
- ../data2/5ma_RUN5_DM5_flopper_2Hz_2p0A.dat               R05D05a_0A  S 0.1 0.005
- ../data2/1ma_RUN5_DM5_flopper_2Hz_5p8A.dat               R05D05b_8A  S 0.1 0.005
- ../data2/1ma_RUN5_DM6_flopper_2Hz_2p8A.dat               R05D06a_8A  S 0.1 0.005
- ../data2/1ma_RUN5_DM6_flopper_2Hz_5p8A.dat               R05D06b_8A  S 0.1 0.002
- ../data2/5ma_RUN5_DM7_flopper_3Hz_3A_AmpSweep.dat        R05D07a_3A  S 0.1 0.004
- ../data2/5ma_RUN5_DM7_flopper_3Hz_5p2A_AmpSweep.dat      R05D07b_2A  S 0.1 0.002
+ ../data2/1ma_RUN5_DM1_flopper_AC_5A.dat                  R05D01a_5p0A  C
+ ../data2/1ma_RUN5_DM1_flopper_Fsweep_5A.dat              R05D01b_5p0A  S 50 0.01
+ ../data2/1ma_RUN5_DM2_flopper_AC_1Hz_5A.dat              R05D02a_5p0A  C
+ ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_2p5A_amp_sweep.dat  R05D03a_2p5A  C
+ ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_2p5A.dat            R05D03b_2p5A  C
+ ../data2/1ma_RUN5_DM3_flopper_AC_1Hz_4A.dat              R05D03c_4p0A  C
+ ../data2/5ma_RUN5_DM3_flopper_AC_1Hz_5p8A.dat            R05D03d_5p8A  C
+ ../data2/1ma_RUN5_DM4_flopper_4Hz_2p5A.dat               R05D04a_2p5A  S 0.1 0.01
+ ../data2/1ma_RUN5_DM4_flopper_amp_sweep4A.dat            R05D04b_4p0A  S 0.1 0.005
+ ../data2/5ma_RUN5_DM5_flopper_2Hz_2p0A.dat               R05D05a_2p0A  S 0.1 0.005
+ ../data2/1ma_RUN5_DM5_flopper_2Hz_5p8A.dat               R05D05b_5p8A  S 0.1 0.005
+ ../data2/1ma_RUN5_DM6_flopper_2Hz_2p8A.dat               R05D06a_2p8A  S 0.1 0.005
+ ../data2/1ma_RUN5_DM6_flopper_2Hz_5p8A.dat               R05D06b_5p8A  S 0.1 0.002
+ ../data2/5ma_RUN5_DM7_flopper_3Hz_3A_AmpSweep.dat        R05D07a_3p0A  S 0.1 0.004
+ ../data2/5ma_RUN5_DM7_flopper_3Hz_5p2A_AmpSweep.dat      R05D07b_5p2A  S 0.1 0.002
 " |
 while read file pref action arg1 arg2 arg3 comm; do
   [ -f "$file" ] || continue

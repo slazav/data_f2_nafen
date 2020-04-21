@@ -10,18 +10,18 @@ fig, ax = plt.subplots(2,1, figsize=(5, 8))
 def plot_file(f, c, l):
   time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
     numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
-  phase[phase>3] -= 2*math.pi
+  phase[phase<0] += 2*math.pi
   ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
   ax[1].plot(icta, phase,     c, label = l, markersize = 1)
 
 ###########
 
-plot_file('R05D06b_8A_02Hz_02mV', 'r.', '2 Hz,  2 mV')
-plot_file('R05D06b_8A_02Hz_05mV', 'g.', '2 Hz,  5 mV')
-plot_file('R05D06b_8A_02Hz_09mV', 'b.', '2 Hz,  9 mV')
-plot_file('R05D06b_8A_02Hz_14mV', 'c.', '2 Hz, 14 mV')
-plot_file('R05D06b_8A_02Hz_19mV', 'm.', '2 Hz, 19 mV')
-plot_file('R05D06b_8A_02Hz_24mV', 'k.', '2 Hz, 24 mV')
+plot_file('R05D07b_5p2A_03Hz_02mV', 'r.', '3 Hz, 2 mV')
+plot_file('R05D07b_5p2A_03Hz_05mV', 'g.', '3 Hz, 5 mV')
+plot_file('R05D07b_5p2A_03Hz_09mV', 'b.', '3 Hz, 9 mV')
+plot_file('R05D07b_5p2A_03Hz_14mV', 'c.', '3 Hz, 14 mV')
+plot_file('R05D07b_5p2A_03Hz_19mV', 'm.', '3 Hz, 19 mV')
+plot_file('R05D07b_5p2A_03Hz_24mV', 'k.', '3 Hz, 24 mV')
 
 ###########
 
@@ -29,4 +29,4 @@ ax[0].set_ylabel('amp1/drive')
 ax[1].set_ylabel('phase, rad')
 ax[1].set_xlabel('ICTA width, Hz')
 ax[0].legend()
-plt.savefig('R05D06b_8A_plot.png')
+plt.savefig('R05D07b_5p2A_plot.png')

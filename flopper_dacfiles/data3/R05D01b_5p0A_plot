@@ -18,8 +18,8 @@ def plot_file(f, c, l):
 
 ###############
 
-plot_file('R05D01b_5A_04Hz_24mV', 'r*-', '24mV')
-plot_file('R05D01b_5A_08Hz_48mV', 'b*-', '48mV')
+plot_file('R05D01b_5p0A_04Hz_24mV', 'r*-', '24mV')
+plot_file('R05D01b_5p0A_08Hz_48mV', 'b*-', '48mV')
 
 
 ###############
@@ -28,4 +28,4 @@ ax[0].set_ylabel('amp1/drive')
 ax[1].set_ylabel('phase, rad')
 ax[1].set_xlabel('Frequency, Hz')
 ax[0].legend()
-plt.savefig('R05D01b_5A_plot.png')
+plt.savefig('R05D01b_5p0A_plot.png')

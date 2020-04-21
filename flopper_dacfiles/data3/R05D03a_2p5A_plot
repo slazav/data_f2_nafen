@@ -18,7 +18,7 @@ def plot_file(f, c, l):
 
 #################
 
-plot_file('R05D03a_5A', 'r*', 'R05D03a_5A')
+plot_file('R05D03a_2p5A', 'r*', 'R05D03a_2p5A')
 
 #################
 
@@ -26,4 +26,4 @@ ax[0].set_ylabel('amp1')
 ax[1].set_ylabel('phase, rad')
 ax[1].set_xlabel('Recorded drive amplitude, V')
 ax[0].legend()
-plt.savefig('R05D03a_5A_plot.png')
+plt.savefig('R05D03a_2p5A_plot.png')

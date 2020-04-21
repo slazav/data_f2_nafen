@@ -184,9 +184,27 @@ plt.savefig(args.listpref + '_sweeps.png')
 
 
 # load ICTA data for the whole time range
-icta = get_icta(tsweep, win=args.sm_win, marg=3600, plot=args.listpref + '_icta.png')
+tmin=data[0]["T"][0]
+tmax=data[-1]["T"][-1]
+(icta_t, icta_w, icta_st, icta_sw) = get_icta(tmin,tmax, win=args.sm_win, marg=3600)
 
-## separate sweep sequencies
+plt.clf();
+
+plt.plot((icta_t-tmin)/3600,  icta_w, 'r-', label = 'original data')
+plt.plot((icta_st-tmin)/3600, icta_sw, 'b-', label = 'smoothed')
+
+for i in range(N):
+  data[i]["ICTA"] = numpy.interp(data[i]["T"], icta_st, icta_sw)
+  data[i]["icta_mean"] = numpy.mean(data[i]["ICTA"])
+  plt.plot((data[i]["T"]-tmin)/3600, data[i]["ICTA"], 'g*')
+
+plt.xlabel('time, hours')
+plt.ylabel('ICTA width, Hz')
+plt.legend()
+plt.savefig(args.listpref + '_icta.png')
+
+
+## separate sweep sequences
 # Each sequence has same frequency points, and unique set of drive amplitudes
 # Distance between sweeps is less then sweep length
 seq = []
@@ -199,26 +217,36 @@ for i in range(N):
     seq.append(i)
     drives = {}
   drives[data[i]["exc"]] = 1
-
-## save and plot sweep sequencies
 seq.append(N)
+
+# add sequence mean icta value
+icta = []
+for s in range(len(seq)-1):
+  i1 = seq[s]
+  i2 = seq[s+1]
+  ii = []
+  for i in range(i1,i2): ii.append(data[i]["icta_mean"])
+  icta.append(numpy.mean(ii))
+
+## save and plot sweep sequences
 f1 = open(args.listpref + ".dat", 'w')
-f1.write("# sweep sequencies\n")
+f1.write("# sweep sequences\n")
 f1.write("# start time, end time, icta, file\n")
 for s in range(len(seq)-1):
   i1 = seq[s]
   i2 = seq[s+1]
   sfile = "%s_%02d.dat" % (args.listpref, s)
-  f1.write("%.0f %.0f %f %s\n" % (data[i1]["T"][0], data[i2-1]["T"][-1], numpy.mean(icta[i1:i2]), sfile))
+  f1.write("%.0f %.0f %f %s\n" % (data[i1]["T"][0], data[i2-1]["T"][-1], icta[s], sfile))
   f2 = open(sfile, 'w')
   for i in range(i1,i2):
-    f2.write("# t1: %.0f t2: %.0f icta: %f\n" % (data[i]["T"][0],data[i]["T"][-1],icta[i]))
-    f2.write("# time -- freq -- exc -- x -- y -- x2 -- y2\n")
+
+    f2.write("# t1: %.0f t2: %.0f icta: %f\n" % (data[i]["T"][0],data[i]["T"][-1],data[i]["icta_mean"]))
+    f2.write("# time -- freq -- exc -- x -- y -- x2 -- y2 -- icta\n")
     for j in range(data[i]["T"].size):
-      f2.write("%.0f %f %f  %e %e %e %e\n" % (\
+      f2.write("%.0f %f %f  %e %e %e %e  %f\n" % (\
         data[i]["T"][j],data[i]["F"][j], data[i]["exc"],\
         data[i]["X"][j],data[i]["Y"][j],\
-        data[i]["X2"][j],data[i]["Y2"][j],\
+        data[i]["X2"][j],data[i]["Y2"][j], data[i]["ICTA"][j]\
       ))
 
 
@@ -230,12 +258,13 @@ for s in range(len(seq)-1):
   for i in range(i1,i2):
     e = data[i]["exc"]
     c = ecols[e]
-    plt.plot(data[i]["F"], data[i]["X"]/e, c + '*-')
+    plt.plot(data[i]["F"], data[i]["X"]/e, c + '*-', label='%.0f mV'%(e))
     plt.plot(data[i]["F"], data[i]["Y"]/e, c + 'o-')
 
+  plt.title('%s_%02d icta: %.0f Hz' %(args.listpref,s,icta[s]))
   plt.xlabel('freq, Hz')
   plt.ylabel('x/drive, y/drive')
-#  plt.legend()
+  plt.legend()
   plt.savefig("%s_%02d.png" % (args.listpref, s))
 
 

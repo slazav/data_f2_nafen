@@ -2,7 +2,7 @@
 
 import numpy
 import argparse
-from icta import get_icta
+from icta import interp_icta
 
 ################################
 # Add ICTA width as 9-th column
@@ -44,7 +44,7 @@ if not numpy.all(mask):
 
 
 # load ICTA data for the whole time range
-icta = get_icta(data[0], win=args.sm_win, marg=30, plot=args.icta_plot)
+icta = interp_icta(data[0], win=args.sm_win, marg=30, plot=args.icta_plot)
 
 
 # save file

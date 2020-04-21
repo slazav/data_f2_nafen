@@ -25,36 +25,36 @@ Note that at T>Tc and T<Tc curves are close to each other. This maybe show
 that viscosity effects for ICTA and for flopper are same, no strong effects from
 aerogel!
 
-* R05D03a_5A -- Amplitude sweep at ICTA = 250-280 Hz. 5-minutes data is used.
+* R05D03a_5p0A -- Amplitude sweep at ICTA = 250-280 Hz. 5-minutes data is used.
 
-* R05D03b_5A, R05D03c_4A, R05D03d_8A -- Short temperature sweeps at low temperatures.
+* R05D03b_2p5A, R05D03c_4A, R05D03d_8A -- Short temperature sweeps at low temperatures.
 
-* R05D04a_5A1, R05D04a_5A2 -- warming up from low temperature to
+* R05D04a_2p5A1, R05D04a_5A2 -- warming up from low temperature to
 above Tc with f = 4Hz and two different amplitudes.
 1-minute data are used for better temperature resolution.
 Transitions: Tc = 847 Hz
 
-* R05D04b_4A1,2,3,4 -- warming up with 4 different frequencies and 20 many drive
+* R05D04b_4p0A1,2,3,4 -- warming up with 4 different frequencies and 20 many drive
 amplitudes (20 different combinations). I split it into 4 files with different freq.
 1-minute data are used for better temperature resolution.
 Non-linearity at low temperatures is visible!
 Transitions: Tc = 822 Hz
 
-* R05D05a_0A -- amplitude sweep at ICTA = 201-210 Hz, 5-minutes data is used.
+* R05D05a_2p0A -- amplitude sweep at ICTA = 201-210 Hz, 5-minutes data is used.
 Is it actually 0A?
 
-* R05D05b_8A1..5 -- Warming up from low temperatures. freq = 2Hz, 5 different amplitudes.
+* R05D05b_5p8A1..5 -- Warming up from low temperatures. freq = 2Hz, 5 different amplitudes.
 Warming up at high drive and cooling at low drive is clearly seen!
 Transiotions: Tc = 817 Hz
 
-* R05D06a_8A -- Warming up from low temperatures, freq - 2Hz, 6 different amplitudes
+* R05D06a_2p8A -- Warming up from low temperatures, freq - 2Hz, 6 different amplitudes
 Transiotions: Tc = 832 Hz
 
-* R05D06b_8A -- Same (what is difference between 2p8A and 5p8A in file names?)
+* R05D06b_5.8A -- Same (what is difference between 2p8A and 5p8A in file names?)
 Transiotions: Tc = 814 Hz
 
-* R05D07a_3A
+* R05D07a_3p0A
 Transiotions: Tc = 843 Hz
 
-* R05D07b_3A
+* R05D07b_5p3A
 

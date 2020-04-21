@@ -5,6 +5,9 @@ import numpy
 import time
 import re
 import matplotlib.pyplot as plt
+import sys
+sys.path.insert(1, '../data2')
+from icta import get_icta
 
 # process one group of files - sweeps at different drive amplitudes which are
 # good to fit together
@@ -21,6 +24,12 @@ parser.add_argument('--dt', default=-1, type=int,
 
 parser.add_argument('--t0', default=-1, type=int,
                     help='how long program waits before sweep (default -1, set equal to dt)')
+
+parser.add_argument('--sm_win', default=-1, type=int,
+                    help='smooth window for ICTA data, points (default -1, no smoothing)')
+
+parser.add_argument('--skip', default="",
+                    help='skip some sweeps')
 
 args = parser.parse_args()
 
@@ -97,23 +106,47 @@ with open(listfile) as listf:
       }
       data.append(d)
 
-if len(data)<1:
-  print("Error: empty data: " + listfile)
-  exit(1)
 
 # sort by time
 data.sort(key=lambda x: x["time"])
 
+# skip sweeps
+N = len(data)
+mask = numpy.ones(N, dtype=bool)
+for r in args.skip.split(','):
+  a = r.split('-')
+  if len(a) == 0 or a[0] == '': continue
+  if len(a) == 1:
+    mask[int(a[0])]=False
+  else:
+    if a[1] == '': a[1] = N
+    mask[range(int(a[0]),int(a[1])+1)] = False
+
+if not numpy.all(mask):
+  data1 = []
+  for i in range(N):
+    if mask[i]: data1.append(data[i])
+  data=data1
+  N = len(data)
+
+if N<1:
+  print("Error: empty data: " + listfile)
+  exit(1)
+
+
 # reconstruct time of each point
-for i in range(len(data)):
+tsweep = []
+for i in range(N):
   t1 = data[i]["time"]
   n  = len(data[i]["F"])
   if args.dt>0:
     if args.t0 <= 0: args.t0 = args.dt;
-    data[i]["T"] = numpy.linspace(t1 + args.t0, t1 + args.t0 + n*args.dt, n)
+    t2 = t1 + args.t0 + n*args.dt
+    data[i]["T"] = numpy.linspace(t1 + args.t0, t2, n)
+    tsweep.append((t1+args.t0+t2)/2)
   else:
     # non-last sweep
-    if i<len(data)-1:
+    if i<N-1:
       t2 = data[i+1]["time"]
     # last sweep: estimate time from the previous one
     elif i>0:
@@ -126,13 +159,14 @@ for i in range(len(data)):
     dt = (t2-t1)/(n+1)
     print("dt: ", dt)
     data[i]["T"] = numpy.linspace(t1+dt,t2,n)
+    tsweep.append((t1+dt+t2)/2)
 
 t0 = data[0]["time"]
 
 # plot sweeps
 cols = 'rgbcmyk'
 ecols = {}
-for i in range(len(data)):
+for i in range(N):
   l = ''
   if data[i]["exc"] not in ecols.keys():
     ecols[data[i]["exc"]] = cols[len(ecols)%len(cols)]
@@ -146,16 +180,18 @@ plt.xlabel('time, h')
 plt.ylabel('Freq, Hz')
 #plt.xlim([20,30])
 plt.legend()
-plt.savefig(args.listpref + '.png')
+plt.savefig(args.listpref + '_sweeps.png')
 
+
+# load ICTA data for the whole time range
+icta = get_icta(tsweep, win=args.sm_win, marg=3600, plot=args.listpref + '_icta.png')
 
 ## separate sweep sequencies
 # Each sequence has same frequency points, and unique set of drive amplitudes
 # Distance between sweeps is less then sweep length
-
 seq = []
 drives = {}
-for i in range(len(data)):
+for i in range(N):
   if  i==0 or\
       numpy.any(data[i]["F"] != data[i-1]["F"]) or\
       data[i]["T"][0] - data[i-1]["T"][-1] > data[i]["T"][-1] - data[i]["T"][0] or\
@@ -163,6 +199,45 @@ for i in range(len(data)):
     seq.append(i)
     drives = {}
   drives[data[i]["exc"]] = 1
+
+## save and plot sweep sequencies
+seq.append(N)
+f1 = open(args.listpref + ".dat", 'w')
+f1.write("# sweep sequencies\n")
+f1.write("# start time, end time, icta, file\n")
+for s in range(len(seq)-1):
+  i1 = seq[s]
+  i2 = seq[s+1]
+  sfile = "%s_%02d.dat" % (args.listpref, s)
+  f1.write("%.0f %.0f %f %s\n" % (data[i1]["T"][0], data[i2-1]["T"][-1], numpy.mean(icta[i1:i2]), sfile))
+  f2 = open(sfile, 'w')
+  for i in range(i1,i2):
+    f2.write("# t1: %.0f t2: %.0f icta: %f\n" % (data[i]["T"][0],data[i]["T"][-1],icta[i]))
+    f2.write("# time -- freq -- exc -- x -- y -- x2 -- y2\n")
+    for j in range(data[i]["T"].size):
+      f2.write("%.0f %f %f  %e %e %e %e\n" % (\
+        data[i]["T"][j],data[i]["F"][j], data[i]["exc"],\
+        data[i]["X"][j],data[i]["Y"][j],\
+        data[i]["X2"][j],data[i]["Y2"][j],\
+      ))
+
+
+for s in range(len(seq)-1):
+  i1 = seq[s]
+  i2 = seq[s+1]
+  plt.clf()
+
+  for i in range(i1,i2):
+    e = data[i]["exc"]
+    c = ecols[e]
+    plt.plot(data[i]["F"], data[i]["X"]/e, c + '*-')
+    plt.plot(data[i]["F"], data[i]["Y"]/e, c + 'o-')
+
+  plt.xlabel('freq, Hz')
+  plt.ylabel('x/drive, y/drive')
+#  plt.legend()
+  plt.savefig("%s_%02d.png" % (args.listpref, s))
+
 
 print(seq)
 

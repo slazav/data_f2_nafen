@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import numpy
+import math
 import requests
 import io
 from non_uniform_savgol import non_uniform_savgol
@@ -20,7 +21,15 @@ def get_icta(times, win=0, marg=600, plot=''):
   tmin = numpy.min(times)
   tmax = numpy.max(times)
 
-  r = requests.get(url = "http://slazav.xyz:8091/get_range?name=icta&t1=%f&t2=%f" %(tmin-marg,tmax+marg))
+  r = requests.get(url = "http://slazav.xyz:8091/get_prev?name=icta&t1=%f" %(tmin-marg))
+  if r.text=="": t1=tmin-marg
+  else: t1 = math.floor(float(r.text.split()[0]))
+
+  r = requests.get(url = "http://slazav.xyz:8091/get_next?name=icta&t1=%f" %(tmax+marg))
+  if r.text=="": t2=tmax+marg
+  else: t2 = math.ceil(float(r.text.split()[0]))
+
+  r = requests.get(url = "http://slazav.xyz:8091/get_range?name=icta&t1=%f&t2=%f" %(t1,t2))
   icta_data = io.StringIO(r.text)
   (icta_t,y,icta_w) = numpy.loadtxt(icta_data, comments='#', unpack=True, usecols=(0,2,3))
 
@@ -45,6 +54,7 @@ def get_icta(times, win=0, marg=600, plot=''):
 
   # control plot
   if plot != '':
+    plt.clf();
     plt.plot((icta_t-tmin)/3600,  icta_w, 'r-', label = 'original data')
     plt.plot((icta_st-tmin)/3600, icta_sw, 'b-', label = 'smoothed')
     plt.plot((times-tmin)/3600,   icta, 'g*', label = 'interpolated to data points')

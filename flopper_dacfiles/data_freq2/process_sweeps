@@ -1,0 +1,169 @@
+#!/usr/bin/python3
+
+import argparse
+import numpy
+import time
+import re
+import matplotlib.pyplot as plt
+
+# process one group of files - sweeps at different drive amplitudes which are
+# good to fit together
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('listpref')
+
+parser.add_argument('--data1dir', default='../data_freq1',
+                    help='folder with source data')
+
+parser.add_argument('--dt', default=-1, type=int,
+                    help='time between points (default -1, autodetect)')
+
+parser.add_argument('--t0', default=-1, type=int,
+                    help='how long program waits before sweep (default -1, set equal to dt)')
+
+args = parser.parse_args()
+
+
+#####################
+# read data
+
+data = []
+listfile = args.listpref + ".lst"
+with open(listfile) as listf:
+  for line in listf:
+    pref = args.data1dir + '/' + line.rstrip()
+
+    fname = pref + 'full.dat'
+
+    # read sweep headers, save sweep timestamps
+    times = []
+    for line in open(fname, 'r'):
+      if not re.search("^freq", line): continue
+      v = line.rstrip().split('\t')
+
+      if len(v)<6 or v[4] == '""' or v[5] == '""':
+        print('Error: missing time for sweep %d in %s' %(len(times),fname))
+        exit(1)
+      t = time.strptime(v[4] + ' ' + v[5], '%d/%m/%Y %H:%M:%S')
+      times.append(time.mktime(t))
+
+    # read sweep data from *full.dat file
+    try:
+      F,X,Y = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,2), unpack=True, comments='freq')
+    except OSError:
+      print("Error: can't read file: ", fname)
+      exit(1)
+
+    # read *full2nd.dat file if it is available
+    fname = pref + 'full2nd.dat'
+    try:
+      F2,X2,Y2 = numpy.loadtxt(fname, delimiter='\t', usecols=(0,1,2), unpack=True, comments='freq')
+      if numpy.any(F2!=F):
+        print("Error: different frequency values in 1st and 3rd harmonics: ", fname)
+        exit(1)
+    except OSError:
+      X2 = numpy.zeros(X.size)
+      Y2 = numpy.zeros(Y.size)
+
+    # separate sweeps
+    sweeps = [0]
+    for i in range(1,F.size):
+      if F[i] < F[i-1]:
+        sweeps.append(i)
+
+    if len(sweeps) != len(times):
+      print("Error: different number of sweeps and sweep headers in ", fname)
+      exit(1)
+
+    # extract excitation from file name
+    m = re.search("_(\d+)MV$", pref)
+    if not m:
+      print("Error: can't extract drive amplitude from filename: ", fname)
+      exit(1)
+
+    exc = float(m.group(1))
+    print("%s: %d sweeps, %.0f mV" %(pref,len(sweeps),exc))
+
+    for i in range(len(sweeps)):
+      i1 = sweeps[i]
+      if i<len(sweeps)-1: i2 = sweeps[i+1]
+      else: i2 = len(F)
+
+      d ={
+        "exc": exc, "time": times[i],
+        "F": F[i1:i2], "X": X[i1:i2], "Y": Y[i1:i2],
+        "X2": X2[i1:i2], "Y2": Y2[i1:i2],
+      }
+      data.append(d)
+
+if len(data)<1:
+  print("Error: empty data: " + listfile)
+  exit(1)
+
+# sort by time
+data.sort(key=lambda x: x["time"])
+
+# reconstruct time of each point
+for i in range(len(data)):
+  t1 = data[i]["time"]
+  n  = len(data[i]["F"])
+  if args.dt>0:
+    if args.t0 <= 0: args.t0 = args.dt;
+    data[i]["T"] = numpy.linspace(t1 + args.t0, t1 + args.t0 + n*args.dt, n)
+  else:
+    # non-last sweep
+    if i<len(data)-1:
+      t2 = data[i+1]["time"]
+    # last sweep: estimate time from the previous one
+    elif i>0:
+      np = len(data[i-1]["F"])
+      tp = data[i-1]["time"]
+      t2 = t1 + (t1-tp)/(np+1)*(n+1)
+    else:
+      print("can't get sweep duration: " + listfile)
+      exit(1)
+    dt = (t2-t1)/(n+1)
+    print("dt: ", dt)
+    data[i]["T"] = numpy.linspace(t1+dt,t2,n)
+
+t0 = data[0]["time"]
+
+# plot sweeps
+cols = 'rgbcmyk'
+ecols = {}
+for i in range(len(data)):
+  l = ''
+  if data[i]["exc"] not in ecols.keys():
+    ecols[data[i]["exc"]] = cols[len(ecols)%len(cols)]
+    l = "%.0f" % (data[i]["exc"])
+
+  c = ecols[data[i]["exc"]]
+  plt.plot((data[i]["T"]-t0)/3600, data[i]["F"], c + '.-',
+    label=l, linewidth=1, markersize=1.5)
+
+plt.xlabel('time, h')
+plt.ylabel('Freq, Hz')
+#plt.xlim([20,30])
+plt.legend()
+plt.savefig(args.listpref + '.png')
+
+
+## separate sweep sequencies
+# Each sequence has same frequency points, and unique set of drive amplitudes
+# Distance between sweeps is less then sweep length
+
+seq = []
+drives = {}
+for i in range(len(data)):
+  if  i==0 or\
+      numpy.any(data[i]["F"] != data[i-1]["F"]) or\
+      data[i]["T"][0] - data[i-1]["T"][-1] > data[i]["T"][-1] - data[i]["T"][0] or\
+      data[i]["exc"] in drives:
+    seq.append(i)
+    drives = {}
+  drives[data[i]["exc"]] = 1
+
+print(seq)
+
+

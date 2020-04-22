@@ -119,7 +119,7 @@ for r in args.skip.split(','):
   if len(a) == 1:
     mask[int(a[0])]=False
   else:
-    if a[1] == '': a[1] = N
+    if a[1] == '': a[1] = N-1
     mask[range(int(a[0]),int(a[1])+1)] = False
 
 if not numpy.all(mask):

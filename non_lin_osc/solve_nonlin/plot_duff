@@ -2,11 +2,12 @@
 
 import numpy
 import math
-import scipy.optimize
-import scipy.integrate
 import matplotlib.pyplot as plt
 from non_lin_osc import *
 
+# Test non-liniar oscillator calculation using Duffing oscillator
+# First method: calculation for arbitrary oscillator
+# Second method: Duffing oscillator, averaging over period is done analytically.
 
 w0 = 1
 tau = 2

@@ -61,7 +61,6 @@ def osc_duffing(x,dx, pars):
   return w0**2*x + dx/tau + a*x**3
 
 #######################################################
-
 # Equilibriun function and solver for Duffung oscillator at periodic drive.
 # see http://www.scholarpedia.org/article/Duffing_oscillator
 # Note that solver does not work when hysteresis appears.

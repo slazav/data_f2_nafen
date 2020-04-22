@@ -7,10 +7,7 @@ Scripts for making dataset 2:
 
 - Remove points where temperature was not stable
 
-Data will go to ../data2_1m and ../data2_5m folders
-
-Access to ../data1 dataset
-should be available.
+Access to ../data1 dataset should be available.
 f2/icta data is taken from the database at http://slazav.xyz:8091/
 
 

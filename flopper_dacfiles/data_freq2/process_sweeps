@@ -86,9 +86,9 @@ with open(listfile) as listf:
       exit(1)
 
     # extract excitation from file name
-    m = re.search("_(\d+)MV$", pref)
+    m = re.search("_(\d+)MV$", pref, re.IGNORECASE)
     if not m:
-      print("Error: can't extract drive amplitude from filename: ", fname)
+      print("Error: can't extract drive amplitude from filename: ", pref)
       exit(1)
 
     exc = float(m.group(1))

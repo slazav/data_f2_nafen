@@ -1,0 +1,63 @@
+#!/bin/sh
+
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 2.095 11 R05D08_2p2A_2Hz_11mV.dat
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 2.095 23 R05D08_2p2A_2Hz_23mV.dat
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 2.095 68 R05D08_2p2A_2Hz_68mV.dat
+
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 3.955 11 R05D08_2p2A_4Hz_11mV.dat
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 3.955 23 R05D08_2p2A_4Hz_23mV.dat
+./get_freq2_data ../data_freq2/R05D08_2p2A.dat 3.955 68 R05D08_2p2A_4Hz_68mV.dat
+
+
+
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 2.095 05 R05D08_5p0A_2Hz_05mV.dat
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 2.095 10 R05D08_5p0A_2Hz_10mV.dat
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 2.095 30 R05D08_5p0A_2Hz_30mV.dat
+
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 3.955 05 R05D08_5p0A_4Hz_05mV.dat
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 3.955 10 R05D08_5p0A_4Hz_10mV.dat
+./get_freq2_data ../data_freq2/R05D08_5p0A.dat 3.955 30 R05D08_5p0A_4Hz_30mV.dat
+
+
+
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 2.025 06 R05D09_4p5A_2Hz_06mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 2.025 12 R05D09_4p5A_2Hz_12mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 2.025 22 R05D09_4p5A_2Hz_22mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 2.025 28 R05D09_4p5A_2Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 2.025 33 R05D09_4p5A_2Hz_33mV.dat
+
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 3.950 06 R05D09_4p5A_4Hz_06mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 3.950 12 R05D09_4p5A_4Hz_12mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 3.950 22 R05D09_4p5A_4Hz_22mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 3.950 28 R05D09_4p5A_4Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 3.950 33 R05D09_4p5A_4Hz_33mV.dat
+
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 4.825 06 R05D09_4p5A_5Hz_06mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 4.825 12 R05D09_4p5A_5Hz_12mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 4.825 22 R05D09_4p5A_5Hz_22mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 4.825 28 R05D09_4p5A_5Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D09_4p5A.dat 4.825 33 R05D09_4p5A_5Hz_33mV.dat
+
+
+
+
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 1.5 08 R05D10_3p5A_1.5Hz_08mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 1.5 16 R05D10_3p5A_1.5Hz_16mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 1.5 28 R05D10_3p5A_1.5Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 1.5 36 R05D10_3p5A_1.5Hz_36mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 1.5 42 R05D10_3p5A_1.5Hz_42mV.dat
+
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 3.625 08 R05D10_3p5A_3.6Hz_08mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 3.625 16 R05D10_3p5A_3.6Hz_16mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 3.625 28 R05D10_3p5A_3.6Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 3.625 36 R05D10_3p5A_3.6Hz_36mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 3.625 42 R05D10_3p5A_3.6Hz_42mV.dat
+
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 5.75 08 R05D10_3p5A_5.8Hz_08mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 5.75 16 R05D10_3p5A_5.8Hz_16mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 5.75 28 R05D10_3p5A_5.8Hz_28mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 5.75 36 R05D10_3p5A_5.8Hz_36mV.dat
+./get_freq2_data ../data_freq2/R05D10_3p5A.dat 5.75 42 R05D10_3p5A_5.8Hz_42mV.dat
+
+
+

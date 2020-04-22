@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+
+import argparse
+import numpy
+import time
+import re
+import matplotlib.pyplot as plt
+import sys
+import os.path
+
+# get some data data_freq2 folder
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('infile')
+parser.add_argument('freq', type=float)
+parser.add_argument('drive', type=float)
+parser.add_argument('outfile')
+
+args = parser.parse_args()
+
+#####################
+# read data
+
+
+of=open(args.outfile, 'wb')
+numpy.savetxt(of, [],
+  header="time -- freq -- drive offs -- drive amp -- phase -- amp1 -- amp2 -- amp 3 -- icta\n")
+dirname = os.path.dirname(args.infile)
+
+for line in open(args.infile):
+  if line[0]=='#': continue
+  (t1,t2,icta,fname) = line.rstrip().split()
+
+
+  try:
+    T,F,D,X,Y,X2,Y2,ICTA = numpy.loadtxt(dirname + '/' + fname, unpack=True, comments='#')
+  except OSError:
+    print("Error: can't read file: ", fname)
+    exit(1)
+
+  ii = numpy.logical_and(F==args.freq, D==args.drive)
+  if not numpy.any(ii): continue
+
+  T  = T[ii]
+  F  = F[ii]
+  D  = D[ii]
+  A1 = numpy.hypot(X[ii],Y[ii])
+  A3 = numpy.hypot(X2[ii],Y2[ii])
+  PH = numpy.arctan2(Y[ii],X[ii])
+  ICTA = ICTA[ii]
+
+  # save file
+  numpy.savetxt(of, numpy.column_stack((T,F,D,PH,A1,A3,ICTA)),
+    fmt='%.6f %f  NaN %e %e  %e NaN %e %e')

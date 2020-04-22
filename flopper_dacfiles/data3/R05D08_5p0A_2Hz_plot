@@ -11,14 +11,14 @@ def plot_file(f, c, l):
   time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
     numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
   phase[phase<0] += 2*math.pi
-  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
-  ax[1].plot(icta, phase,     c, label = l, markersize = 1)
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 4, linewidth=0.5)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 4, linewidth=0.5)
 
 ###########
 
-plot_file('R05D08_5p0A_2Hz_05mV', 'r.', '2 Hz, 05 mV')
-plot_file('R05D08_5p0A_2Hz_10mV', 'g.', '2 Hz, 10 mV')
-plot_file('R05D08_5p0A_2Hz_30mV', 'b.', '2 Hz, 30 mV')
+plot_file('R05D08_5p0A_2Hz_05mV', 'r.-', '2 Hz, 05 mV')
+plot_file('R05D08_5p0A_2Hz_10mV', 'g.-', '2 Hz, 10 mV')
+plot_file('R05D08_5p0A_2Hz_30mV', 'b.-', '2 Hz, 30 mV')
 
 ###########
 

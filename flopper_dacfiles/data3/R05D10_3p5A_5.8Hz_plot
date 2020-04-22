@@ -11,8 +11,8 @@ def plot_file(f, c, l):
   time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
     numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
   phase[phase<0] += 2*math.pi
-  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 3)
-  ax[1].plot(icta, phase,     c, label = l, markersize = 3)
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 4, linewidth=0.5)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 4, linewidth=0.5)
 
 ###########
 

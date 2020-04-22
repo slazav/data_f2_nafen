@@ -11,16 +11,18 @@ def plot_file(f, c, l):
   time, freq, doffs, damp, phase, amp1, amp2, amp3, icta =\
     numpy.loadtxt(f + '.dat', comments='#', unpack=True, usecols=range(0,9))
   phase[phase<0] += 2*math.pi
-  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 1)
-  ax[1].plot(icta, phase,     c, label = l, markersize = 1)
+  ax[0].plot(icta, amp1/damp, c, label = l, markersize = 4, linewidth=0.5)
+  ax[1].plot(icta, phase,     c, label = l, markersize = 4, linewidth=0.5)
 
 ###########
 
-plot_file('R05D08_2p2A_2Hz_11mV', 'r.', '2 Hz, 11 mV')
-plot_file('R05D08_2p2A_2Hz_23mV', 'g.', '2 Hz, 23 mV')
-plot_file('R05D08_2p2A_2Hz_68mV', 'b.', '2 Hz, 68 mV')
+plot_file('R05D08_2p2A_2Hz_11mV', 'r.-', '2 Hz, 11 mV')
+plot_file('R05D08_2p2A_2Hz_23mV', 'g.-', '2 Hz, 23 mV')
+plot_file('R05D08_2p2A_2Hz_68mV', 'b.-', '2 Hz, 68 mV')
 
 ###########
+ax[0].text(150,0.00125, 'normal')
+ax[0].text(320,0.0011, 'superfluid')
 
 ax[0].set_ylabel('amp1/drive')
 ax[1].set_ylabel('phase, rad')

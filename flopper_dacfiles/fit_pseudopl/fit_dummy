@@ -1,0 +1,83 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+import scipy.optimize
+import argparse
+
+import sys
+sys.path.insert(1, '../../non_lin_osc')
+from non_lin_osc import *
+
+fname = 'R05D08_dummy_00.dat'
+
+## read data
+F,D,X,Y = numpy.loadtxt(fname, usecols=(1,2,3,4), unpack=True, comments='#')
+X = X*1000
+Y = Y*1000
+
+#########################
+# Dummy fitting function X = (A/F + B)*drive, Y = 0
+
+def calc_osc(pars, F,D):
+  Ax = pars[0]
+  Bx = pars[1]
+  Ay = pars[2]
+  By = pars[3]
+  C  = pars[4]
+
+  xx = (Ax + Ay*F*C)/(1 + (C*F)**2) + Bx
+  yy = (Ay*F*C - Ax)/(1 + (C*F)**2) + By
+
+  print(pars)
+  return D*xx, D*yy
+
+
+def minfunc(pars, F,D,X,Y):
+  xx,yy = calc_osc(pars, F, D)
+  sum = numpy.linalg.norm(X-xx) + numpy.linalg.norm(Y-yy)
+  return sum
+
+#########################
+
+# drives
+dd = numpy.unique(D)
+cols = "rgbcmy"
+
+# remove first point of each sweep
+ii = numpy.ones(F.size, dtype=bool)
+for i in range(dd.size): ii[numpy.argmax(D==dd[i])] = False
+F=F[ii]
+D=D[ii]
+X=X[ii]
+Y=Y[ii]
+
+#########################
+#fit data
+
+
+pars = [-0.286790275, 0.352126235, -1.00437845, -0.00403050725, 12.6817424]
+res = scipy.optimize.minimize(minfunc, pars, (F,D,X,Y),
+   options={'disp': False, 'maxiter': 1000})
+pars = res.x
+
+ff = numpy.linspace(numpy.min(F), numpy.max(F), 100)
+for i in range(dd.size):
+  c = cols[i%len(cols)]
+  ii = (D==dd[i])
+  ii[numpy.argmax(ii)] = False # remove first point
+
+  plt.plot(F[ii], X[ii]/dd[i], c+'*', label=dd[i])
+  plt.plot(F[ii], Y[ii]/dd[i], c+'^')
+#  plt.plot(X[ii]/dd[i], Y[ii]/dd[i], c+'*', label=dd[i])
+
+  xx,yy = calc_osc(pars, ff, dd[i])
+  plt.plot(ff, xx/dd[i], 'k-')
+  plt.plot(ff, yy/dd[i], 'k-')
+#  plt.plot(xx/dd[i], yy/dd[i], 'k-')
+
+plt.xlabel('freq, Hz')
+plt.ylabel('x/drive, y/drive')
+plt.legend()
+plt.savefig("%s.png" % (fname))

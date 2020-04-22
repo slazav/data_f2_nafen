@@ -1,0 +1,112 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+import scipy.optimize
+import argparse
+
+import sys
+sys.path.insert(1, '../../non_lin_osc')
+from non_lin_osc import *
+
+parser = argparse.ArgumentParser()
+parser.add_argument('fname')
+args = parser.parse_args()
+
+
+## read data
+F,D,X,Y = numpy.loadtxt(args.fname, usecols=(1,2,3,4), unpack=True, comments='#')
+X = X*1000
+Y = Y*1000
+
+#########################
+
+def calc_osc(pars, F,D):
+  f0  = pars[0]
+  tau = pars[1]
+  kd  = pars[2]
+  ph  = pars[3]
+
+  Ax  = pars[4]
+  Ay  = pars[5]
+  Cx  = pars[6]
+  Cy  = pars[7]
+  C   = pars[8]
+
+  xx = (Ax+Cx*F*C)/(1 + (C*F)**2)
+  yy = (Ay+Cy*F*C)/(1 + (C*F)**2)
+
+  xx1 = kd * (f0**2-F**2) / ((f0**2 - F**2)**2 + (F/tau)**2)
+  yy1 = -kd * (F/tau) / ((f0**2 - F**2)**2 + (F/tau)**2)
+
+  sp = math.sin(ph)
+  cp = math.cos(ph)
+
+#  for i in range(F.size):
+#    uv = nonlin_osc_solve0(F[i], kd, osc_harm, [f0,tau], [1,0])
+#    xx[i] += uv[0]*cp - uv[1]*sp
+#    yy[i] += uv[0]*sp + uv[1]*cp
+
+  xx += xx1*cp - yy1*sp
+  yy += xx1*sp + yy1*cp
+
+  return D*xx,D*yy
+
+
+def minfunc(pars, F,D,X,Y):
+  xx,yy = calc_osc(pars, F, D)
+  sum = numpy.linalg.norm(X-xx) + numpy.linalg.norm(Y-yy)
+  print(pars, sum)
+  return sum
+
+#########################
+
+# drives
+dd = numpy.unique(D)
+cols = "rgbcmy"
+
+# remove first point of each sweep
+ii = numpy.ones(F.size, dtype=bool)
+for i in range(dd.size): ii[numpy.argmax(D==dd[i])] = False
+F=F[ii]
+D=D[ii]
+X=X[ii]
+Y=Y[ii]
+
+#########################
+#fit data
+
+pars = [6.69934096, 0.19829152, 63.34784392, 1.59476115,  -1.05065272, -1.79260287, -1.39073575, 1.17052999, 0.30306764]
+pars = [6.08940962, 0.14436133, 54.40176658, 1.73104649,  -0.7622255,  -1.87136181, -1.58790567, 0.7512031,  0.44876606]
+pars = [5.5404071,  0.08506305, 54.39729668, 1.72284024,  -0.79740606, -2.15643212, -1.81674268, 0.65979835, 0.64894062]
+
+res = scipy.optimize.minimize(minfunc, pars, (F,D,X,Y),
+   bounds=((0.5,8),(0.01,2),(0.0001,200),(0,10), (-200,200),(-200,200),(-200,200),(-200,200), (-400,400)),
+   options={'disp': False, 'maxiter': 1000})
+pars = res.x
+
+ff = numpy.linspace(numpy.min(F), numpy.max(F), 100)
+for i in range(dd.size):
+  c = cols[i%len(cols)]
+  ii = (D==dd[i])
+  ii[numpy.argmax(ii)] = False # remove first point
+
+  F1 = F[ii]
+  X1 = X[ii]
+  Y1 = Y[ii]
+  plt.plot(F1, X1/dd[i], c+'*', label=dd[i])
+  plt.plot(F1, Y1/dd[i], c+'^')
+#  plt.plot(X1*F1, Y1*F1, c+'*', label=dd[i])
+
+  xx,yy = calc_osc(pars, ff, dd[i])
+
+  plt.plot(ff, xx/dd[i], c+'-')
+  plt.plot(ff, yy/dd[i], c+'-')
+#  plt.plot(xx*ff, yy*ff, c+'.-')
+#  plt.plot(xx[0]*ff[0], yy[0]*ff[0], 'ro', markersize=5)
+
+plt.xlabel('freq, Hz')
+plt.ylabel('x/drive, y/drive')
+plt.legend()
+plt.savefig("%s.png" % (args.fname))

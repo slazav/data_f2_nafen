@@ -45,6 +45,12 @@ def nonlin_osc_solve0(w, F, func, fpars, uv0):
 
 #######################################################
 
+## harmonic osc
+def osc_harm(x,dx, pars):
+  w0  = pars[0] # resonant frequency
+  tau = pars[1] # relaxation time at low velocuty
+  return w0**2*x + dx/tau
+
 ## pseudoplastic osc N1
 def osc_pseudopl1(x,dx, pars):
   w0  = pars[0] # resonant frequency
@@ -52,6 +58,13 @@ def osc_pseudopl1(x,dx, pars):
   vc  = pars[2] # critical velocity
   k   = pars[3] # relaxation factor for large velocity
   return w0**2*x + dx/tau * (k - (1-k) * vc/numpy.sqrt(vc**2 + dx**2))
+
+## pseudoplastic osc N2
+def osc_pseudopl2(x,dx, pars):
+  w0  = pars[0] # resonant frequency
+  tau = pars[1] # relaxation time at low velocuty
+  vc  = pars[2] # critical velocity
+  return w0**2*x + dx/tau * vc/numpy.sqrt(vc**2 + dx**2)
 
 ## duffing osc
 def osc_duffing(x,dx, pars):

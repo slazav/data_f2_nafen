@@ -14,6 +14,6 @@ while read f d c; do
   [ "$f" != "#" ] || continue
   name=$(echo $f | sed 's|/|_|g')
   echo $name
-  ./process_flopper_dacfile --split_n 5 --points 50 --round_freq 0.1 $prefix/$f $d > $data/1m_$name.dat
+  ./process_flopper_dacfile --split_n 5 --points 50 $prefix/$f $d > $data/1m_$name.dat
 done < data_run5.tab
 

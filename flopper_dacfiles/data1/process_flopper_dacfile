@@ -8,6 +8,10 @@ import time
 import argparse
 import scipy.integrate
 
+import sys
+sys.path.insert(1, os.path.join(os.path.dirname(__file__), "../../find_freq"))
+from find_freq import find_freq_fftfit_l
+
 ################################
 # Program takes two arguments: data directory and
 # date of the first file (in YYYY-mm-dd) format
@@ -87,56 +91,8 @@ for fname in sorted(os.listdir(dirname)):
     tstep = tspan/(n1 - 1)
 
     ################################
-    # Find drive frequency (using fft)
-    fft = numpy.fft.fft(D1)
-    fft[0] = 0  # remove constant component
-    f_ind = numpy.argmax(numpy.abs(fft[0:int(n1/2)]))
-
-    # fft is proportional to 1/(f-f0)
-    # We want to fit 1/fft it with linear function A*x+B
-    # and find zero crossing (-B/A)
-    # As usual, we minimize  S = sum (a*x +b - y)^2
-    # Differentiating by A and B we have
-    # A*sum(x*x) + B*sum(x) - sum(y*x) =  0
-    # A*sum(x) + B*sum(w) - sum(y) =  0
-
-    # Solving this we have:
-    # B = [sum(y*x)*sum(x) - sum(y)*sum(x*x)]/[sum(x)*sum(x) - sum(1)*sum(x*x)]
-    # A = [sum(y)*sum(x) - sum(y*x)*sum(1)]/[sum(x)*sum(x) - sum(1)*sum(x*x)]
-    # x0 = -B/A = (sum(y*x)*sum(x) - sum(y)*sum(x*x)) / (sum(y*x)*sum(1) - sum(y)*sum(x))
-
-    # In some signals drive changes. It means there is a large low-frequency component
-    # We want to skip these signals. Threshold is 0.1 Hz
-    freq = f_ind / tstep / n1 # drive freq, Hz
-    if freq < 0.1:
-      print("non-stable drive in file: ", fname, file=sys.stderr)
-      continue
-
-    # it's good to fit in a very narrow window, because 1/fft is very noisy far from f0
-    ind_win = 1 #
-    sn = 0
-    sx = 0
-    sy = 0
-    sxx = 0
-    sxy = 0
-    for ii in range(f_ind-ind_win, f_ind+ind_win):
-      x = ii - f_ind
-      y = numpy.real(1/fft[ii])
-      w = 1/y**2 # weight function
-      sn  += w
-      sx  += x*w
-      sy  += y*w
-      sxx += x*x*w
-      sxy += x*y*w
-    f_ind1 = f_ind + (sxy*sx-sy*sxx)/(sxy*sn-sy*sx)
-    # Another approach, much less accurate:
-    # v1 = fft[f_ind-1]
-    # v2 = fft[f_ind]
-    # v3 = fft[f_ind+1]
-    # f_indm = f_ind - (v3-v1)/(v1 - 2*v2 + v3)/2
-
-    freq0 = f_ind1 / tstep / n1 # drive freq, Hz
-    # print("> %d %f %f" %(f_ind, f_ind1, freq0))
+    # Find drive frequency
+    freq0 = find_freq_fftfit_l(T,D)
 
     if args.round_freq != 0:
       freq0 = round(freq0/args.round_freq)*args.round_freq

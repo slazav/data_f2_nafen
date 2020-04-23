@@ -81,6 +81,7 @@ def find_freq_fftfit_l(T,A):
   sxx = 0
   sxy = 0
   for x in range(-ind_win, +ind_win+1):
+    if fft[f_ind + x]==0: continue
     y = numpy.real(1/fft[f_ind + x])
     w = 1/y**2 # Very strong weighting function
     sn  += w

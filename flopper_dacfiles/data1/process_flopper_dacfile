@@ -92,7 +92,7 @@ for fname in sorted(os.listdir(dirname)):
 
     ################################
     # Find drive frequency
-    freq0 = find_freq_fftfit_l(T,D)
+    freq0 = find_freq_fftfit_l(T1,D1)
 
     # round frequency to the nearest value if option --round_freq is set
     if args.round_freq != 0:

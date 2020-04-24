@@ -121,5 +121,5 @@ def find_freq_fmax(T,A):
 
   res = minimize(minfunc, freq, (T,A),
     options={'disp': False, 'maxiter': 1000})
-  return numpy.array(res.x)
+  return res.x
 

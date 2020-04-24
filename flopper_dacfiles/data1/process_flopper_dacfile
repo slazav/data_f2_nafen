@@ -94,36 +94,10 @@ for fname in sorted(os.listdir(dirname)):
     # Find drive frequency
     freq0 = find_freq_fftfit_l(T,D)
 
+    # round frequency to the nearest value if option --round_freq is set
     if args.round_freq != 0:
       freq0 = round(freq0/args.round_freq)*args.round_freq
 
-    ################################
-    # Average points with same phase
-    phV = numpy.zeros(args.points)
-    phD = numpy.zeros(args.points)
-    phS = numpy.zeros(args.points)
-    phN = numpy.zeros(args.points)
-
-    for i in range(T1.size):
-      ph = numpy.mod(freq0*(T1[i]-T1[0]), 1) # [0..1)
-      pi = math.floor(ph*args.points) # [0..args.points)
-      phV[pi] += ph
-      phD[pi] += D1[i]
-      phS[pi] += S1[i]
-      phN[pi] += 1
-
-    # remove bins without any values
-    ii = numpy.where(phN>0)
-    phN = phN[ii]
-    phV = phV[ii]/phN
-    phS = phS[ii]/phN
-    phD = phD[ii]/phN
-
-    # periodic values
-    phN = numpy.append(phN, phN[0])
-    phV = numpy.append(phV, phV[0]+1)
-    phD = numpy.append(phD, phD[0])
-    phS = numpy.append(phS, phS[0])
 
     # calculate signal harmonics by doing "slow" Fourier transformation
     Dr = numpy.zeros(args.harm_n+1)
@@ -131,31 +105,21 @@ for fname in sorted(os.listdir(dirname)):
     Sr = numpy.zeros(args.harm_n+1)
     Si = numpy.zeros(args.harm_n+1)
 
-    # phD1 = numpy.zeros(phD.size) # restore signals from harmonics - for test
-    # phS1 = numpy.zeros(phS.size)
+    Dr[0] = numpy.average(D1)
+    Sr[0] = numpy.average(S1)
+    for h in range(1,args.harm_n+1):
+      Sin = numpy.sin(h*2*math.pi*freq0*T1)
+      Cos = numpy.cos(h*2*math.pi*freq0*T1)
+      Dr[h] = 2*scipy.integrate.trapz(Cos*D1, T1)/tspan
+      Sr[h] = 2*scipy.integrate.trapz(Cos*S1, T1)/tspan
+      Di[h] = 2*scipy.integrate.trapz(Sin*D1, T1)/tspan
+      Si[h] = 2*scipy.integrate.trapz(Sin*S1, T1)/tspan
 
-    for h in range(0,args.harm_n+1):
-      if h==0:
-        Dr[h] = numpy.average(phD)
-        Sr[h] = numpy.average(phS)
-        Di[h] = 0
-        Si[h] = 0
-        # phS1 += Sr[h]
-        # phD1 += Dr[h]
-      else:
-        Sin = numpy.sin(h*phV*2*math.pi)
-        Cos = numpy.cos(h*phV*2*math.pi)
-        Dr[h] = 2*scipy.integrate.trapz(Sin*phD, phV)
-        Sr[h] = 2*scipy.integrate.trapz(Sin*phS, phV)
-        Di[h] = 2*scipy.integrate.trapz(Cos*phD, phV)
-        Si[h] = 2*scipy.integrate.trapz(Cos*phS, phV)
-        # phS1 += Sr[h]*Sin + Si[h]*Cos
-        # phD1 += Dr[h]*Sin + Di[h]*Cos
 
     tstamp = (T1[0]+T1[-1])/2 + date
 
     # print data: time, frequency
-    print("%f %f" % (tstamp, freq0), end="")
+    print("%f %.10f" % (tstamp, freq0), end="")
 
     # print data: drive amplitude, phase shift between drive and signal (radians)
     if h>0:
@@ -164,30 +128,60 @@ for fname in sorted(os.listdir(dirname)):
       s_ph  = numpy.arctan2(Si[1],Sr[1])
       ph = s_ph-d_ph
       while ph<0: ph += 2*math.pi
-      while ph>=2*pi: ph -= 2*math.pi
+      while ph>=2*math.pi: ph -= 2*math.pi
       print("  %e %e %e" %(Dr[0], d_amp, ph), end="")
-
-      #shift signals by -d_ph (and skip the last point)
-      phV = numpy.mod(phV[0:-2] + d_ph/2/math.pi, 1)
-      ii = numpy.argsort(phV)
-      phV = phV[ii]
-      phD = phD[ii]
-      phS = phS[ii]
-      # add last point back
-      phV = numpy.append(phV, phV[0]+1)
-      phD = numpy.append(phD, phD[0])
-      phS = numpy.append(phS, phS[0])
 
 
     # print data: signal harmonics (excluding constant)
     for h in range(1,args.harm_n+1):
       print("  %e" %(math.hypot(Sr[h],Si[h])), end="")
+    print()
 
-    # save averaged data
+    ################################
+    # Average points with same phase
     if args.tfiles:
+      phV = numpy.zeros(args.points)
+      phD = numpy.zeros(args.points)
+      phS = numpy.zeros(args.points)
+      phN = numpy.zeros(args.points)
+
+      for i in range(T1.size):
+        ph = numpy.mod(freq0*(T1[i]-T1[0]), 1) # [0..1)
+        pi = math.floor(ph*args.points) # [0..args.points)
+        phV[pi] += ph
+        phD[pi] += D1[i]
+        phS[pi] += S1[i]
+        phN[pi] += 1
+
+      # remove bins without any values
+      ii = numpy.where(phN>0)
+      phN = phN[ii]
+      phV = phV[ii]/phN
+      phS = phS[ii]/phN
+      phD = phD[ii]/phN
+
+      if h>0:
+        #shift signals by -d_ph (and skip the last point)
+        d_ph  = numpy.arctan2(Di[1],Dr[1])
+        phV = numpy.mod(phV + d_ph/2/math.pi, 1)
+        ii = numpy.argsort(phV)
+        phV = phV[ii]
+        phD = phD[ii]
+        phS = phS[ii]
+        # add last point back
+        phV = numpy.append(phV, phV[0]+1)
+        phD = numpy.append(phD, phD[0])
+        phS = numpy.append(phS, phS[0])
+
+      # periodic values
+      phN = numpy.append(phN, phN[0])
+      phV = numpy.append(phV, phV[0]+1)
+      phD = numpy.append(phD, phD[0])
+      phS = numpy.append(phS, phS[0])
+
+      # save averaged data
       numpy.savetxt('%.0f.txt' % (tstamp), numpy.transpose([phV/freq0, phD, phS]),
         header = "phase -- drive -- signal", fmt='%e %e %e')
 
-    print()
 
 

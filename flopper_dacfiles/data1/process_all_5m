@@ -3,7 +3,7 @@
 prefix=/mnt/luna/fridge2_rawdata/Nafen_cell
 data=.
 
-if [ ! -d "$prefix" ]; then.
+if [ ! -d "$prefix" ]; then
   printf "Data folder is not avalable: $prefix";
   exit 1
 fi

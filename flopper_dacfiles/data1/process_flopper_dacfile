@@ -10,7 +10,7 @@ import scipy.integrate
 
 import sys
 sys.path.insert(1, os.path.join(os.path.dirname(__file__), "../../find_freq"))
-from find_freq import find_freq_fftfit_l
+from find_freq import *
 
 ################################
 # Program takes two arguments: data directory and
@@ -92,29 +92,16 @@ for fname in sorted(os.listdir(dirname)):
 
     ################################
     # Find drive frequency
-    freq0 = find_freq_fftfit_l(T1,D1)
+    freq0 = find_freq_fmax(T1,D1)
 
     # round frequency to the nearest value if option --round_freq is set
     if args.round_freq != 0:
       freq0 = round(freq0/args.round_freq)*args.round_freq
 
-
-    # calculate signal harmonics by doing "slow" Fourier transformation
-    Dr = numpy.zeros(args.harm_n+1)
-    Di = numpy.zeros(args.harm_n+1)
-    Sr = numpy.zeros(args.harm_n+1)
-    Si = numpy.zeros(args.harm_n+1)
-
-    Dr[0] = numpy.average(D1)
-    Sr[0] = numpy.average(S1)
-    for h in range(1,args.harm_n+1):
-      Sin = numpy.sin(h*2*math.pi*freq0*T1)
-      Cos = numpy.cos(h*2*math.pi*freq0*T1)
-      Dr[h] = 2*scipy.integrate.trapz(Cos*D1, T1)/tspan
-      Sr[h] = 2*scipy.integrate.trapz(Cos*S1, T1)/tspan
-      Di[h] = 2*scipy.integrate.trapz(Sin*D1, T1)/tspan
-      Si[h] = 2*scipy.integrate.trapz(Sin*S1, T1)/tspan
-
+    # calculate drive and signal harmonics
+    harm = range(0,args.harm_n+1)
+    DH = calc_fourier(freq0, T1,D1, harm)
+    SH = calc_fourier(freq0, T1,S1, harm)
 
     tstamp = (T1[0]+T1[-1])/2 + date
 
@@ -122,19 +109,19 @@ for fname in sorted(os.listdir(dirname)):
     print("%f %.10f" % (tstamp, freq0), end="")
 
     # print data: drive amplitude, phase shift between drive and signal (radians)
-    if h>0:
-      d_amp  = math.hypot(Dr[1],Di[1])
-      d_ph  = numpy.arctan2(Di[1],Dr[1])
-      s_ph  = numpy.arctan2(Si[1],Sr[1])
+    if len(harm)>1:
+      d_off = numpy.abs(DH[0])
+      d_amp = numpy.abs(DH[1])
+      d_ph  = numpy.angle(DH[1])
+      s_ph  = numpy.angle(SH[1])
       ph = s_ph-d_ph
       while ph<0: ph += 2*math.pi
       while ph>=2*math.pi: ph -= 2*math.pi
-      print("  %e %e %e" %(Dr[0], d_amp, ph), end="")
-
+      print("  %e %e %e" %(d_off, d_amp, ph), end="")
 
     # print data: signal harmonics (excluding constant)
     for h in range(1,args.harm_n+1):
-      print("  %e" %(math.hypot(Sr[h],Si[h])), end="")
+      print("  %e" %(numpy.abs(SH[h])), end="")
     print()
 
     ################################

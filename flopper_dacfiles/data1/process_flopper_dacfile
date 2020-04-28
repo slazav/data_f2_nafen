@@ -93,6 +93,9 @@ for fname in sorted(os.listdir(dirname)):
     ################################
     # Find drive frequency
     freq0 = find_freq_fmax(T1,D1)
+    if freq0 < 0.1:
+      print("non-stable drive in file: ", fname, file=sys.stderr)
+      continue
 
     # round frequency to the nearest value if option --round_freq is set
     if args.round_freq != 0:

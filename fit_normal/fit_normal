@@ -1,0 +1,140 @@
+#!/usr/bin/python3
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+import scipy.optimize
+
+
+# Fit all normal phase sweeps in
+# With a model with different f,tau,amp,but with same baseline and phase.
+
+## read data
+FF = numpy.array([])
+DD = numpy.array([])
+XX = numpy.array([])
+YY = numpy.array([])
+NN = numpy.array([], dtype=int)
+N = 0
+for n in range(12,44):
+  fname="../data_freq2/R05D08_2p2A_%02d.dat" % (n)
+
+  # read data
+  F,D,X,Y = numpy.loadtxt(fname, usecols=(1,2,3,4), unpack=True, comments='#')
+  X = X
+  Y = Y
+
+  # keep only lowest excitation
+  ii = (D==11)
+
+  # remove first point
+  ii[numpy.argmax(ii)] = False
+  FF = numpy.append(FF, F[ii])
+  DD = numpy.append(DD, D[ii])
+  XX = numpy.append(XX, X[ii])
+  YY = numpy.append(YY, Y[ii])
+  NN = numpy.append(NN, numpy.ones(Y[ii].size)*N)
+  N+=1;
+
+#########################
+def calc_osc(pars, FF,NN):
+
+  B   = pars[0] + 1j*pars[1]
+  C   = pars[2]
+  ph  = pars[3]
+
+  R = numpy.zeros(FF.size, dtype=complex)
+
+  for n in numpy.unique(NN):
+    n=int(n)
+    ii = (NN==n)
+    F = FF[ii]
+    f0  = pars[4+n*3]
+    tau = pars[5+n*3]
+    A   = pars[6+n*3]
+
+    # resonance
+    R[ii] = A/(f0**2 - F**2 + 1j*F/tau)
+    R[ii] += B/(C + 1j*F/tau) # strange additional term
+
+  # see fit_dummy script
+  phase_shift = -0.226612/FF**1.205703
+
+  # rotate phase
+  R *= numpy.exp(1j*(ph + phase_shift))
+
+  return numpy.real(R), numpy.imag(R)
+
+#########################
+# function for minimization
+def minfunc(pars, FF,NN,X,Y):
+  xx,yy = calc_osc(pars, FF, NN)
+  sum = numpy.linalg.norm(X-xx) + numpy.linalg.norm(Y-yy)
+  return sum
+
+#########################
+
+#########################
+#fit data
+
+# build pars
+pars = [-0.21, 0.086, 10, 1.8]
+bounds = [(-100,100),(-100,100),(0,200),(0,10)]
+for n in range(N):
+  pars.append(6)
+  pars.append(0.2)
+  pars.append(0.5)
+  bounds.append((1,10))
+  bounds.append((0.01,5))
+  bounds.append((0.001,200))
+
+npars = numpy.array(pars)
+
+res = scipy.optimize.minimize(minfunc, npars, (FF,NN,XX,YY),
+   bounds=bounds,
+   options={'disp': False, 'maxiter': 10000})
+npars = numpy.array(res.x)
+
+ff = numpy.linspace(numpy.min(FF), numpy.max(FF), 100)
+cols = 'rgbcmyk'
+fig, ax = plt.subplots(1,2, figsize=(8, 10))
+for n in range(N):
+  n=int(n)
+  c = cols[n%len(cols)]
+  ii = (NN==n)
+
+  F1 = FF[ii]
+  X1 = XX[ii]
+  Y1 = YY[ii]
+  sh = 4*n/1000
+  ax[0].plot(F1, X1+sh, c+'.', label=n)
+  ax[1].plot(F1, Y1+sh, c+'.')
+#  plt.plot(X1*F1, Y1*F1, c+'*', label=dd[i])
+
+  xx,yy = calc_osc(npars, ff, n)
+
+  ax[0].plot(ff, xx+sh, c+'-')
+  ax[1].plot(ff, yy+sh, c+'-')
+#  plt.plot(xx*ff, yy*ff, c+'.-')
+
+
+print(npars[0],npars[1])
+print(npars[2],npars[3])
+for n in range(N):
+  n=int(n)
+  print('%02d: f0 = %f tau = %f A = %f'% (n, npars[4+3*n], npars[5+3*n], npars[6+3*n]))
+
+  npars[6+3*n] = 0
+
+for n in range(N):
+  sh = 4*n/1000
+  xx,yy = calc_osc(npars, ff, n)
+  ax[0].plot(ff, xx+sh, 'k-')
+  ax[1].plot(ff, yy+sh, 'k-')
+
+ax[0].set_xlabel('freq, Hz')
+ax[1].set_xlabel('freq, Hz')
+ax[0].set_ylabel('x')
+ax[1].set_ylabel('y')
+#plt.legend()
+plt.savefig("fit_baseline.png")

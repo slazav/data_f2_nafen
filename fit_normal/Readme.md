@@ -1,0 +1,1 @@
+Fit a sequence on normal phase signals with a single set of parameters.

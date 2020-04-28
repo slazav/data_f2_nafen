@@ -106,6 +106,10 @@ def find_freq_fftfit_l(T,A):
 from scipy.integrate import trapz
 
 def calc_fourier(freq, T,A, harm=[1]):
+
+  if freq==0:
+    raise ValueError("calc_fourier: freq=0")
+
   # We want to do integration over integer number of periods.
   # Let's split it into integral over the signal plus some tail which
   # extends from signal end to the nearest end of period.

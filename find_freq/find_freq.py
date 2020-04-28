@@ -110,6 +110,9 @@ def calc_fourier(freq, T,A, harm=[1]):
   if freq==0:
     raise ValueError("calc_fourier: freq=0")
 
+  if 1/freq > T[-1]-T[0]:
+    raise ValueError("calc_fourier: signal length is smaller then one period")
+
   # We want to do integration over integer number of periods.
   # Let's split it into integral over the signal plus some tail which
   # extends from signal end to the nearest end of period.

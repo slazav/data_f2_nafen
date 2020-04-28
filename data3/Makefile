@@ -12,6 +12,7 @@ skip2 = 1575635858 1575635899 1575636241 1575636664
 data:
 	sh process_all
 	sh process_fre
+	rm -f R05D01b_5p0A_04Hz_16mV.dat
 	for i in ${skip1}; do sed -i "/^$$i/d" R05D01b_5p0A_04Hz_24mV.dat; done
 	for i in ${skip2}; do sed -i "/^$$i/d" R05D01b_5p0A_08Hz_48mV.dat; done
 	for i in *_plot plot_*; do ./$$i; done

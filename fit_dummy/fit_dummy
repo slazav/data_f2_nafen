@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+
+## Fit phase shift for dummy measurement
+
+import numpy
+import math
+import matplotlib.pyplot as plt
+import scipy.optimize
+
+fname = '../data_freq2/R05D08_dummy_00.dat'
+
+## read data
+F,D,X,Y = numpy.loadtxt(fname, usecols=(1,2,3,4), unpack=True, comments='#')
+
+#########################
+# Dummy fitting function  ph = A/F^B
+
+def calc_ph(pars, F):
+  A = pars[0]
+  B = pars[1]
+  print(pars)
+  return A/F**B
+
+def minfunc(pars, F,P):
+  ph = calc_ph(pars, F)
+  sum = numpy.linalg.norm(P-ph)
+  return sum
+
+#########################
+
+# remove first point of each sweep
+dd = numpy.unique(D)
+ii = numpy.ones(F.size, dtype=bool)
+for i in range(dd.size): ii[numpy.argmax(D==dd[i])] = False
+F=F[ii]
+D=D[ii]
+X=X[ii]
+Y=Y[ii]
+P = numpy.arctan2(Y, X)
+A = numpy.hypot(X, Y)
+
+#########################
+#fit data
+
+pars = [0.226, 1.206]
+res = scipy.optimize.minimize(minfunc, pars, (F,P),
+   options={'disp': False, 'maxiter': 1000})
+pars = res.x
+
+ff = numpy.linspace(numpy.min(F), numpy.max(F), 100)
+cols = 'rgbcmy'
+for i in range(dd.size):
+  c = cols[i%len(cols)]
+  ii = (D==dd[i])
+  plt.plot(F[ii], P[ii], c+'*', label=dd[i])
+
+  ph = calc_ph(pars, ff)
+  plt.plot(ff, ph, 'k-')
+
+plt.xlabel('freq, Hz')
+plt.ylabel('phase, rad')
+plt.legend()
+plt.savefig("fit_dummy.png")
+
+print('p=[%f,%f]'%(pars[0],pars[1]))

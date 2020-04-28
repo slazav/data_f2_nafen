@@ -1,7 +1,7 @@
 # functions for finding signal frequency
 
 import numpy
-from math import pi,hypot
+from math import pi,hypot,ceil
 
 ###################################
 
@@ -100,26 +100,54 @@ def find_freq_fftfit_l(T,A):
   return freq*(1 + di/f_ind)
 
 ###################################
+# calculate fourier component of the signal
+# at frequency F and its harmonics
+
+from scipy.integrate import trapz
+
+def calc_fourier(freq, T,A, harm=[1]):
+  # We want to do integration over integer number of periods.
+  # Let's split it into integral over the signal plus some tail which
+  # extends from signal end to the nearest end of period.
+  # fill the tail with data using periodicity
+
+  tspan = T[-1]-T[0]
+  tend = T[0] + ceil(tspan*freq)/freq
+  ii = numpy.logical_and(T+1/freq > T[-1], T+1/freq < tend)
+  T1 = numpy.array([T[-1]] + list(T[ii]+1/freq) + [tend])
+  A1 = numpy.array([A[-1]] + list(A[ii]) + [A[0]])
+
+  ret = numpy.zeros(len(harm), dtype=complex)
+  for i in range(len(harm)):
+    if harm[i] == 0:
+      ret[i] = numpy.mean(A)
+      continue
+
+    E  = numpy.exp(1j*harm[i]*2*pi*freq*T)
+    E1 = numpy.exp(1j*harm[i]*2*pi*freq*T1)
+
+    ret[i] = 2*(trapz(E*A, T) + trapz(E1*A1, T1))/(tend-T[0])
+
+  return ret
+
+###################################
 
 # one more approach: we calculate "slow" Furier at some frequency F and 
 # then maximize its value as a function of F
 
-from scipy.integrate import trapz
 from scipy.optimize import minimize
 
 def find_freq_fmax(T,A):
 
   # initial frequency value:
   freq, fft, f_ind = find_freq_fft(T,A)
+  df = 1/(T[-1]-T[0]) # frequency resolution
 
   def minfunc(freq, T,A):
-    Sin = numpy.sin(2*pi*freq*T)
-    Cos = numpy.cos(2*pi*freq*T)
-    X = trapz(Cos*A, T)
-    Y = trapz(Sin*A, T)
-    return -hypot(X,Y)
+    return -numpy.abs(calc_fourier(freq[0], T,A))
 
   res = minimize(minfunc, freq, (T,A),
+    bounds=[(freq-df,freq+df)],
     options={'disp': False, 'maxiter': 1000})
   return res.x
 

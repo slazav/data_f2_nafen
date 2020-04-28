@@ -152,7 +152,7 @@ for fname in sorted(os.listdir(dirname)):
 
       if h>0:
         #shift signals by -d_ph (and skip the last point)
-        d_ph  = numpy.arctan2(Di[1],Dr[1])
+        d_ph  = numpy.angle(DH[1])
         phV = numpy.mod(phV + d_ph/2/math.pi, 1)
         ii = numpy.argsort(phV)
         phV = phV[ii]

@@ -149,5 +149,5 @@ def find_freq_fmax(T,A):
   res = minimize(minfunc, freq, (T,A),
     bounds=[(freq-df,freq+df)],
     options={'disp': False, 'maxiter': 1000})
-  return res.x
+  return res.x[0]
 

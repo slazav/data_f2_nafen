@@ -1,0 +1,30 @@
+# #### run 1
+# RUN1/DM01/Flopper/Walltowall_aboveTc  2019-04-02
+# RUN1/DM02/Flopper/Wall_to_wall_above_Tc_Kepco 2019-04-10
+# RUN1/DM02/Flopper/Wall_to_wall_below_Tc 2019-04-08
+# RUN1/DM02/Flopper/Wall_to_wall_below_Tc_4A  2019-04-09
+# RUN1/DM03/Flopper/Wall2wall_Kepco       2019-04-16
+# RUN1/DM04/Flopper/WallToWall_belowTc 2019-04-24
+# RUN1/DM04/Flopper/WallToWall_belowTc_4A 2019-04-25
+# RUN1/DM05/Flopper/wall2wal 2019-05-08
+# RUN1/DM09/flopper/Calibration in 1p1A field
+# RUN1/DM09/flopper/Ramps
+
+# #### run 5
+
+RUN5/DM1/flopper/Wall2wall5A_aboveTc  2019-12-06
+RUN5/DM2/flopper/Wall2wall5A          2019-12-10
+RUN5/DM2/flopper/Wall2wall5A_aboveTc  2019-12-13
+RUN5/DM3/flopper/Wall2wall2p5A        2019-12-24
+RUN5/DM3/flopper/Wall2wall5p8A        2019-12-20
+RUN5/DM4/flopper/wall2wall2p5A        2020-01-09
+RUN5/DM4/flopper/wall2wall4A          2020-01-07
+RUN5/DM4/flopper/wall2wall6p3A        2020-01-04
+RUN5/DM5/flopper/wall2wall5p8A        2020-01-16
+RUN5/DM6/flopper/Wall2wall_100mV      2020-01-27
+RUN5/DM6/flopper/Wall2wall_5p8A_500mV 2020-01-27
+RUN5/DM7/flopper/wall2wall            2020-02-11
+RUN5/DM7/flopper/walll2wall_3A        2020-02-17
+RUN5/DM8/flopper/wall2wall            2020-02-25
+RUN5/DM8/flopper/wall2wall_2p2A       2020-03-01
+RUN5/DM9/flopper/wall2wall_4p5A       2020-03-13

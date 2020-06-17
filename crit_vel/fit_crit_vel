@@ -1,0 +1,132 @@
+#!/usr/bin/python3
+
+import numpy
+import scipy.optimize
+import math
+import matplotlib.pyplot as plt
+
+datadir = '../data3'
+
+
+###########
+
+def plot_file(f1, f2, wmin, wmax):
+
+  fig, ax = plt.subplots(2,1, figsize=(5, 8))
+
+  # extract data for two drive amplitude
+  time1, freq1, doffs1, damp1, phase1, amp1a, amp1b, amp1c, icta1 =\
+    numpy.loadtxt(datadir + '/' + f1 + '.dat', comments='#',
+      unpack=True, usecols=range(0,9))
+
+  time2, freq2, doffs2, damp2, phase2, amp2a, amp2b, amp2c, icta2 =\
+    numpy.loadtxt(datadir + '/' + f2 + '.dat', comments='#',
+      unpack=True, usecols=range(0,9))
+
+  # Select [wmin..wmax] icta range
+  # x - icta, y - amp/drive
+  # We want to remove normal phase data. Choose time range
+  # from first point where icta > wmin to the first point
+  # where icta > wmax
+  i = numpy.argmax(icta1 > wmin)
+  j = numpy.argmax(icta1 > wmax)
+  if j==0: j=icta1.size
+  x1 = icta1[i:j]
+  y1 = amp1a[i:j]/damp1[i:j]
+
+  i = numpy.argmax(icta2 > wmin)
+  j = numpy.argmax(icta2 > wmax)
+  if j==0: j=icta2.size
+  x2 = icta2[i:j]
+  y2 = amp2a[i:j]/damp2[i:j]
+
+
+  # fit f2 (higher drive) with smooth polinomial function
+  p2 = numpy.polyfit(x2, y2, 3)
+
+  # Fitting function for f1: same polinomial + constant above
+  # the transition, plus linear function below the transition
+  def func1(pars, x, p2):
+    x0 = pars[0]
+    a = pars[1]
+    b = pars[2]
+    y = numpy.polyval(p2,x) + a
+    ii = x<x0
+    y[ii] += (x[ii]-x0)*b
+    return y
+
+  def minfunc(pars, x, p2, Y):
+    y = func1(pars, x, p2)
+    sum = numpy.linalg.norm(Y-y)
+    #print(pars, sum)
+    return sum
+
+  # Fitting:
+  pars = [(wmin+wmax)/2, 0, 1]
+  res = scipy.optimize.minimize(minfunc, pars, (x1,p2,y1),
+     options={'disp': False, 'maxiter': 1000})
+  pars = res.x
+
+
+  # plot everything
+
+  xx=numpy.linspace(wmin,wmax, 100)
+
+  # original data:
+  ax[0].plot(x1, y1, 'r.', label = f1, markersize = 4)
+  ax[0].plot(x2, y2, 'b.', label = f2, markersize = 4)
+  ax[0].plot(xx, numpy.polyval(p2,xx), 'k-')
+  ax[0].plot(xx, func1(pars, xx, p2), 'k-')
+
+  # subtract p2
+  ax[1].plot(x1, y1 - numpy.polyval(p2,x1) - pars[1], 'r.', label = f1, markersize = 4)
+  ax[1].plot(x2, y2 - numpy.polyval(p2,x2), 'b.', label = f2, markersize = 4)
+  ax[1].plot(xx, func1(pars, xx, p2) - numpy.polyval(p2,xx) - pars[1], 'k-')
+  ax[1].plot(xx, numpy.zeros(xx.size), 'k-')
+
+
+  # write the plot
+  ax[0].set_ylabel('amp1/drive')
+  ax[0].set_xlabel('ICTA width, Hz')
+  ax[0].set_title(f1 + '-' + f2)
+  plt.savefig(f1 + '-' + f2 + '.png')
+
+  # print result:
+  print("%s %s - %f %f %f" % (f1,f2,pars[0],pars[1],pars[2]))
+
+###########
+
+
+#plot_file('R05D04b_4p0A_02Hz_10mV', 'R05D04b_4p0A_02Hz_30mV', 200, 350)
+#plot_file('R05D04b_4p0A_02Hz_15mV', 'R05D04b_4p0A_02Hz_30mV', 200, 320)
+#plot_file('R05D04b_4p0A_03Hz_10mV', 'R05D04b_4p0A_03Hz_30mV', 220, 300)
+
+#plot_file('R05D05b_5p8A_02Hz_05mV', 'R05D05b_5p8A_02Hz_24mV', 200, 400)
+#plot_file('R05D05b_5p8A_02Hz_09mV', 'R05D05b_5p8A_02Hz_24mV', 150, 300)
+#plot_file('R05D05b_5p8A_02Hz_14mV', 'R05D05b_5p8A_02Hz_24mV', 130, 250)
+
+#plot_file('R05D06a_2p8A_02Hz_05mV', 'R05D06a_2p8A_02Hz_20mV', 250, 500)
+#plot_file('R05D06a_2p8A_02Hz_10mV', 'R05D06a_2p8A_02Hz_20mV', 225, 400)
+
+#plot_file('R05D06b_5p8A_02Hz_02mV', 'R05D06b_5p8A_02Hz_24mV', 150, 500)
+#plot_file('R05D06b_5p8A_02Hz_05mV', 'R05D06b_5p8A_02Hz_24mV', 150, 400)
+#plot_file('R05D06b_5p8A_02Hz_09mV', 'R05D06b_5p8A_02Hz_24mV', 100, 300)
+#plot_file('R05D06b_5p8A_02Hz_14mV', 'R05D06b_5p8A_02Hz_24mV', 100, 250)
+
+#plot_file('R05D07a_3p0A_03Hz_04mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+#plot_file('R05D07a_3p0A_03Hz_08mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+#plot_file('R05D07a_3p0A_03Hz_11mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+
+#plot_file('R05D07b_5p2A_03Hz_02mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
+#plot_file('R05D07b_5p2A_03Hz_05mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
+#plot_file('R05D07b_5p2A_03Hz_09mV', 'R05D07b_5p2A_03Hz_24mV', 150, 350)
+#plot_file('R05D07b_5p2A_03Hz_14mV', 'R05D07b_5p2A_03Hz_24mV', 90, 250)
+
+#plot_file('R05D08_5p0A_2Hz_05mV', 'R05D08_5p0A_2Hz_30mV', 200, 500)
+#plot_file('R05D08_5p0A_2Hz_10mV', 'R05D08_5p0A_2Hz_30mV', 200, 500)
+
+plot_file('R05D08_5p0A_4Hz_05mV', 'R05D08_5p0A_4Hz_30mV', 200, 500)
+plot_file('R05D08_5p0A_4Hz_10mV', 'R05D08_5p0A_4Hz_30mV', 200, 450)
+
+###########
+

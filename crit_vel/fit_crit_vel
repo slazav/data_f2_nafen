@@ -119,10 +119,11 @@ def plot_file(f1, f2, wmin, wmax, fpwr=3):
 
   a1 = func1(pars, pars[0], p2)
   a2 = func1(pars, pars[1], p2)
+  d1 = numpy.mean(damp1)
 
   # print result:
   print("%s %s   %.2f %.1f   %f %f   %f %f %f %f %f" % (f1,f2,\
-     field, freq, a1,a2, pars[0],pars[1],pars[2],pars[3],pars[4]))
+     field, freq, a1*d1,a2*d1, pars[0],pars[1],pars[2],pars[3],pars[4]))
 
 ###########
 

@@ -3,6 +3,7 @@
 import numpy
 import scipy.optimize
 import math
+import re
 import matplotlib.pyplot as plt
 
 datadir = '../data3'
@@ -10,7 +11,7 @@ datadir = '../data3'
 
 ###########
 
-def plot_file(f1, f2, wmin, wmax):
+def plot_file(f1, f2, wmin, wmax, fpwr=3):
 
   fig, ax = plt.subplots(2,1, figsize=(5, 8))
 
@@ -28,31 +29,46 @@ def plot_file(f1, f2, wmin, wmax):
   # We want to remove normal phase data. Choose time range
   # from first point where icta > wmin to the first point
   # where icta > wmax
+  # Then additionaly remove points with icta < wmin
   i = numpy.argmax(icta1 > wmin)
   j = numpy.argmax(icta1 > wmax)
   if j==0: j=icta1.size
   x1 = icta1[i:j]
   y1 = amp1a[i:j]/damp1[i:j]
+  ii = x1>=wmin
+  x1 = x1[ii]; y1 = y1[ii]
 
   i = numpy.argmax(icta2 > wmin)
   j = numpy.argmax(icta2 > wmax)
   if j==0: j=icta2.size
   x2 = icta2[i:j]
   y2 = amp2a[i:j]/damp2[i:j]
+  ii = x2>=wmin
+  x2 = x2[ii]; y2 = y2[ii]
 
 
   # fit f2 (higher drive) with smooth polinomial function
-  p2 = numpy.polyfit(x2, y2, 3)
+  p2 = numpy.polyfit(x2, y2, fpwr)
 
   # Fitting function for f1: same polinomial + constant above
   # the transition, plus linear function below the transition
   def func1(pars, x, p2):
     x0 = pars[0]
-    a = pars[1]
-    b = pars[2]
+    x1 = pars[1]
+    a = pars[2]
+    b = pars[3]
+    c = pars[4]
     y = numpy.polyval(p2,x) + a
-    ii = x<x0
-    y[ii] += (x[ii]-x0)*b
+    # support both numbers and numpy arrays:
+    if numpy.isscalar(x):
+      if x<x0: y += (x-x0)*b
+      if x<x1: y += (x-x1)*c
+    else:
+      ii = x<x0
+      y[ii] += (x[ii]-x0)*b
+      ii = x<x1
+      y[ii] += (x[ii]-x1)*c
+
     return y
 
   def minfunc(pars, x, p2, Y):
@@ -62,14 +78,25 @@ def plot_file(f1, f2, wmin, wmax):
     return sum
 
   # Fitting:
-  pars = [(wmin+wmax)/2, 0, 1]
+  pars = [(wmin+wmax)/2-10, (wmin+wmax)/2+10, 0, 1, 1]
   res = scipy.optimize.minimize(minfunc, pars, (x1,p2,y1),
      options={'disp': False, 'maxiter': 1000})
   pars = res.x
 
+#     bounds=((wmin,wmax), (wmin,wmax), (-1,1), (0,5), (0,5)),
 
+  #######################
+  # extract field and frequency from data1 filename
+  m = re.search("_(\d+)p(\d+)A_", f1, re.IGNORECASE)
+  if m: field = float(m.group(1)) + float(m.group(2))*10**(-len(m.group(2)))
+  else: field = 0
+
+  m = re.search("_(\d+)Hz_", f1, re.IGNORECASE)
+  if m: freq = float(m.group(1))
+  else: freq = 0
+
+  #######################
   # plot everything
-
   xx=numpy.linspace(wmin,wmax, 100)
 
   # original data:
@@ -79,11 +106,10 @@ def plot_file(f1, f2, wmin, wmax):
   ax[0].plot(xx, func1(pars, xx, p2), 'k-')
 
   # subtract p2
-  ax[1].plot(x1, y1 - numpy.polyval(p2,x1) - pars[1], 'r.', label = f1, markersize = 4)
+  ax[1].plot(x1, y1 - numpy.polyval(p2,x1) - pars[2], 'r.', label = f1, markersize = 4)
   ax[1].plot(x2, y2 - numpy.polyval(p2,x2), 'b.', label = f2, markersize = 4)
-  ax[1].plot(xx, func1(pars, xx, p2) - numpy.polyval(p2,xx) - pars[1], 'k-')
+  ax[1].plot(xx, func1(pars, xx, p2) - numpy.polyval(p2,xx) - pars[2], 'k-')
   ax[1].plot(xx, numpy.zeros(xx.size), 'k-')
-
 
   # write the plot
   ax[0].set_ylabel('amp1/drive')
@@ -91,42 +117,59 @@ def plot_file(f1, f2, wmin, wmax):
   ax[0].set_title(f1 + '-' + f2)
   plt.savefig(f1 + '-' + f2 + '.png')
 
+  a1 = func1(pars, pars[0], p2)
+  a2 = func1(pars, pars[1], p2)
+
   # print result:
-  print("%s %s - %f %f %f" % (f1,f2,pars[0],pars[1],pars[2]))
+  print("%s %s   %.2f %.1f   %f %f   %f %f %f %f %f" % (f1,f2,\
+     field, freq, a1,a2, pars[0],pars[1],pars[2],pars[3],pars[4]))
 
 ###########
 
+print(\
+ "# Result of fitting \"critical velocity transition\" with two angle\n"+
+ "# functions. Probably there is no physical reason under these two\n"+
+ "# transitions, but it is a goob method for finding the highest one\n"+
+ "# Columns:\n"+
+ "# 1:   data file 1 (low drive, transitions)\n"+
+ "# 2:   data file 2 (high drive, no transitions)\n"+
+ "# 3:   field, A\n"+
+ "# 4:   frequency, Hz\n"+
+ "# 5,6: data 1 amplitudes at first/second transition\n"+
+ "# 7,8: transitions (ICTA width)\n"+
+ "# 9:   constant shift between data files at high temperature\n"+
+ "# 10,11: additional slopes below transitions\n"+
+ "")
 
-#plot_file('R05D04b_4p0A_02Hz_10mV', 'R05D04b_4p0A_02Hz_30mV', 200, 350)
-#plot_file('R05D04b_4p0A_02Hz_15mV', 'R05D04b_4p0A_02Hz_30mV', 200, 320)
-#plot_file('R05D04b_4p0A_03Hz_10mV', 'R05D04b_4p0A_03Hz_30mV', 220, 300)
+plot_file('R05D04b_4p0A_02Hz_10mV', 'R05D04b_4p0A_02Hz_30mV', 220, 350)
+plot_file('R05D04b_4p0A_02Hz_15mV', 'R05D04b_4p0A_02Hz_30mV', 220, 320)
+plot_file('R05D04b_4p0A_03Hz_10mV', 'R05D04b_4p0A_03Hz_30mV', 210, 300)
 
-#plot_file('R05D05b_5p8A_02Hz_05mV', 'R05D05b_5p8A_02Hz_24mV', 200, 400)
-#plot_file('R05D05b_5p8A_02Hz_09mV', 'R05D05b_5p8A_02Hz_24mV', 150, 300)
-#plot_file('R05D05b_5p8A_02Hz_14mV', 'R05D05b_5p8A_02Hz_24mV', 130, 250)
+plot_file('R05D05b_5p8A_02Hz_05mV', 'R05D05b_5p8A_02Hz_24mV', 180, 400, fpwr=4)
+plot_file('R05D05b_5p8A_02Hz_09mV', 'R05D05b_5p8A_02Hz_24mV', 150, 300, fpwr=4)
+plot_file('R05D05b_5p8A_02Hz_14mV', 'R05D05b_5p8A_02Hz_24mV', 120, 250, fpwr=4)
 
-#plot_file('R05D06a_2p8A_02Hz_05mV', 'R05D06a_2p8A_02Hz_20mV', 250, 500)
-#plot_file('R05D06a_2p8A_02Hz_10mV', 'R05D06a_2p8A_02Hz_20mV', 225, 400)
+plot_file('R05D06a_2p8A_02Hz_05mV', 'R05D06a_2p8A_02Hz_20mV', 250, 500)
+plot_file('R05D06a_2p8A_02Hz_10mV', 'R05D06a_2p8A_02Hz_20mV', 225, 400)
 
-#plot_file('R05D06b_5p8A_02Hz_02mV', 'R05D06b_5p8A_02Hz_24mV', 150, 500)
-#plot_file('R05D06b_5p8A_02Hz_05mV', 'R05D06b_5p8A_02Hz_24mV', 150, 400)
-#plot_file('R05D06b_5p8A_02Hz_09mV', 'R05D06b_5p8A_02Hz_24mV', 100, 300)
-#plot_file('R05D06b_5p8A_02Hz_14mV', 'R05D06b_5p8A_02Hz_24mV', 100, 250)
+plot_file('R05D06b_5p8A_02Hz_02mV', 'R05D06b_5p8A_02Hz_24mV', 150, 500, fpwr=4)
+plot_file('R05D06b_5p8A_02Hz_05mV', 'R05D06b_5p8A_02Hz_24mV', 150, 400, fpwr=4)
+plot_file('R05D06b_5p8A_02Hz_09mV', 'R05D06b_5p8A_02Hz_24mV', 120, 300, fpwr=4)
+plot_file('R05D06b_5p8A_02Hz_14mV', 'R05D06b_5p8A_02Hz_24mV', 110, 250, fpwr=4)
 
-#plot_file('R05D07a_3p0A_03Hz_04mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
-#plot_file('R05D07a_3p0A_03Hz_08mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
-#plot_file('R05D07a_3p0A_03Hz_11mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+plot_file('R05D07a_3p0A_03Hz_04mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+plot_file('R05D07a_3p0A_03Hz_08mV', 'R05D07a_3p0A_03Hz_24mV', 190, 500)
+plot_file('R05D07a_3p0A_03Hz_11mV', 'R05D07a_3p0A_03Hz_24mV', 190, 350)
 
-#plot_file('R05D07b_5p2A_03Hz_02mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
-#plot_file('R05D07b_5p2A_03Hz_05mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
-#plot_file('R05D07b_5p2A_03Hz_09mV', 'R05D07b_5p2A_03Hz_24mV', 150, 350)
-#plot_file('R05D07b_5p2A_03Hz_14mV', 'R05D07b_5p2A_03Hz_24mV', 90, 250)
+plot_file('R05D07b_5p2A_03Hz_02mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
+plot_file('R05D07b_5p2A_03Hz_05mV', 'R05D07b_5p2A_03Hz_24mV', 200, 350)
+plot_file('R05D07b_5p2A_03Hz_09mV', 'R05D07b_5p2A_03Hz_24mV', 150, 350)
+plot_file('R05D07b_5p2A_03Hz_14mV', 'R05D07b_5p2A_03Hz_24mV', 90, 230)
 
-#plot_file('R05D08_5p0A_2Hz_05mV', 'R05D08_5p0A_2Hz_30mV', 200, 500)
-#plot_file('R05D08_5p0A_2Hz_10mV', 'R05D08_5p0A_2Hz_30mV', 200, 500)
-
-plot_file('R05D08_5p0A_4Hz_05mV', 'R05D08_5p0A_4Hz_30mV', 200, 500)
-plot_file('R05D08_5p0A_4Hz_10mV', 'R05D08_5p0A_4Hz_30mV', 200, 450)
+#plot_file('R05D08_5p0A_2Hz_05mV', 'R05D08_5p0A_2Hz_30mV', 250, 500)
+#plot_file('R05D08_5p0A_2Hz_10mV', 'R05D08_5p0A_2Hz_30mV', 210, 500)
+#plot_file('R05D08_5p0A_4Hz_05mV', 'R05D08_5p0A_4Hz_30mV', 220, 500)
+#plot_file('R05D08_5p0A_4Hz_10mV', 'R05D08_5p0A_4Hz_30mV', 220, 500)
 
 ###########
 

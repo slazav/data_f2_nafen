@@ -1,0 +1,19 @@
+#!/usr/bin/gnuplot
+
+set ylabel "amplitude*freq [Hz*V]"
+set xlabel "transition temperature (ICTA width, Hz)]"
+#set key left bottom
+
+plot\
+  "crit_vel.txt" u 8:($3==5.8? $6*$4: 1/0) w p pt 7 t "5.8A",\
+  "crit_vel.txt" u 8:($3==5.2? $6*$4: 1/0) w p pt 7 t "5.2A",\
+  "crit_vel.txt" u 8:($3==4.0? $6*$4: 1/0) w p pt 7 t "4.0A",\
+  "crit_vel.txt" u 8:($3==3.0? $6*$4: 1/0) w p pt 7 t "3.0A",\
+  "crit_vel.txt" u 8:($3==2.8? $6*$4: 1/0) w p pt 7 t "2.8A",\
+
+
+pause -1
+
+set output "crit_vel_plot.png"
+set terminal png
+replot

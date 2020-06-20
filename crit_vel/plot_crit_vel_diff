@@ -1,0 +1,20 @@
+#!/usr/bin/gnuplot
+
+set xlabel "transition width (ICTA width, Hz)]"
+set ylabel "amlitude*frequency"
+#set key left bottom
+
+k=1
+
+plot\
+  "crit_vel.txt" u ($8-$7):($3==5.8? $6*$4**k: 1/0) w lp pt 7 lc 1 t "5.8A 2Hz ",\
+  "crit_vel.txt" u ($8-$7):($3==5.2? $6*$4**k: 1/0) w lp pt 7 lc 2 t "5.2A 3Hz",\
+  "crit_vel.txt" u ($8-$7):($3==4.0? $6*$4**k: 1/0) w lp pt 7 lc 3 t "4.0A 2,3Hz",\
+  "crit_vel.txt" u ($8-$7):($3==3.0? $6*$4**k: 1/0) w lp pt 7 lc 4 t "3.0A 3 Hz",\
+  "crit_vel.txt" u ($8-$7):($3==2.8? $6*$4**k: 1/0) w lp pt 7 lc 5 t "2.8A 2 Hz",\
+
+pause -1
+
+set output "crit_vel_plot.png"
+set terminal png
+replot

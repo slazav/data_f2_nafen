@@ -18,9 +18,9 @@ echo "
  ../data2/1ma_RUN5_DM4_flopper_4Hz_2p5A.dat               R05D04a_2p5A  S 0.1 0.01
  ../data2/1ma_RUN5_DM4_flopper_amp_sweep4A.dat            R05D04b_4p0A  S 0.1 0.005
  ../data2/5ma_RUN5_DM5_flopper_2Hz_2p0A.dat               R05D05a_2p0A  S 0.1 0.005
- ../data2/1ma_RUN5_DM5_flopper_2Hz_5p8A.dat               R05D05b_5p8A  S 0.1 0.005
+ ../data2/5ma_RUN5_DM5_flopper_2Hz_5p8A.dat               R05D05b_5p8A  S 0.1 0.005
  ../data2/1ma_RUN5_DM6_flopper_2Hz_2p8A.dat               R05D06a_2p8A  S 0.1 0.005
- ../data2/1ma_RUN5_DM6_flopper_2Hz_5p8A.dat               R05D06b_5p8A  S 0.1 0.002
+ ../data2/5ma_RUN5_DM6_flopper_2Hz_5p8A.dat               R05D06b_5p8A  S 0.1 0.002
  ../data2/5ma_RUN5_DM7_flopper_3Hz_3A_AmpSweep.dat        R05D07a_3p0A  S 0.1 0.004
  ../data2/5ma_RUN5_DM7_flopper_3Hz_5p2A_AmpSweep.dat      R05D07b_5p2A  S 0.1 0.002
 " |

@@ -6,10 +6,11 @@ import matplotlib.pyplot as plt
 
 dirname = '../data_w2w'
 
+######################################
+
 def process(field, rfamp, fname):
   T,X,Y = numpy.loadtxt(dirname + '/' + fname,
     unpack=True, comments='#')
-
 
   X = X*field
   Y = Y/rfamp
@@ -17,6 +18,7 @@ def process(field, rfamp, fname):
   if X[0]>X[-1]:
     X = numpy.flip(X)
     Y = numpy.flip(Y)
+
 
   plt.plot(X, Y, '-', linewidth=4)
 
@@ -64,15 +66,12 @@ def process(field, rfamp, fname):
   xx = numpy.linspace(X[ic],X[-1], 100)
   plt.plot(xx, func_corn(res.x,xx), 'k-' )
 
-  print(field, xr-xl)
 
   ######################################
   # fitting function
   def func1(pars, x, xl,yl, xr,yr):
-
     a = pars[0]
     xt = pars[1]
-
     #linear function from (xl,yl) to (xr,yr)
     y = yl + (x-xl)/(xr-xl)*(yr-yl)
     y += a*(x-xl)*(x-xr)*(x-xt)
@@ -93,9 +92,28 @@ def process(field, rfamp, fname):
      options={'disp': False, 'maxiter': 1000})
   pars = res.x
 
-  xx = numpy.linspace(xl,xr, 100)
-  plt.plot(xx, func1(pars,xx,xl,yl,xr,yr), 'k-')
+  # find max and min:
+  ii = numpy.logical_and(X>xl, X<res.x[1])
+  im = numpy.argmax(+Y[ii])
+  xm1 = X[ii][im]
 
+  ii = numpy.logical_and(X>res.x[1], X<xr)
+  im = numpy.argmax(-Y[ii])
+  xm2 = X[ii][im]
+
+  # optimal point between them
+  xopt = (xm2+xm1)/2
+  dx = 1
+  ii = numpy.abs(X-xopt)<dx
+  p = numpy.polyfit(X[ii], Y[ii], 1)
+
+  xx = numpy.linspace(xopt-dx, xopt+dx, 100)
+  plt.plot(xx, numpy.polyval(p,xx), 'k-')
+
+#  xx = numpy.linspace(xl,xr, 100)
+#  plt.plot(xx, func1(pars,xx,xl,yl,xr,yr), 'k-')
+
+  print(field, xr-xl, xopt, p[0])
 
 
 #process(5.0, 0.1, 'RUN5_DM1_flopper_Wall2wall5A_aboveTc/Flopper_DM1_Fsweep_10ms_10s_000001.dat')

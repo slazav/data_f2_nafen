@@ -1,0 +1,28 @@
+#!/usr/bin/gnuplot
+
+unset key
+set xlabel "field [A]"
+set ylabel "dist[mm]/(signal[V]/rfamp[V])"
+
+curr2field = 7e3/90 # A -> mT
+flopper_travel = 11 # mm
+
+sig_drv(x)  = x*(-3.6754 + 0.1841*x)
+dist_drv(x) = -x*flopper_travel / (14.4101 + 1.3637*x)
+dist_sig(x) = dist_drv(x)/sig_drv(x)
+
+
+f(x) = a
+fit f(x) "size.txt" u 1:(-11/($4*$2)) via a
+
+plot\
+ "size.txt" u 1:(-11/($4*$2)) w p pt 7,\
+ f(x)
+
+# dist_sig(x),
+
+pause -1
+
+set terminal png
+set output "plot_mm_sig.png"
+replot

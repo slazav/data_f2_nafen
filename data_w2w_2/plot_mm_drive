@@ -1,0 +1,33 @@
+#!/usr/bin/gnuplot
+
+unset key
+set xlabel "field, A"
+set ylabel "(DriveRight-DriveLeft)*field, V*A"
+
+f(x) = a+b*x
+fit f(x) "size.txt" via a,b
+
+
+curr2field = 7e3/90  # A -> mT
+flopper_travel = 11 # mm
+
+plot\
+ "size.txt" u 1:2 w p pt 7,\
+ f(x)
+
+
+pause -1
+
+set ylabel "distance/drive [mm/V]"
+f(x) = x*flopper_travel/(a+b*x)
+print "dist/drive = 11/(14.41/field[A] + 1.364) [mm/V]"
+
+plot [0:8]\
+  f(x),\
+   "size.txt" u 1:(11*$1/$2) w p pt 7
+
+pause -1
+
+set terminal png
+set output "plot_mm_drive.png"
+replot

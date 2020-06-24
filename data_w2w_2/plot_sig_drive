@@ -1,0 +1,33 @@
+#!/usr/bin/gnuplot
+
+unset key
+set xlabel "field [A]"
+set ylabel "dSignal[V]/dDrive[V] /rf_amp[V]/field[A]"
+
+f(x) = a+b*x
+fit f(x) "size.txt" u 1:4 via a,b
+
+
+curr2field = 7e3/90 # A -> mT
+flopper_travel = 11 # mm
+
+plot\
+ "size.txt" u 1:4 w p pt 7,\
+ f(x)
+
+pause -1
+
+
+set ylabel "dSignal/rfamp / dDrive"
+f(x) = x*(a + b*x)
+print 'dSignal/dDrive = rf_amp*field * (-3.7934 + field * 0.19752)'
+
+plot [0:8]\
+ -f(x),\
+ "size.txt" u 1:(-$4*$1) w p pt 7
+
+pause -1
+
+set terminal png
+set output "plot_sig_drive.png"
+replot

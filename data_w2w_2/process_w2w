@@ -168,12 +168,12 @@ process(5.8, 0.1, 'RUN5_DM6_flopper_Wall2wall_100mV/Flopper_Wall2wall_100mV_0000
 #process(5.8, 0.5, 'RUN5_DM6_flopper_Wall2wall_5p8A_500mV/Flopper_Wall2wall_500mV_000000.dat')
 #process(5.8, 0.5, 'RUN5_DM6_flopper_Wall2wall_5p8A_500mV/Flopper_Wall2wall_500mV_000001.dat')
 
-# field unknown - > 6A?
-process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000001.dat') # W-W, distorted?
-process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000002.dat') # W-W
-#process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000003.dat')
-#process(5.8, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000000.dat')
-#process(5.8, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000001.dat')
+# field 5.2A
+process(5.2, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000001.dat') # W-W, distorted?
+process(5.2, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000002.dat') # W-W
+#process(5.2, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000003.dat')
+#process(5.2, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000000.dat')
+#process(5.2, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000001.dat')
 
 #process(3.0, 0.1, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_100mV_000000.dat')
 process(3.0, 0.1, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_100mV_000001.dat') # W-W

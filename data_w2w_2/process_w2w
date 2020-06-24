@@ -1,0 +1,193 @@
+#!/usr/bin/python3
+
+import numpy
+import scipy.optimize
+import matplotlib.pyplot as plt
+
+dirname = '../data_w2w'
+
+def process(field, rfamp, fname):
+  T,X,Y = numpy.loadtxt(dirname + '/' + fname,
+    unpack=True, comments='#')
+
+
+  X = X*field
+  Y = Y/rfamp
+  # flip if needed
+  if X[0]>X[-1]:
+    X = numpy.flip(X)
+    Y = numpy.flip(Y)
+
+  plt.plot(X, Y, '-', linewidth=4)
+
+  ######################################
+  # corner function
+  def func_corn(pars, x):
+    xc = pars[0]
+    yc = pars[1]
+    a1 = pars[2]
+    a2 = pars[3]
+    #b1 = pars[4]
+    #b2 = pars[5]
+    y = yc + (x-xc)*a1 #+ (x-xc)**2*b1
+    if numpy.isscalar(x):
+      if x>=xc: y = yc + (x-xc)*a2 #+ (x-xc)**2*b2
+    else:
+      ii = x>=xc
+      y[ii] = yc + (x[ii]-xc)*a2 #+ (x[ii]-xc)**2*b2
+    return y
+
+  def minfunc_corn(pars, x, Y):
+    y = func_corn(pars, x)
+    sum = numpy.linalg.norm(Y-y)
+    return sum
+
+  ######################################
+  # find left corner:
+  win = 3; # we use only signal part inside win in Y
+  ic = numpy.where(numpy.abs(Y-Y[0])>win)[0][0];
+  pars = [(X[0]+X[ic])/2, Y[0], -0.1,1]
+  res = scipy.optimize.minimize(minfunc_corn, pars, (X[0:ic],Y[0:ic]),
+     options={'disp': False, 'maxiter': 1000})
+  xl = res.x[0]
+  yl = res.x[1]
+  xx = numpy.linspace(X[0],X[ic], 100)
+  plt.plot(xx, func_corn(res.x,xx), 'k-' )
+
+  # find right corner:
+  ic = numpy.where(numpy.abs(Y-Y[-1])>win)[0][-1];
+  pars = [(X[-1]+X[ic])/2, Y[-1], 1,0.1]
+  res = scipy.optimize.minimize(minfunc_corn, pars, (X[ic:],Y[ic:]),
+     options={'disp': False, 'maxiter': 1000})
+  xr = res.x[0]
+  yr = res.x[1]
+  xx = numpy.linspace(X[ic],X[-1], 100)
+  plt.plot(xx, func_corn(res.x,xx), 'k-' )
+
+  print(field, xr-xl)
+
+  ######################################
+  # fitting function
+  def func1(pars, x, xl,yl, xr,yr):
+
+    a = pars[0]
+    xt = pars[1]
+
+    #linear function from (xl,yl) to (xr,yr)
+    y = yl + (x-xl)/(xr-xl)*(yr-yl)
+    y += a*(x-xl)*(x-xr)*(x-xt)
+    return y
+
+  def minfunc(pars, x, Y, xl,yl, xr,yr):
+    # ise only values between xl and xt
+    ii = numpy.logical_and(x>xl, x<xr)
+    y = func1(pars, x[ii], xl,yl,xr,yr)
+    sum = numpy.linalg.norm(Y[ii]-y)
+    #print(pars, sum)
+    return sum
+
+  ######################################
+  # Fitting:
+  pars = [(xl+xr)/2, 5]
+  res = scipy.optimize.minimize(minfunc, pars, (X,Y,xl,yl,xr,yr),
+     options={'disp': False, 'maxiter': 1000})
+  pars = res.x
+
+  xx = numpy.linspace(xl,xr, 100)
+  plt.plot(xx, func1(pars,xx,xl,yl,xr,yr), 'k-')
+
+
+
+#process(5.0, 0.1, 'RUN5_DM1_flopper_Wall2wall5A_aboveTc/Flopper_DM1_Fsweep_10ms_10s_000001.dat')
+#process(5.0, 0.1, 'RUN5_DM1_flopper_Wall2wall5A_aboveTc/Flopper_DM1_Fsweep_10ms_10s_000002.dat')
+
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A_aboveTc/Flopper_DM2_wall2wall5A_aboveTc_000001.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A_aboveTc/Flopper_DM2_wall2wall5A_aboveTc_000002.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A_aboveTc/Flopper_DM2_wall2wall5A_aboveTc_000003.dat')
+
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A/Flopper_DM2_wall2wall_10ms_400mV_000001.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A/Flopper_DM2_wall2wall_10ms_400mV_000003.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A/Flopper_DM2_wall2wall_10ms_400mV_000004.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A/Flopper_DM2_wall2wall_10ms_400mV_000005.dat')
+#process(5.0, 0.1, 'RUN5_DM2_flopper_Wall2wall5A/Flopper_DM2_wall2wall_10ms_400mV_000006.dat')
+
+#process(2.5, 0.1, 'RUN5_DM3_flopper_Wall2wall2p5A/Flopper_DM3_2p5A_wall2wall_000001.dat')
+#process(2.5, 0.1, 'RUN5_DM3_flopper_Wall2wall2p5A/Flopper_DM3_2p5A_wall2wall_000002.dat')
+#process(2.5, 0.1, 'RUN5_DM3_flopper_Wall2wall2p5A/Flopper_DM3_2p5A_wall2wall_000003.dat')
+#process(2.5, 0.1, 'RUN5_DM3_flopper_Wall2wall2p5A/Flopper_DM3_2p5A_wall2wall_000004.dat')
+
+#process(5.8, 0.1, 'RUN5_DM3_flopper_Wall2wall5p8A/Flopper_DM2_wall2wall5p8A_000005.dat')
+#process(5.8, 0.1, 'RUN5_DM3_flopper_Wall2wall5p8A/Flopper_DM2_wall2wall5p8A_000006.dat')
+#process(5.8, 0.1, 'RUN5_DM3_flopper_Wall2wall5p8A/Flopper_DM2_wall2wall5p8A_000007.dat')
+
+process(2.5, 0.1, 'RUN5_DM4_flopper_wall2wall2p5A/Flopper_wall2wall2p5A_000001.dat') # W-W
+process(2.5, 0.1, 'RUN5_DM4_flopper_wall2wall2p5A/Flopper_wall2wall2p5A_000002.dat') # W-W
+#process(2.5, 0.1, 'RUN5_DM4_flopper_wall2wall2p5A/Flopper_wall2wall2p5A_000003.dat')
+
+#process(5.0, 0.5, 'RUN5_DM4_flopper_wall2wall2p5A/Flopper_wall2wall2p5A_500mVrms_000000.dat')
+#process(5.0, 0.5, 'RUN5_DM4_flopper_wall2wall2p5A/Flopper_wall2wall2p5A_500mVrms_000001.dat')
+
+process(4.0, 0.1, 'RUN5_DM4_flopper_wall2wall4A/Flopper_DM4_wall2wall4A_100mVdrive_000002.dat') # W-W
+process(4.0, 0.1, 'RUN5_DM4_flopper_wall2wall4A/Flopper_DM4_wall2wall4A_100mVdrive_000003.dat') # W-W
+#process(4.0, 0.5, 'RUN5_DM4_flopper_wall2wall4A/Flopper_DM4_wall2wall4A_500mVdrive_000001.dat')
+#process(4.0, 0.5, 'RUN5_DM4_flopper_wall2wall4A/Flopper_DM4_wall2wall4A_500mVdrive_000002.dat')
+
+#process(6.3, 0.1, 'RUN5_DM4_flopper_wall2wall6p3A/Flopper_DM4_6p3A_wall2wall_000003.dat')
+#process(6.3, 0.1, 'RUN5_DM4_flopper_wall2wall6p3A/Flopper_DM4_6p3A_wall2wall_000004.dat')
+#process(6.3, 0.1, 'RUN5_DM4_flopper_wall2wall6p3A/Flopper_DM4_6p3A_wall2wall_000005.dat')
+
+#process(5.8, 0.1, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_100mV_000000.dat')
+process(5.8, 0.1, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_100mV_000001.dat') # W-W, distorted?
+process(5.8, 0.1, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_100mV_000002.dat') # W-W
+#process(5.8, 0.1, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_100mV_000003.dat')
+#process(5.8, 0.5, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_500mV_000000.dat')
+#process(5.8, 0.5, 'RUN5_DM5_flopper_wall2wall5p8A/Flopper_100mv_5p8A_500mV_000001.dat')
+
+#process(5.8, 0.1, 'RUN5_DM6_flopper_Wall2wall_100mV/Flopper_Wall2wall_100mV_000000.dat')
+process(5.8, 0.1, 'RUN5_DM6_flopper_Wall2wall_100mV/Flopper_Wall2wall_100mV_000001.dat') # W-W, distorted?
+process(5.8, 0.1, 'RUN5_DM6_flopper_Wall2wall_100mV/Flopper_Wall2wall_100mV_000002.dat') # W-W
+#process(5.8, 0.1, 'RUN5_DM6_flopper_Wall2wall_100mV/Flopper_Wall2wall_100mV_000003.dat')
+#process(5.8, 0.5, 'RUN5_DM6_flopper_Wall2wall_5p8A_500mV/Flopper_Wall2wall_500mV_000000.dat')
+#process(5.8, 0.5, 'RUN5_DM6_flopper_Wall2wall_5p8A_500mV/Flopper_Wall2wall_500mV_000001.dat')
+
+# field unknown - > 6A?
+process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000001.dat') # W-W, distorted?
+process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000002.dat') # W-W
+#process(5.8, 0.1, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_100mV_000003.dat')
+#process(5.8, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000000.dat')
+#process(5.8, 0.5, 'RUN5_DM7_flopper_wall2wall/Flopper_wall2wall_500mV_000001.dat')
+
+#process(3.0, 0.1, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_100mV_000000.dat')
+process(3.0, 0.1, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_100mV_000001.dat') # W-W
+process(3.0, 0.1, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_100mV_000002.dat') # W-W
+#process(3.0, 0.5, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_500mV_000000.dat')
+#process(3.0, 0.5, 'RUN5_DM7_flopper_walll2wall_3A/Flopper_wall2wall_500mV_000001.dat')
+
+#process(2.2, 0.1, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_100mV_000000.dat')
+process(2.2, 0.1, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_100mV_000001.dat') # W-W
+process(2.2, 0.1, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_100mV_000002.dat') # W-W
+#process(2.2, 0.1, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_100mV_000003.dat')
+#process(2.2, 0.5, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_500mV_000000.dat')
+#process(2.2, 0.5, 'RUN5_DM8_flopper_wall2wall_2p2A/Flopper_wall2wall_2p2A_500mV_000001.dat')
+
+# field unknown
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000000.dat')
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000001.dat')
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000002.dat') # right corner is missing
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000003.dat')
+process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000004.dat') # W-W
+process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000005.dat') # W-W
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_100mV_5A_000006.dat')
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_500mV_5A_000000.dat')
+#process(5.0, 0.1, 'RUN5_DM8_flopper_wall2wall/Flopper_wall2wall_500mV_5A_000001.dat')
+
+#process(4.5, 0.1, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_100mV_000000.dat')
+process(4.5, 0.1, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_100mV_000001.dat') # W-W
+process(4.5, 0.1, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_100mV_000002.dat') # W-W
+#process(4.5, 0.1, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_100mV_000003.dat')
+#process(4.5, 0.5, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_500mV_000000.dat')
+#process(4.5, 0.5, 'RUN5_DM9_flopper_wall2wall_4p5A/Flopper_wall2wall_4p5A_500mV_000001.dat')
+
+plt.xlabel("drive[V]*field[A]")
+plt.ylabel("signal[V]/rf_amp[V]")
+plt.savefig('plot.png')

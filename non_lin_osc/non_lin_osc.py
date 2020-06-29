@@ -20,23 +20,25 @@ import scipy.integrate
 # See text in http://www.scholarpedia.org/article/Duffing_oscillator
 #
 
+#######################################################
+# Find (\dot u,\dot v) as a function of (u,v) for period-averaged motion of
+# a periodically-driven non-linear oscillator x'' + func(x,x') = F*cos(w*t)
 def nonlin_osc_eq(uv,w, F, func, fpars):
   p = 2*math.pi*numpy.linspace(0,1,100) # phase for integration
   sp = numpy.sin(p)
   cp = numpy.cos(p)
 
   x = uv[0]*cp-uv[1]*sp;
+  y = w*(-uv[0]*sp-uv[1]*cp);
+  z = (F*cp - func(x,y,fpars) + w**2*x)/w;
 
-  dx = w*(-uv[0]*sp-uv[1]*cp);
-  ddx = F*cp - func(x,dx,fpars);
-
-  return [-scipy.integrate.trapz((ddx + w**2*x)*sp, p)/w,\
-          -scipy.integrate.trapz((ddx + w**2*x)*cp, p)/w];
+  return [-scipy.integrate.trapz(z*sp, p),\
+          -scipy.integrate.trapz(z*cp, p)];
 
 #######################################################
 
 # Find equilibrium (zero of nonlin_osc_eq function).
-# Whis is enough for simple small non-linearities,
+# This is enough for simple small non-linearities,
 # for duffing oscillator it does not work properly
 # (one should integrate trajectories in u-v space instead)
 

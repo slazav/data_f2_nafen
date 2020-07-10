@@ -22,7 +22,7 @@ YY = numpy.array([])
 NN = numpy.array([], dtype=int)
 N = 0
 for n in range(12,44):
-  fname="../freq2/R05D08_2p2A_%02d.dat" % (n)
+  fname="../data_freq2/R05D08_2p2A_%02d.dat" % (n)
 
   # read data
   F,D,X,Y = numpy.loadtxt(fname, usecols=(1,2,3,4), unpack=True, comments='#')

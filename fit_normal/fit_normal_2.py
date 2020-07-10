@@ -64,7 +64,7 @@ def calc_osc(pars, FF,NN):
 #    R[ii] += -B/(C + 1j*F/tau) # strange additional term
 
   # see fit_dummy script
-  phase_shift = -0.226612/FF**1.205703
+  phase_shift = 0.226612/FF**1.205703
 
   # rotate phase
   R *= numpy.exp(1j*(phase_shift))

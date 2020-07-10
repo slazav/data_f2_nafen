@@ -103,7 +103,7 @@ res = scipy.optimize.minimize(minfunc, npars0, (FF,NN,XX,YY),
 npars = numpy.array(res.x)
 
 ###
-fres = open("fit_normal_2const_freq.txt", "w")
+fres = open("fit_normal_2const_freq_single_tau.txt", "w")
 fres.write("# amp1: %f\n" %(npars[0]))
 fres.write("# amp2: %f\n" %(-npars[0]))
 fres.write("# f1:  %f\n" %(npars[1]))
@@ -148,7 +148,7 @@ ax[0].set_xlabel('freq, Hz')
 ax[1].set_xlabel('freq, Hz')
 ax[0].set_ylabel('x')
 ax[1].set_ylabel('y')
-plt.savefig("fit_normal_2const_freq.png")
+plt.savefig("fit_normal_2const_freq_single_tau.png")
 
 plt.figure(2)
 plt.clf()

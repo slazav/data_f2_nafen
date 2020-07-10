@@ -100,6 +100,18 @@ res = scipy.optimize.minimize(minfunc, npars0, (FF,NN,XX,YY),
    options={'disp': False, 'maxiter': 10000})
 npars = numpy.array(res.x)
 
+###
+fres = open("fit_normal_2const_freq.txt", "w")
+fres.write("# amp1: %f\n" %(npars[0]))
+fres.write("# amp2: %f\n" %(npars[1]))
+fres.write("# ph1:  %f\n" %(npars[2]))
+fres.write("# ph2:  %f\n" %(npars[3]))
+fres.write("# icta, tau1, tau2\n")
+
+icta = numpy.zeros(N)
+tau1 = numpy.zeros(N)
+tau2 = numpy.zeros(N)
+
 ff = numpy.linspace(numpy.min(FF), numpy.max(FF), 100)
 cols = 'rgbcmyk'
 fig, ax = plt.subplots(1,2, figsize=(8, 10))
@@ -111,6 +123,12 @@ for n in range(N):
   F1 = FF[ii]
   X1 = XX[ii]
   Y1 = YY[ii]
+
+  icta[n] = numpy.mean(ICTA[ii])
+  tau1[n] = npars[6+2*n]
+  tau2[n] = npars[7+2*n]
+  fres.write("%f %f %f\n" % (icta[n], tau1[n],tau2[n]))
+
   sh = 4*n/1000
   ax[0].plot(F1, X1+sh, c+'.', label=n)
   ax[1].plot(F1, Y1+sh, c+'.')
@@ -120,28 +138,19 @@ for n in range(N):
   ax[0].plot(ff, xx+sh, c+'-')
   ax[1].plot(ff, yy+sh, c+'-')
 
-print(npars[0],npars[1],npars[2],npars[3],npars[4],npars[5])
-
-print('# tau1 tau2 icta')
-for n in range(N):
-  n=int(n)
-  ii = (NN==n)
-  icta = numpy.mean(ICTA[ii])
-  print('%f %f %f' % (npars[6+2*n], npars[7+2*n], icta))
-
-for n in range(N):
-  sh = 4*n/1000
-#  xx,yy = calc_osc(npars, ff, n)
-#  ax[0].plot(ff, xx+sh, 'k-')
-#  ax[1].plot(ff, yy+sh, 'k-')
-#  ff0=numpy.arange(0.5,10,0.1)
-#  xx0,yy0 = calc_osc(npars0, ff0, n) 
-#  ax[0].plot(ff0, xx0+sh, 'b-')
-#  ax[1].plot(ff0, yy0+sh, 'b-')
+fres.close()
 
 ax[0].set_xlabel('freq, Hz')
 ax[1].set_xlabel('freq, Hz')
 ax[0].set_ylabel('x')
 ax[1].set_ylabel('y')
-#plt.legend()
 plt.savefig("fit_normal_2const_freq.png")
+
+plt.clf()
+plt.plot(icta, tau1, 'ro-', label="tau1")
+plt.plot(icta, tau2, 'bo-', label="tau2")
+plt.xlabel('icta width, Hz')
+plt.ylabel('tau')
+plt.legend()
+plt.savefig("fit_normal_2const_freq_tau.png")
+

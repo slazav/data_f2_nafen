@@ -6,8 +6,13 @@ import matplotlib.pyplot as plt
 import scipy.optimize
 
 
-# Fit all normal phase sweeps in
-# With a model with different f,tau,amp,but with same baseline and phase.
+# Fit multiple normal phase sweeps (R05D08_2p2A)
+# with a model with two resonances.
+# Free parameters:
+#   a1, a2 - two amplitude
+#   ph2 - phase of the second resonance
+#   f1(n), f2(n) - two sweep-dependent frequencies
+#   tau1(n), tau2(n) - two sweep-dependent relaxation times
 
 ## read data
 FF = numpy.array([])

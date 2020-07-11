@@ -106,6 +106,8 @@ fres.write("# amp1: %f\n" %(npars[0]))
 fres.write("# amp2: %f\n" %(npars[1]))
 fres.write("# ph1:  %f\n" %(npars[2]))
 fres.write("# ph2:  %f\n" %(npars[3]))
+fres.write("# fre1: %f\n" %(npars[4]))
+fres.write("# fre2: %f\n" %(npars[5]))
 fres.write("# icta, tau1, tau2\n")
 
 icta = numpy.zeros(N)

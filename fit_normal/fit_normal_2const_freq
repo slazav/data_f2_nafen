@@ -21,7 +21,7 @@ YY = numpy.array([])
 ICTA = numpy.array([])
 NN = numpy.array([], dtype=int)
 N = 0
-for n in range(12,44):
+for n in range(11,44):
   fname="../data_freq2/R05D08_2p2A_%02d.dat" % (n)
 
   # read data
@@ -85,7 +85,7 @@ def minfunc(pars, FF,NN,X,Y):
 #fit data
 
 # build pars
-pars = [-0.21, 0.21, 3, 1, 6, 10]
+pars = [-0.9, 0.9, 0.1, 0.1, 5.3, 8.1]
 bounds = [(-100,100),(-100,100),(-10,10),(-10,10), (2,10), (5,20)]
 for n in range(N):
   pars.append(0.1)    #tau1

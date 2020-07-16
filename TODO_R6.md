@@ -13,3 +13,6 @@ TODO for run 6
 
 - "critical velocity" measurements: slow warming up, a few low excitations +
   one high enough excitation. Single- or double-lockin, good time resolution.
+
+- check "non-hydrodynamic effects" - sweeps in the non-linear regime with different
+  rates.

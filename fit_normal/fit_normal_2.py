@@ -4,6 +4,7 @@ import numpy
 import math
 import matplotlib.pyplot as plt
 import scipy.optimize
+import socket
 
 
 # Fit multiple normal phase sweeps (R05D08_2p2A)
@@ -14,6 +15,10 @@ import scipy.optimize
 #   f1(n), f2(n) - two sweep-dependent frequencies
 #   tau1(n), tau2(n) - two sweep-dependent relaxation times
 
+datadir = '../data_freq2'
+if socket.gethostname() == 'pya015000009':    #viktor uses a table to automatically find which directory on local computer to use
+  datadir = 'X:/fridge2_rawdata/Nafen_cell/slava_data/flopper_data_freq2'
+
 ## read data
 FF = numpy.array([])
 DD = numpy.array([])
@@ -22,7 +27,7 @@ YY = numpy.array([])
 NN = numpy.array([], dtype=int)
 N = 0
 for n in range(12,44):
-  fname="../data_freq2/R05D08_2p2A_%02d.dat" % (n)
+  fname=datadir+"/R05D08_2p2A_%02d.dat" % (n)
 
   # read data
   F,D,X,Y = numpy.loadtxt(fname, usecols=(1,2,3,4), unpack=True, comments='#')

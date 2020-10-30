@@ -3,6 +3,11 @@
 import numpy
 import math
 import matplotlib.pyplot as plt
+import socket
+
+datadir = '../data_freq2'
+if socket.gethostname() == 'pya015000009':    #viktor uses a table to automatically find which directory on local computer to use
+  datadir = 'X:/fridge2_rawdata/Nafen_cell/slava_data/flopper_data3/'
 
 
 fig, ax = plt.subplots(2,1, figsize=(5, 8))
@@ -16,9 +21,9 @@ def plot_file(f, c, l):
 
 ###########
 
-plot_file('R05D08_2p2A_2Hz_11mV', 'r.-', '2 Hz, 11 mV')
-plot_file('R05D08_2p2A_2Hz_23mV', 'g.-', '2 Hz, 23 mV')
-plot_file('R05D08_2p2A_2Hz_68mV', 'b.-', '2 Hz, 68 mV')
+plot_file(datadir+'\R05D08_2p2A_2Hz_11mV', 'r.-', '2 Hz, 11 mV')
+plot_file(datadir+'\R05D08_2p2A_2Hz_23mV', 'g.-', '2 Hz, 23 mV')
+plot_file(datadir+'\R05D08_2p2A_2Hz_68mV', 'b.-', '2 Hz, 68 mV')
 
 ###########
 ax[0].text(150,0.00125, 'normal')

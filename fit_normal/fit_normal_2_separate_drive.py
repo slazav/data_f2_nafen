@@ -27,7 +27,7 @@ YY = numpy.array([])
 NN = numpy.array([], dtype=int)
 N = 0
 select = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 ,130, 140, 150, 160, 170, 180, 190, 200]
-#for n in range(0,1):
+#for n in range(0,204):
 for n in select:
   fname=datadir+"/test_save_%02d.dat" % (n)
 
@@ -51,9 +51,12 @@ for n in select:
 #########################
 def calc_osc(pars, FF,NN):
     
-  A1  = pars[0]
-  A2  = pars[1] 
-  ph  = pars[2]
+
+  ph  = pars[0]
+  bk_r1 = pars[1]
+  bk_r2 = pars[2]
+  bk_i1 = pars[3]
+  bk_i2 = pars[4]
   # ph  = 0
   R = numpy.zeros(FF.size, dtype=complex)
 
@@ -61,19 +64,20 @@ def calc_osc(pars, FF,NN):
     n=int(n)
     ii = (NN==n)
     F = FF[ii]
-    f1  = pars[3+n*4]
-    f2 = pars[4+n*4]
-    tau1 = pars[5+n*4]
-    tau2 = pars[6+n*4]
+    A1 = pars[5+n*6]
+    A2 = pars[6+n*6]
+    f1  = pars[7+n*6]
+    f2 = pars[8+n*6]
+    tau1 = pars[9+n*6]
+    tau2 = pars[10+n*6]
 
     # resonance
     R[ii] = A1/(f1**2 - F**2 + 1j*F/tau1)+A2/(f2**2 - F**2 + 1j*F/tau2)*numpy.exp(1j*(ph))
-#    R[ii] += -B/(C + 1j*F/tau) # strange additional term
+    R[ii] += bk_r1*F+bk_r2 + 1j*(bk_i1*F+bk_i2) # strange additional term
 
   # see fit_dummy script
-#  phase_shift = 0.226612/FF**1.205703
+  #phase_shift = 0.226612/FF**1.205703
   phase_shift = numpy.pi/2.0
-
   # rotate phase
   R *= numpy.exp(1j*(phase_shift))
 
@@ -92,20 +96,24 @@ def minfunc(pars, FF,NN,X,Y):
 #fit data
 
 # build pars
-pars = [0.8, 0.4, numpy.pi/2.0]
-bounds = [(-100,100),(-100,100),(0,2*numpy.pi)]
+pars = [1.5, 0.0, 0.0, 0.0, 0.0]
+bounds = [(0,2*numpy.pi), (-1.0,1.0), (-1.0,1.0), (-1.0,1.0), (-1.0,1.0)]
 for n in range(N):
-  pars.append(7.65)    #f1
-  pars.append(12.9)  #f2
-  pars.append(4.8)    #tau1
-  pars.append(0.9)    #tau2
+  pars.append(1.0)#A1
+  pars.append(0.21)#A2
+  pars.append(7.5)    #f1
+  pars.append(12.5)  #f2
+  pars.append(3.0)    #tau1
+  pars.append(1.0)    #tau2
+  bounds.append((-100,100))
+  bounds.append((-100,100))
   bounds.append((1,10))
   bounds.append((8,20))
   bounds.append((0.001,100))
   bounds.append((0.001,100))
-  
+
+
 npars0 = numpy.array(pars)
-npars = npars0
 
 res = scipy.optimize.minimize(minfunc, npars0, (FF,NN,XX,YY),
    bounds=bounds,
@@ -123,7 +131,7 @@ for n in range(N):
   F1 = FF[ii]
   X1 = XX[ii]
   Y1 = YY[ii]
-  sh = 10*n/1000
+  sh = 4*n/1000
   ax[0].plot(F1, X1+sh, c+'.', label=n)
   ax[1].plot(F1, Y1+sh, c+'.')
 #  plt.plot(X1*F1, Y1*F1, c+'*', label=dd[i])
@@ -135,11 +143,12 @@ for n in range(N):
 #  plt.plot(xx*ff, yy*ff, c+'.-')
 
 
-print(npars[0],npars[1],npars[2])
+print(npars[0])
 
 for n in range(N):
   n=int(n)
-  print('%02d: f1 = %f f2 = %f tau1 = %f tau2 = %f'% (n, npars[3+4*n], npars[4+4*n], npars[5+4*n], npars[6+4*n]))
+  print('%02d:A1 = %f, A2 = %f, f1 = %f f2 = %f tau1 = %f tau2 = %f'% (n, npars[1+6*n], npars[2+6*n],
+                                                                       npars[3+6*n], npars[4+6*n], npars[5+6*n], npars[6+6*n]))
 
 #  npars[6+3*n] = 0
 
